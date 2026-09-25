@@ -1,6 +1,6 @@
 # Portfolio Content Guide
 
-How to change what your portfolio says: Home, Skills, Works, About me, Contacts, the CV download and the profile photo.
+How to change what your portfolio says: Home, Skills, Works, About me, Contacts, the CV download and the profile photos.
 
 **Short version:** almost everything lives in one file, `src/data/resume.ts`. Change a value there, save, and the site updates. You don't need to touch any other code for normal content changes.
 
@@ -26,7 +26,7 @@ Open http://localhost:5173. Leave it running. Every time you save a file, the pa
 | What you want to change | File |
 |---|---|
 | All text: name, contacts, hero, skills, projects, jobs, education, facts | `src/data/resume.ts` |
-| Profile photo | image in `public/` + one line in `src/data/resume.ts` |
+| Profile photos (Home and About) | images in `public/` + `photo` / `aboutPhoto` in `src/data/resume.ts` |
 | CV / resume download | `public/Resume-Pavan-Kalyan-Kama.docx` |
 | Browser tab title and search description | `index.html` |
 | Colours | `src/styles.css` (top of file) |
@@ -57,7 +57,7 @@ npm run build
 
 ---
 
-## 4. Profile (name, contacts, CV link, photo)
+## 4. Profile (name, contacts, CV link, photos)
 
 In `src/data/resume.ts`, the `profile` block at the top:
 
@@ -68,11 +68,13 @@ export const profile = {
   role: 'Dot Net Developer',
   email: 'pavankalyankama99@gmail.com',
   phone: '+91 8885394611',
+  linkedin: 'https://www.linkedin.com/in/pavan-kalyan-743994280/',
   address: 'D.no:2-46, Pedanandipadu, Pedanandipadu, Guntur - 522235.',
   experience: '5.10',
   resumeFile: '/Resume-Pavan-Kalyan-Kama.docx',
   currentProject: 'CM-Core',
-  photo: '',
+  photo: '/profile-home.jpg',
+  aboutPhoto: '/profile.jpg',
 };
 ```
 
@@ -81,50 +83,60 @@ export const profile = {
 | `name` | "Hello, i'm …" (Home and About), code window in the Home hero, footer copyright line |
 | `shortName` | Logo text (header and footer), first word of the Home headline ("**Pavan** is a …") |
 | `role` | Footer line under the logo |
-| `email` | Side icon rail, footer icons, mobile menu icons, Home contact box, Contacts page (both boxes and #all-media) |
+| `email` | Side icon rail, footer icons, mobile menu icons, Home contact box, Contacts page ("Message me here" and #all-media) |
+| `linkedin` | Same places as `email`. Opens your LinkedIn profile in a new tab. The text shown is the address without `https://www.`. |
 | `phone` | Same places as `email`. Clicking it starts a call on phones. |
 | `address` | Contacts page, "Find me here" box. Shorten it here if you don't want the full address public. |
 | `experience` | Code window in the hero ("Years => 5.10") and the big number on the Home #about-me section |
-| `resumeFile` | Every CV download: header "CV" link, mobile menu, side and footer icons, Contacts #all-media |
+| `resumeFile` | The "CV" download link in the header and mobile menu |
 | `currentProject` | "Currently working on **CM-Core**" bar under the hero |
-| `photo` | Profile photo. See [section 5](#5-profile-photo-add-it-later-no-code-changes). |
+| `photo` | Home hero photo. See [section 5](#5-profile-photos). |
+| `aboutPhoto` | About me page photo. See [section 5](#5-profile-photos). |
+
+> **Contacts are always shown as Email → LinkedIn → Phone**: in the side icon rail (which stays pinned to the left edge as you scroll, on wide screens), the footer, the mobile menu, the Home contact box and the Contacts page. They all read from the same three settings above, so a change there updates every place.
 
 > **Note:** `experience` doesn't change your summary paragraphs, which also say "5.10 years". When you update your years, change both `experience` and the first `summary` paragraph.
 
 ---
 
-## 5. Profile photo (add it later, no code changes)
+## 5. Profile photos
 
-The photo is **already built in and switched off**. Until you add one, the Home hero shows a C# code window instead. When you're ready, you only do two things:
+There are two photo slots. Each is **one line** in `src/data/resume.ts`; you never need to touch code to change them.
 
-**Step 1.** Copy your photo into the `public` folder, for example:
-
-```
-D:\Mine\Portfolio\New folder\public\profile.png
-```
-
-**Step 2.** In `src/data/resume.ts`, set the one `photo` line to that file name, with a `/` in front:
+| Setting | Where it shows | Current file |
+|---|---|---|
+| `photo` | **Home**, in the hero on the right: a framed print with a purple offset border, with the code window overlapping its lower-left corner | `public/profile-home.jpg` (you on the bike at night) |
+| `aboutPhoto` | **About me**, at the top of the right column, above your work timeline | `public/profile.jpg` (portrait) |
 
 ```ts
-photo: '/profile.png',
+photo: '/profile-home.jpg',
+aboutPhoto: '/profile.jpg',
 ```
 
-Save. That's all: no other files, no code.
+### Replace a photo
 
-**Where the photo appears:**
-- **Home:** in the hero on the right, in place of the code window, with the purple squares, dots and the "Currently working on" bar.
-- **About me:** at the top of the right column, above your work timeline.
+**Easiest:** save your new picture over the old file in `public/` with **exactly the same name** (`profile-home.jpg` or `profile.jpg`). Nothing else to change.
 
-**Photo tips:**
-- A portrait (taller than wide) works best, around 800 × 1000 px.
-- A PNG with a transparent background looks closest to the original design. JPG and WebP also work.
-- Keep it under about 500 KB so the page loads fast.
-- Use a simple file name with no spaces, like `profile.png`. On most web hosts the name is case-sensitive, so `Profile.PNG` and `profile.png` are different files.
-- Faces near the top are safest: very tall photos are cropped from the bottom.
+**With a new file name:**
+1. Copy the image into the `public` folder, for example `D:\Mine\Portfolio\New folder\public\new-photo.jpg`.
+2. Set the matching line to that name, with a `/` in front: `photo: '/new-photo.jpg',`
+3. Save.
 
-**If it doesn't show:** check the file is really in `public/` and the name in `photo` matches exactly. A wrong name doesn't break the site; it just keeps showing the code window.
+### Turn a photo off
 
-**To remove the photo again:** set it back to empty: `photo: '',`
+- `photo: '',` → Home shows only the code window, with no photo behind it.
+- `aboutPhoto: '',` → About me reuses the Home `photo`. If both are empty, About me shows no photo, just the timeline.
+
+### Photo tips
+
+- Square or portrait photos work best, ideally at least 700 px wide so they stay sharp on high-resolution screens. Your Home photo is 472 × 534, which is fine but a little soft on retina screens; the About photo is 1008 × 1046.
+- JPG, PNG and WebP all work. Keep each file under about 500 KB so the page loads fast. (Your originals were about 1.4 MB, so the copies in `public/` were saved as JPEGs at about 140 KB.)
+- Use a simple file name with no spaces, like `profile.jpg`. On most web hosts the name is case-sensitive, so `Profile.JPG` and `profile.jpg` are different files.
+- Keep faces in the upper half. On Home, the code window covers roughly the bottom fifth of the photo, and very tall photos are trimmed from the bottom.
+- On Home the photo is shown slightly desaturated so it sits with the dark theme, and it turns full colour on hover.
+- On Home the photo and the code window work like a stack of cards: clicking the photo brings it to the front, and clicking the Developer.cs card brings the card back. This works with the keyboard too (Tab, then Enter). It only applies when `photo` is set; nothing needs configuring.
+
+**If a photo doesn't show:** check the file is really in `public/` and the name matches exactly. A wrong name doesn't break the site: Home shows just the code window, and About me just shows the timeline.
 
 ---
 
@@ -156,7 +168,7 @@ The rest of the Home page fills itself in from other sections:
 | #skills | All of `skills` ([section 7](#7-skills-home-and-about)) |
 | #about-me text | The first **2** paragraphs of `summary` |
 | #about-me numbers | `experience`, the number of `projects`, the number of `experience` jobs (all counted automatically) |
-| #contacts | `phone`, `email`, `contactIntro` |
+| #contacts | `email`, `linkedin`, `phone`, `contactIntro` |
 
 ---
 
@@ -174,6 +186,21 @@ In `src/data/resume.ts`, the `skills` list. Each group becomes one box:
 - **Reorder boxes:** move the lines. Boxes follow the file order.
 
 The same list is used on both the Home page and the About page.
+
+### Skill icons
+
+Every skill shows a small icon in front of its name. Icons are grey and switch to the brand's colour (for example red for Angular, blue for Docker) when a visitor hovers over the box.
+
+- **Icons are matched by the skill's name**, so you don't set them in `resume.ts`.
+- **Adding a new skill:** it gets an icon automatically. Names containing "SQL" or "database" get a database icon, "Azure" or "cloud" a cloud icon, "API" an API icon, ".NET" or "ASP" the .NET logo. Anything else gets a generic `</>` code icon.
+- **Renaming a skill:** keep the same spelling to keep its icon. For example, changing `Docker` to `Docker Compose` drops back to the generic icon.
+- **Giving a skill its own icon:** open `src/components/skillIcons.tsx` and add a line to the `byName` list, using the skill name in lowercase:
+
+  ```ts
+  'docker compose': { icon: TbBrandDocker, color: '#2496ED' },
+  ```
+
+  `icon` is any icon from [react-icons](https://react-icons.github.io/react-icons/) (the site mostly uses the outline `Tb…` set; add it to the `import` list at the top), and `color` is the hover colour.
 
 ---
 
@@ -231,7 +258,7 @@ In `src/data/resume.ts`, the `projects` list. Each project looks like this:
 |---|---|
 | "Who am i?" subtitle | `pageSubtitles.about` |
 | Intro paragraphs | `summary`: one quoted item per paragraph. **All** are shown here; Home shows the first 2. |
-| Photo (right column) | `profile.photo` ([section 5](#5-profile-photo-add-it-later-no-code-changes)) |
+| Photo (right column) | `profile.aboutPhoto` ([section 5](#5-profile-photos)) |
 | Timeline (right column) | `experience` ([section 8](#8-works-page-projects)) |
 | #skills | `skills` ([section 7](#7-skills-home-and-about)) |
 | #education | `education` (`degree`, `university`, `year`, `score`) |
@@ -255,8 +282,8 @@ In `src/data/resume.ts`, the `projects` list. Each project looks like this:
 | Subtitle | `pageSubtitles.contacts` |
 | Intro text | `home.contactIntro` (shared with Home) |
 | "Find me here" box | `profile.address` |
-| "Message me here" box | `profile.phone`, `profile.email` |
-| #all-media | `profile.email`, `profile.phone`, `profile.resumeFile` |
+| "Message me here" box | `profile.email`, `profile.linkedin`, `profile.phone` |
+| #all-media | `profile.email`, `profile.linkedin`, `profile.phone` |
 
 The Works page subtitle ("List of my projects") is `pageSubtitles.works`.
 
@@ -283,6 +310,8 @@ public\Resume-Pavan-Kalyan-Kama.docx
 
 **Privacy reminder:** your CV includes your phone number and home address. Anyone who visits the site can download it.
 
+**Links inside the CV:** the resume header lists your Portfolio (`https://portfolio-six-lyart-26.vercel.app/`) and LinkedIn as clickable links under E-mail and Mobile. When you make a new version of your CV in Word, keep those two lines, then replace the file in `public/` as above.
+
 ---
 
 ## 12. Less common changes (other files)
@@ -295,11 +324,12 @@ These are fixed labels rather than resume content, so they live in the page file
 | Section headings (`#projects`, `#skills`, …) | `src/pages/Home.tsx`, `Works.tsx`, `About.tsx`, `Contacts.tsx` | `title="..."` |
 | "Contact me!!" button | `src/pages/Home.tsx` | `Contact me!!` |
 | "Message me here" / "Find me here" headings | `src/pages/Contacts.tsx` and `src/pages/Home.tsx` | `<h3>` |
-| Code-window text (shown when there's no photo) | `src/components/HeroArt.tsx` | `public class Developer` |
+| Code-window text in the Home hero | `src/components/HeroArt.tsx` | `public class Developer` |
 | Browser tab title | `index.html` | `<title>` |
 | Search-engine description | `index.html` | `name="description"` |
 | Colours | `src/styles.css` | `:root {` at the top: `--bg` background, `--gray` text, `--primary` purple accent, `--white` headings |
 | Tab icon | `public/favicon.svg` | replace the file |
+| Skill icons and their hover colours | `src/components/skillIcons.tsx` | the `byName` list |
 
 The footer's copyright year updates by itself.
 
@@ -315,8 +345,8 @@ The footer's copyright year updates by itself.
 | Change which projects show on Home | Reorder `projects`: the first 3 show |
 | Add a skill | Add it to the right group's `items` in `skills` |
 | Replace my CV | Overwrite `public/Resume-Pavan-Kalyan-Kama.docx` with the same name |
-| Add my photo | Put it in `public/`, set `profile.photo: '/profile.png'` |
-| Change phone or email | `profile.phone` / `profile.email` (updates everywhere) |
+| Change my photos | Overwrite `public/profile-home.jpg` (Home) or `public/profile.jpg` (About) with the same name |
+| Change phone, email or LinkedIn | `profile.phone` / `profile.email` / `profile.linkedin` (updates everywhere) |
 | Hide my full address | Shorten `profile.address` |
 | Change the headline | `home.headline`: use `[brackets]` for purple words |
 

@@ -15,7 +15,7 @@ npm run preview  # serve the build
 
 See **[CONTENT-GUIDE.md](CONTENT-GUIDE.md)** for how to update every section: Home, skills, works, about me, contacts, the CV and the profile photo.
 
-All text lives in `src/data/resume.ts`. To add a profile photo, put it in `public/` and set `profile.photo` (for example `'/profile.png'`).
+All text lives in `src/data/resume.ts`. Profile photos are `public/profile-home.jpg` (Home) and `public/profile.jpg` (About me), set by `profile.photo` and `profile.aboutPhoto`.
 
 ## Pages
 

@@ -1,15 +1,17 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type HTMLAttributes, type ReactNode } from 'react';
 import { profile } from '../data/resume';
 
-/** Shows profile.photo when it is set and loads; otherwise renders the fallback. */
-export function ProfilePhoto({ className, fallback = null }: { className: string; fallback?: ReactNode }) {
+type Props = HTMLAttributes<HTMLDivElement> & { src: string; className: string; fallback?: ReactNode };
+
+/** Shows the photo at `src` when it is set and loads; otherwise renders the fallback. */
+export function ProfilePhoto({ src, className, fallback = null, ...rest }: Readonly<Props>) {
   const [failed, setFailed] = useState(false);
 
-  if (!profile.photo || failed) return <>{fallback}</>;
+  if (!src || failed) return <>{fallback}</>;
 
   return (
-    <div className={className}>
-      <img src={profile.photo} alt={profile.name} onError={() => setFailed(true)} />
+    <div className={className} {...rest}>
+      <img src={src} alt={profile.name} onError={() => setFailed(true)} />
     </div>
   );
 }
