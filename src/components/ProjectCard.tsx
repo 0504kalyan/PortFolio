@@ -4,7 +4,7 @@ import type { Project } from '../data/resume';
 
 function Cover({ project }: { project: Project }) {
   return (
-    <div className="card__cover" style={{ ['--accent' as string]: project.accent }}>
+    <div className="card__cover">
       <span className="card__cover-code">&lt;/&gt;</span>
       <div>
         <div className="card__cover-name">{project.name}</div>
@@ -21,7 +21,11 @@ export function ProjectCard({ project, detailed = false, defaultOpen = false }: 
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <article className="card" id={detailed ? project.slug : undefined}>
+    <article
+      className="card"
+      id={detailed ? project.slug : undefined}
+      style={{ ['--accent' as string]: project.accent }}
+    >
       <Cover project={project} />
       <div className="card__tech">{project.tech.join(' ')}</div>
       <div className="card__body">

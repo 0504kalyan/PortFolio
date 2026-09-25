@@ -1,3 +1,5 @@
+import { TbBrandLinkedin } from 'react-icons/tb';
+
 type P = { size?: number };
 
 export const Logo = ({ size = 16 }: P) => (
@@ -19,16 +21,11 @@ export const PhoneIcon = ({ size = 32 }: P) => (
   </svg>
 );
 
+export const LinkedinIcon = ({ size = 32 }: P) => <TbBrandLinkedin size={size} aria-hidden="true" />;
+
 export const PinIcon = ({ size = 32 }: P) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
-  </svg>
-);
-
-export const FileIcon = ({ size = 32 }: P) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-    <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5Z" />
-    <path d="M14 3v5h5M12 11v6m-3-3 3 3 3-3" />
   </svg>
 );
 

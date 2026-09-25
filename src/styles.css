@@ -236,7 +236,7 @@ button {
 
 /* ---------- Side media rail ---------- */
 .side-media {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 17px;
   z-index: 25;
@@ -385,9 +385,14 @@ button {
   top: 40px;
 }
 
+.hero-art__card {
+  position: relative;
+  z-index: 2;
+  margin-left: 30px;
+}
+
 .hero-art__window {
   position: relative;
-  margin-left: 30px;
   background: #21252b;
   border: 1px solid var(--gray);
   z-index: 1;
@@ -441,14 +446,6 @@ button {
   color: #d19a66;
 }
 
-.hero-art__photo {
-  position: relative;
-  z-index: 1;
-  margin-left: 30px;
-  border-bottom: 1px solid var(--primary);
-}
-
-.hero-art__photo img,
 .about-photo img {
   display: block;
   width: 100%;
@@ -466,6 +463,85 @@ button {
   border-bottom: 1px solid var(--primary);
 }
 
+/* Hero with photo: framed photo top-right, code window overlapping its lower-left corner. */
+.hero-art:has(.hero-art__photo) {
+  padding: 24px 0 0;
+}
+
+.hero-art__photo {
+  position: relative;
+  z-index: 1;
+  width: 66%;
+  margin-left: auto;
+  border: 1px solid var(--gray);
+  background: #21252b;
+}
+
+/* Photo and card are a clickable stack: the clicked layer comes to the front. */
+.hero-art:has(.hero-art__photo) .hero-art__photo,
+.hero-art:has(.hero-art__photo) .hero-art__card {
+  cursor: pointer;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hero-art:has(.hero-art__photo) .is-front {
+  z-index: 3;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+}
+
+.hero-art:has(.hero-art__photo) .hero-art__photo.is-front {
+  transform: scale(1.03);
+}
+
+/* hint that the layer behind can be clicked */
+.hero-art:has(.hero-art__photo) .hero-art__photo:not(.is-front):hover,
+.hero-art:has(.hero-art__photo) .hero-art__card:not(.is-front):hover {
+  transform: translateY(-6px);
+}
+
+.hero-art__photo::after {
+  /* purple offset frame behind the print */
+  content: '';
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  border: 1px solid var(--primary);
+  z-index: -1;
+}
+
+.hero-art__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.04;
+  object-fit: cover;
+  object-position: 40% top;
+  filter: grayscale(0.2) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+.hero-art__photo.is-front img,
+.hero-art__photo:hover img {
+  filter: none;
+}
+
+.hero-art:has(.hero-art__photo) .hero-art__squares {
+  left: calc(34% - 96px);
+  top: -20px;
+  z-index: 0;
+}
+
+.hero-art:has(.hero-art__photo) .hero-art__card {
+  width: 86%;
+  margin: -17% 0 0;
+}
+
+.hero-art:has(.hero-art__photo) .hero-art__dots {
+  right: -4px;
+  bottom: 56px;
+  z-index: 0;
+}
+
 .hero-art__dots {
   position: absolute;
   right: -16px;
@@ -479,7 +555,6 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 0 30px;
   padding: 8px;
   border: 1px solid var(--gray);
   border-top: 0;
@@ -677,6 +752,89 @@ button {
   font-size: 20px;
 }
 
+/* ---------- Card hover (all card-style boxes) ---------- */
+.card,
+.skill-box,
+.contact-box,
+.stat,
+.fact {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover,
+.card:focus-within,
+.skill-box:hover,
+.contact-box:hover,
+.stat:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent, var(--primary));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.fact:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+/* inner dividers follow the outer border colour */
+.card__cover,
+.card__tech,
+.skill-box__title {
+  transition: border-color 0.25s ease;
+}
+
+.card:hover .card__cover,
+.card:hover .card__tech,
+.card:focus-within .card__cover,
+.card:focus-within .card__tech {
+  border-color: var(--accent, var(--primary));
+}
+
+.skill-box:hover .skill-box__title {
+  border-color: var(--primary);
+}
+
+/* project cover: the icon fills in and the outline square turns */
+.card__cover::after,
+.card__cover-code {
+  transition:
+    transform 0.4s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.card:hover .card__cover::after {
+  transform: rotate(35deg) scale(1.1);
+}
+
+.card:hover .card__cover-code {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .skill-box,
+  .contact-box,
+  .stat,
+  .fact,
+  .card__cover::after {
+    transition: none;
+  }
+  .card:hover,
+  .card:focus-within,
+  .skill-box:hover,
+  .contact-box:hover,
+  .stat:hover,
+  .fact:hover,
+  .card:hover .card__cover::after {
+    transform: none;
+  }
+}
+
 /* ---------- Skills ---------- */
 .skills-wrap {
   display: grid;
@@ -724,9 +882,43 @@ button {
 
 .skill-box__items {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px 10px;
-  padding: 8px;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 8px;
+  list-style: none;
+}
+
+.skill {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.skill__icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--gray);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* icons take their brand colour when the box is hovered */
+.skill-box:hover .skill__icon {
+  color: var(--brand);
+}
+
+.skill:hover {
+  color: var(--white);
+}
+
+.skill:hover .skill__icon {
+  transform: scale(1.15);
 }
 
 /* ---------- About ---------- */
@@ -740,6 +932,7 @@ button {
 
 .about-page {
   margin-top: 80px;
+  align-items: start;
 }
 
 .about-text {
@@ -872,9 +1065,13 @@ button {
 
 .contacts__boxes {
   display: flex;
+  flex-direction: column;
   gap: 12px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  width: min(100%, 440px);
+}
+
+.contacts__boxes .contact-box {
+  max-width: none;
 }
 
 .contact-box {
@@ -883,7 +1080,7 @@ button {
   gap: 12px;
   padding: 16px;
   border: 1px solid var(--gray);
-  max-width: 380px;
+  max-width: 440px;
 }
 
 .contact-box h3 {
@@ -1014,9 +1211,17 @@ button {
   .hero-art {
     padding-left: 0;
   }
-  .hero-art__window,
-  .status {
+  .hero-art__card {
     margin-left: 12px;
+  }
+  .hero-art:has(.hero-art__photo) .hero-art__card {
+    width: 92%;
+  }
+  .hero-art__photo {
+    width: 70%;
+  }
+  .hero-art__code {
+    font-size: 12px;
   }
   .hero-art__dots {
     right: 0;

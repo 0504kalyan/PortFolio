@@ -32,7 +32,7 @@ export function About() {
           ))}
         </div>
         <div className="about-side">
-          <ProfilePhoto className="about-photo" />
+          <ProfilePhoto src={profile.aboutPhoto || profile.photo} className="about-photo" />
           <div className="timeline">
             <Dots cols={5} rows={4} className="timeline__dots" />
             {experience.map((j) => (

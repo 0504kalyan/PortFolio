@@ -7,13 +7,16 @@ export const profile = {
   role: 'Dot Net Developer',
   email: 'pavankalyankama99@gmail.com',
   phone: '+91 8885394611',
+  linkedin: 'https://www.linkedin.com/in/pavan-kalyan-743994280/',
   address: 'D.no:2-46, Pedanandipadu, Pedanandipadu, Guntur - 522235.',
   experience: '5.10',
   resumeFile: '/Resume-Pavan-Kalyan-Kama.docx',
   currentProject: 'CM-Core',
-  // Profile photo: copy the image into /public and set its path here, e.g. '/profile.png'.
-  // Leave it empty ('') to show the code window instead.
-  photo: '',
+  // Profile photos: copy the image into /public and set its path here, e.g. '/profile.jpg'.
+  // photo: Home hero, behind the code window. Leave it empty ('') to show only the code window.
+  photo: '/profile-home.jpg',
+  // aboutPhoto: About me page. Leave it empty ('') to use `photo` there too.
+  aboutPhoto: '/profile.jpg',
 };
 
 export const home = {

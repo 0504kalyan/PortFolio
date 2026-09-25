@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { HeroArt } from '../components/HeroArt';
-import { QuoteIcon, MailIcon, PhoneIcon } from '../components/Icons';
+import { QuoteIcon } from '../components/Icons';
+import { ContactList } from '../components/MediaLinks';
 import { Section } from '../components/Section';
 import { ProjectCard } from '../components/ProjectCard';
 import { SkillsGrid } from '../components/SkillsGrid';
@@ -108,12 +109,7 @@ export function Home() {
           <p className="contacts__text">{home.contactIntro}</p>
           <div className="contact-box">
             <h3>Message me here</h3>
-            <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>
-              <PhoneIcon size={22} /> {profile.phone}
-            </a>
-            <a href={`mailto:${profile.email}`}>
-              <MailIcon size={22} /> {profile.email}
-            </a>
+            <ContactList />
           </div>
         </div>
       </Section>
