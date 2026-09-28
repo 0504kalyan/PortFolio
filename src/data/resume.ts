@@ -1,222 +1,320 @@
 // All site content lives in this file. See CONTENT-GUIDE.md for what each value controls.
-// Content is taken from Resume-Pavan-Updated-v2.docx.
+// Content is taken from Doppalapudi_Koteswara_Rao_Workday_FSCM_Consultant_ATS_95Plus_Final.docx.
 
 export const profile = {
-  name: 'Pavan Kalyan Kama',
-  shortName: 'Pavan',
-  role: 'Dot Net Developer',
-  email: 'pavankalyankama99@gmail.com',
-  phone: '+91 8885394611',
-  linkedin: 'https://www.linkedin.com/in/pavan-kalyan-743994280/',
-  address: 'D.no:2-46, Pedanandipadu, Pedanandipadu, Guntur - 522235.',
-  experience: '5.10',
-  resumeFile: '/Resume-Pavan-Kalyan-Kama.docx',
-  currentProject: 'CM-Core',
-  // Profile photos: copy the image into /public and set its path here, e.g. '/profile.jpg'.
-  // photo: Home hero, behind the code window. Leave it empty ('') to show only the code window.
-  photo: '/profile-home.jpg',
-  // aboutPhoto: About me page. Leave it empty ('') to use `photo` there too.
-  aboutPhoto: '/profile.jpg',
+  name: 'Koteswara Rao Doppalapudi',
+  shortName: 'Koteswara Rao',
+  // Two letters in the logo mark.
+  initials: 'KR',
+  role: 'Workday Finance / FSCM Functional Consultant',
+  email: '1999koti@gmail.com',
+  phone: '+91 8464096717',
+  // Leave linkedin or location empty ('') to hide them.
+  linkedin: 'https://www.linkedin.com/in/doppalapudi-koteswara-rao-3528b024b/',
+  location: '',
+  experience: '3.3',
+  resumeFile: '/Resume-Koteswara-Rao-Doppalapudi.pdf',
+  currentClient: 'Unity 3D',
+  // Profile photo in /public.
+  photo: '/profile.png',
 };
 
-export const home = {
-  // Words inside [square brackets] are shown in purple.
-  headline: 'is a [Dot Net developer] building [enterprise web applications]',
-  lead: 'He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices',
-  quote: { text: 'First, solve the problem. Then, write the code.', author: 'John Johnson' },
-  contactIntro:
-    "I'm open to new opportunities. However, if you have other request or question, don't hesitate to contact me",
+export const hero = {
+  headline:
+    'I configure and support Workday Financials end to end, from ledgers and posting rules to approvals, security, data loads and reporting.',
 };
 
-export const pageSubtitles = {
-  works: 'List of my projects',
-  about: 'Who am i?',
-  contacts: 'Get in touch',
-};
+export const contactIntro =
+  "Looking for a Workday Finance consultant for an implementation, enhancement or production support? I'd be glad to hear from you.";
 
 export const summary: string[] = [
-  'Dot Net Developer with around 5.10 years of IT experience covering all phases of the Software Design Life Cycle (SDLC) including Analysis, Design, Development, Testing, and Support of Web Applications, based on Object Oriented Programming (OOP), Client/Server, N-tier architecture, Web based and Internet Technologies.',
-  'Experienced in building enterprise web applications using ASP.NET Core, Web API, Angular, and microservices/micro-frontend architectures. Skilled in translating business requirements into scalable solutions with multi-level approval workflows, role-based access control, tenant scoping, and scheduled publication features.',
-  'Proficient in AI-assisted development using GitHub Copilot, Cursor, and Claude to improve productivity, code quality, and delivery speed. Worked closely with business analysts and converted the requirements into Dot Net code.',
+  "I'm an MCA post graduate and a thorough, tenacious Workday FSCM Functional Consultant with 3.3 years of experience across the Workday Financials modules: General Ledger, Accounts Payable, Accounts Receivable, Fixed Assets, Procurement and Expenses. I bring a deep understanding of client business requirements, with a flair for results and problem solving.",
+  'At Swift Solution Private Limited I implement and support Workday Financials for Unity 3D: companies, ledgers and account posting rule sets, worktags and organization hierarchies, financial business processes and approval workflows, security roles, EIB data loads and custom reports.',
+  'I am skilled in functional design, unit testing and user acceptance testing, and provide post-production support with issue analysis and root cause identification within SLA. I have excellent client interaction skills and work well independently as well as in a team.',
+];
+
+/** The six Workday Financials modules, shown as tiles. `name` must match a skill in skillIcons.tsx for its icon. */
+export const modules: { name: string; code: string; text: string }[] = [
+  { name: 'General Ledger', code: 'GL', text: 'Companies, ledgers, calendars, ledger accounts and account posting rule sets.' },
+  { name: 'Accounts Payable', code: 'AP', text: 'Supplier invoices, supplier categories, bank accounts and settlement runs.' },
+  { name: 'Accounts Receivable', code: 'AR', text: 'Customer invoices, customer categories, sales items and revenue categories.' },
+  { name: 'Fixed Assets', code: 'FA', text: 'Asset books, depreciation profiles, transfers, disposal and impairment.' },
+  { name: 'Procurement', code: 'PRC', text: 'Requisitions, purchase orders, purchase items and the supplier portal.' },
+  { name: 'Expenses', code: 'EXP', text: 'Expense items and spend categories for employee spend.' },
+];
+
+export type FlowStep = { title: string; items: string[] };
+export type ProcessFlow = { key: string; name: string; caption: string; steps: FlowStep[] };
+
+/** End-to-end finance processes, each step listing what was configured for it. */
+export const processFlows: ProcessFlow[] = [
+  {
+    key: 'p2p',
+    name: 'Procure-to-Pay',
+    caption: 'From a requisition to a paid supplier and a posted journal.',
+    steps: [
+      { title: 'Requisition', items: ['Requisition business process', 'Purchase items', 'Spend categories'] },
+      { title: 'Purchase Order', items: ['PO business process', 'Approval workflows'] },
+      { title: 'Supplier Invoice', items: ['Supplier Invoice business process', 'Supplier categories', 'Supplier Invoice EIB'] },
+      { title: 'Payment', items: ['Bank accounts', 'Payment types', 'Settlement runs'] },
+      { title: 'Accounting', items: ['Account posting rule sets', 'Worktags'] },
+    ],
+  },
+  {
+    key: 'r2r',
+    name: 'Record-to-Report',
+    caption: 'Journals posted to the right ledger accounts, allocated and reported.',
+    steps: [
+      { title: 'Accounting Journal', items: ['Journal business process', 'Journal sources', 'Journal EIB'] },
+      { title: 'Posting', items: ['Ledger accounts', 'Account posting rule sets'] },
+      { title: 'Allocations', items: ['Allocation definitions', 'Custom validations'] },
+      { title: 'Intercompany', items: ['Intercompany processing'] },
+      { title: 'Reporting', items: ['Custom reports', 'Scheduled reports', 'Dashboards'] },
+    ],
+  },
+  {
+    key: 'o2c',
+    name: 'Order-to-Cash',
+    caption: 'Customers invoiced with the right sales items and revenue categories.',
+    steps: [
+      { title: 'Customer', items: ['Customer categories', 'Customer master data'] },
+      { title: 'Sales Item', items: ['Sales items', 'Revenue categories'] },
+      { title: 'Customer Invoice', items: ['Customer Invoice business process', 'Customer Invoice EIB'] },
+      { title: 'Revenue', items: ['Revenue recognition', 'Accruals & adjustments'] },
+    ],
+  },
+  {
+    key: 'assets',
+    name: 'Asset Lifecycle',
+    caption: 'Assets registered, depreciated, moved and retired.',
+    steps: [
+      { title: 'Register', items: ['Asset books', 'Asset Register EIB'] },
+      { title: 'Depreciate', items: ['Depreciation profiles'] },
+      { title: 'Transfer', items: ['Asset transfers'] },
+      { title: 'Retire', items: ['Impairment', 'Disposal', 'Dispose Asset EIB'] },
+    ],
+  },
 ];
 
 export type SkillGroup = { title: string; items: string[] };
 
 export const skills: SkillGroup[] = [
-  { title: 'Languages', items: ['C#', 'T-SQL', 'PL/SQL', 'JavaScript', 'TypeScript'] },
-  { title: 'Databases', items: ['MS SQL', 'PostgreSQL', 'MongoDB'] },
   {
-    title: 'Frameworks',
-    items: ['Dot Net Core', 'Asp.Net', 'Asp.Net MVC', 'Asp.Net Core', 'WEB API', 'Entity Framework', 'Dapper', 'LINQ', 'WCF'],
+    title: 'Workday Financials',
+    items: ['General Ledger', 'Accounts Payable', 'Accounts Receivable', 'Fixed Assets', 'Procurement', 'Expenses'],
   },
   {
-    title: 'Front-end',
-    items: ['Angular 16, 18 & 20', 'React', 'RxJS', 'Nx', 'Module Federation', 'HTML', 'CSS', 'Tailwind CSS'],
-  },
-  {
-    title: 'Architecture',
+    title: 'Configuration',
     items: [
-      'Microservices',
-      'Micro-frontend',
-      'REST APIs',
-      'Multi-tenant',
-      'RBAC',
-      'Caching (IMemoryCache)',
-      'Performance Tuning & Query Optimization',
+      'Business Process Framework',
+      'Account Posting Rule Sets',
+      'Worktags & Financial Dimensions',
+      'Organization Hierarchies',
+      'Allocation Definitions',
+      'Intercompany',
+      'Custom Validations',
+      'Bank Setup & Settlement Runs',
     ],
   },
   {
-    title: 'DevOps',
-    items: ['TFS', 'Git', 'Azure DevOps CI/CD', 'Docker', 'Azure Container Apps'],
+    title: 'Security',
+    items: ['Role Creation', 'Security Groups', 'User-Based Groups', 'Domain Security Policies'],
   },
   {
-    title: 'Tools',
-    items: [
-      'Visual Studio .NET',
-      'SQL Server Management Studio',
-      'pgAdmin',
-      'Visual Studio Code',
-      'Postman',
-      'GitHub Copilot',
-      'Cursor',
-      'Claude',
-    ],
+    title: 'Data & Integration',
+    items: ['EIB (Inbound & Outbound)', 'Financial Data Migration', 'XSLT'],
   },
-  { title: 'Methodologies', items: ['Agile', 'Scrum'] },
+  { title: 'Reporting', items: ['Custom Reports', 'Scheduled Reports', 'Dashboards'] },
+  {
+    title: 'Accounting',
+    items: ['Journal Entries', 'Accruals', 'Adjustments', 'Revenue Recognition'],
+  },
+  {
+    title: 'Delivery',
+    items: ['Functional Design', 'Unit Testing', 'UAT', 'Production Support', 'Root Cause Analysis'],
+  },
 ];
 
-export type Project = {
+/** One Workday work area from the engagement, shown as a card in #expertise. */
+export type WorkArea = {
   slug: string;
   name: string;
   tagline: string;
-  duration: string;
   tech: string[];
   description: string;
   responsibilities: string[];
+  /** Colour of the card's icon and tags. */
   accent: string;
 };
 
-export const projects: Project[] = [
+export const workAreas: WorkArea[] = [
   {
-    slug: 'cm-core',
-    name: 'CM-Core',
-    tagline: 'Campaign Management Platform',
-    duration: 'Jan 2025 - Present',
-    tech: ['C#', 'ASP.NET Core 9', 'Web API', 'Entity Framework Core', 'SQL Server', 'Angular 20', 'Nx', 'Module Federation', 'TypeScript', 'Tailwind CSS'],
+    slug: 'general-ledger',
+    name: 'General Ledger',
+    tagline: 'Ledgers, posting rules & allocations',
+    tech: ['Companies', 'Ledgers', 'Calendars', 'Ledger Accounts', 'Account Posting Rule Sets', 'Journal Sources', 'Allocations', 'Intercompany'],
     description:
-      'CM-Core (CM 2.0) is an enterprise campaign management platform for digital asset and template library management, multi-level approval workflows, and scheduled publication of marketing content. The solution uses a micro-frontend architecture with Angular Nx remotes (Library, Approvals, Campaigns, Dashboard) integrated with .NET microservices (Auth, Core, Campaign). It supports tenant-scoped access control, approval policies, publish-now/publish-later scheduling, effective date validation, and automatic content expiration.',
+      'Accounting foundation of the Workday tenant: companies, ledgers, fiscal calendars and ledger accounts, with account posting rule sets that turn each business transaction into the right journal lines, plus allocation definitions and intercompany processing.',
     responsibilities: [
-      'Responsible for implementing publish configuration for assets and templates with scheduled publication, effective from/to validation, and 30-day minimum span enforcement.',
-      'Responsible for multi-level approval policy integration, final-level approver publish configuration, and approval review workflows.',
-      'Developed reusable shared UI components and synchronized frontend/backend validation for publication schedules and effective dates.',
-      'Implemented background expiration services to automatically mark assets and templates as Expired when effective end dates pass.',
-      'Enhanced access-point and tenant scoping for role-based permissions across library and approval modules.',
-      'Worked on API contract alignment between Angular services and .NET Core microservices with unit test coverage.',
-      'Leveraged AI coding assistants (GitHub Copilot, Cursor, and Claude) for rapid root-cause analysis, query and API performance optimization, and automated code generation across the Auth, Library, and Campaign microservices, accelerating debugging cycles and feature delivery.',
+      'Created Companies, Ledgers, Calendars and Ledger Accounts.',
+      'Defined Account Posting Rule Sets for various transactions.',
+      'Created custom validations and allocation definitions.',
+      'Set up allocation definitions and intercompany processing.',
+      'Configured the Accounting Journal business process.',
+      'Created Accounting Journal EIBs for bulk journal uploads.',
     ],
-    accent: '#C778DD',
+    accent: '#6d28d9',
   },
   {
-    slug: 'ipay-billpay',
-    name: 'iPay-BillPay',
-    tagline: 'Online banking & bill payments',
-    duration: 'Jan 2024 - Dec 2024',
-    tech: ['C#', 'ASP.NET Core', 'Web Api', 'SQL Server', 'React'],
+    slug: 'procure-to-pay',
+    name: 'Procure-to-Pay',
+    tagline: 'AP, Procurement & Expenses',
+    tech: ['Supplier Invoice', 'Requisition', 'Purchase Order', 'Supplier Categories', 'Supplier Portal', 'Purchase Items', 'Expense Items', 'Settlement Runs'],
     description:
-      "iPay-BillPay is a banking application which is under Jack Henry Associations. The Associations addresses the trade finance, lending, payments, limits, collateral's, treasury, deposits, liquidity management, online banking and mobile banking requirements of corporate banks worldwide and enables them to deliver customized offerings to enterprise clients of all sizes. It provides services to different type of banking like retail banking, corporate banking. The most of the world's leading banks choose Online Banking to offer more features to their customers. Retail customers get full visibility into all their banking accounts and are enabled to transfer and schedule recurring payments safely. As well as corporate customers can manage their unique cash management policies to manage receivables, payables, account services and investments, efficiently.",
+      'From requisition to payment: requisition, purchase order and supplier invoice business processes, supplier master data and portal, purchase and expense items, and the bank accounts, payment types and settlement runs that pay suppliers.',
     responsibilities: [
-      'Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.',
-      'Responsible for sending money or making transfers from one to many and one to one.',
-      'System knowledge sharing and updating/ modifying Design Documents',
-      "Implementation activities based on Client's requirement.",
-      'Analysis and maintenance of Database.',
-      'Creating Queries to generate reports based on given conditions.',
-      'Implementing Queries to make scripts execute only onetime in the whole execution.',
-      'Collaborated with cross-functional teams in an Agile/Scrum environment, participating in sprint planning and code reviews to deliver secure, high-availability banking features on schedule.',
+      'Configured business processes for Supplier Invoice, Requisition and Purchase Order.',
+      'Set up Supplier categories and supplier master data.',
+      'Implemented Supplier External Site and portal enhancements.',
+      'Created Purchase Items and Expense Items.',
+      'Set up Bank Accounts, Routing Rule Sets, payment types and settlement runs.',
+      'Created Supplier Invoice EIBs for bulk uploads.',
     ],
-    accent: '#61AFEF',
+    accent: '#1d4ed8',
   },
   {
-    slug: 'gastly',
-    name: 'Gastly',
-    tagline: 'Online tax & transaction payments',
-    duration: 'Sep 2023 - Jan 2024',
-    tech: ['C#', 'ASP.NET Core', 'Web Api', 'SQL Server', 'T-SQL', 'Angular14', 'HTML5', 'CSS3'],
+    slug: 'accounts-receivable',
+    name: 'Accounts Receivable',
+    tagline: 'Customers, invoices & revenue',
+    tech: ['Customer Invoice', 'Customer Categories', 'Sales Items', 'Revenue Categories', 'Revenue Recognition'],
     description:
-      "Gastly was developed under KPMG to provide services to their customers such as making online transactions and paying tax's of their own consumption's as per their basis. This one will enables to user better way to make or pay their cash related transactions through online very securely. Allows users to calculate, report, and pay their taxes based on their consumption patterns and financial activities and then supports various payment methods, including bank transfers, credit/debit cards, and digital wallets.",
+      'Order-to-cash setup: customer master data and categories, sales items and revenue categories, and the customer invoice business process, grounded in revenue recognition and accrual concepts.',
     responsibilities: [
-      'Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.',
-      'System knowledge sharing and updating/ modifying Design Documents.',
-      "Implementation activities based on Client's requirement.",
-      'Analysis and maintenance of Database.',
-      'Creating Queries to generate reports based on given conditions.',
-      'Designed with an intuitive UI/UX to provide a seamless experience for users managing their payments and transactions',
-      'Integrated secure payment gateways and digital wallet support, ensuring compliance with financial data-handling best practices.',
+      'Set up Customer categories and customer master data.',
+      'Created Sales Items and mapped Revenue Categories.',
+      'Configured the Customer Invoice business process.',
+      'Created Customer Invoice EIBs for bulk uploads.',
+      'Applied accounting concepts: journal entries, accruals, adjustments and revenue recognition.',
     ],
-    accent: '#98C379',
+    accent: '#15803d',
   },
   {
-    slug: 'amr',
-    name: 'AMR',
-    tagline: 'Automatic Meter Reading',
-    duration: 'May 2022 - Aug 2023',
-    tech: ['C#', 'ASP.NET Core', 'Web Api', 'SQL Server', 'T-SQL', 'Angular11', 'HTML5', 'CSS3'],
+    slug: 'fixed-assets',
+    name: 'Fixed Assets',
+    tagline: 'Asset books & depreciation',
+    tech: ['Asset Books', 'Depreciation Profiles', 'Asset Transfers', 'Disposal', 'Impairment', 'Asset Register EIB'],
     description:
-      'Implemented and maintained Automatic Meter Reading (AMR) technology to enhance utility data collection and monitoring. Utilized various communication methods (radio, telephone, power line communication) for remote data transmission, ensuring high accuracy, efficiency, and real-time consumption tracking. Expertise in both walk-by/drive-by and fixed network AMR systems, contributing to optimized billing, resource management, and consumer awareness. Demonstrated ability to streamline utility operations and improve customer satisfaction through advanced AMR solutions. The transmitter unit consists of a reed switch that reads the meter data, board that processes the data, and an RF transmitter that sends the data to the receiver unit. The receiver unit then displays the data on an LCD screen.',
+      'Full asset lifecycle in Workday: asset books and depreciation profiles, transfers between organizations, disposal and impairment, with the asset register loaded and maintained through EIBs.',
     responsibilities: [
-      'Interaction with Client for Requirement Analysis.',
-      'Enhancing and Developing various rules in the application according to customer business requirements.',
-      'System knowledge sharing and updating/ modifying Design Documents.',
-      'Implementation activities.',
-      'Analysis and maintenance of Database.',
-      'Creating Queries to generate reports based on given conditions.',
-      'Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.',
-      'Collaborated with cross-functional engineering teams to monitor system performance and resolve production issues, improving data accuracy and billing reliability.',
+      'Managed Asset Books and Depreciation Profiles.',
+      'Handled Asset Transfers, Disposal and Impairment.',
+      'Created Asset Register and Dispose Asset EIBs for bulk data loads.',
     ],
-    accent: '#E5C07B',
+    accent: '#b45309',
   },
   {
-    slug: 'psms',
-    name: 'PSMS',
-    tagline: 'Project State Management System',
-    duration: 'Oct 2020 - Mar 2022',
-    tech: ['C#', 'ASP.NET MVC', 'Entity Framework', 'JQuery', 'SQL Server'],
+    slug: 'worktags-organizations',
+    name: 'Worktags & Organizations',
+    tagline: 'Financial dimensions & hierarchies',
+    tech: ['Spend Categories', 'Revenue Categories', 'Cost Centers', 'Projects', 'Locations', 'Custom Worktags'],
     description:
-      'Implemented and maintained the Project State Management System (PSMS) to enhance both project schedule and safety management. Utilized standardized communication modules and methods based on the STEP (Standard for the Exchange of Product Data) Domain Object Model to synchronize project schedules across departments and companies. Integrated PSMS with PLM/ERP systems, supporting both conventional and agile methodologies, to ensure stable, efficient processes and improved collaboration. Developed tools for real-time safety reports, remote monitoring, and intervention, ensuring adherence to safety policies and reducing project site risks. Demonstrated expertise in optimizing project management and enhancing safety compliance through advanced PSMS solutions.',
+      'The dimensions every transaction is tagged with: spend and revenue categories, cost centers, projects and custom worktags, organized into company, cost center, location and project hierarchies for reporting and security.',
     responsibilities: [
-      'Design Web page and back-end coding using MVC structure.',
-      'Analysis of current Website to understand the work-flow.',
-      'Worked on the Application Design and Functional Specification documents.',
-      'Responsible for analyzing the flow of data between various interfaces to create the application.',
-      'Development of the code for the application and deploying it accordingly.',
-      'Taking bottom-line responsibility for deliverables in all phases of the project implementation activities',
-      'Contributed to process improvements that streamlined cross-department schedule synchronization, reducing manual coordination effort.',
+      'Configured Worktags: Spend Categories, Revenue Categories, Cost Centers and Projects.',
+      'Mapped financial dimensions across spend, revenue, cost center and project.',
+      'Created Cost Center, Project and Location hierarchies.',
+      'Set up Company organizational hierarchies.',
     ],
-    accent: '#E06C75',
+    accent: '#be123c',
+  },
+  {
+    slug: 'security-business-processes',
+    name: 'Security & Business Processes',
+    tagline: 'Roles, domains & approval workflows',
+    tech: ['Business Process Framework', 'Condition Rules', 'Approval Workflows', 'Security Roles', 'User-Based Groups', 'Domain Security Policies'],
+    description:
+      'Who can do what, and who approves it: business process definitions with condition rules and approval chains for financial transactions, backed by security roles, user-based groups and domain security policies.',
+    responsibilities: [
+      'Configured financial business processes and approval workflows.',
+      'Built business process condition rules.',
+      'Created and assigned security roles and user-based groups.',
+      'Maintained domain security policies.',
+    ],
+    accent: '#0f766e',
+  },
+  {
+    slug: 'eib-data-migration',
+    name: 'EIB Data Migration',
+    tagline: 'Inbound & outbound data loads',
+    tech: ['EIB Inbound', 'EIB Outbound', 'XSLT', 'Journals', 'Supplier Invoices', 'Customer Invoices', 'Assets'],
+    description:
+      'Moving financial data in and out of Workday with Enterprise Interface Builder: bulk loads for journals, supplier and customer invoices and assets, and outbound extracts, with XSLT transformations where needed.',
+    responsibilities: [
+      'Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.',
+      'Created Accounting Journal, Supplier Invoice and Customer Invoice EIBs.',
+      'Performed financial data migration with inbound and outbound EIBs.',
+      'Used XSLT for data transformation.',
+    ],
+    accent: '#c2410c',
+  },
+  {
+    slug: 'reporting-support',
+    name: 'Reporting & Support',
+    tagline: 'Reports, testing & production support',
+    tech: ['Custom Reports', 'Scheduled Reports', 'Dashboards', 'Unit Testing', 'UAT', 'SLA Support'],
+    description:
+      'Keeping finance running after go-live: custom reports and dashboards scheduled to business needs, functional design and testing for new deliverables, and post-production support with root cause analysis.',
+    responsibilities: [
+      'Developed custom reports and scheduled them as per business requirements.',
+      'Configured financial reporting and dashboards.',
+      'Wrote functional designs and ran unit testing and user acceptance testing.',
+      'Provided post-production support and resolved financial issues as per SLA.',
+      'Performed issue analysis and root cause identification.',
+    ],
+    accent: '#4338ca',
   },
 ];
 
-export type Job = { company: string; client?: string; period: string; current?: boolean };
-
-export const experience: Job[] = [
-  { company: 'IBridge Techsoft', client: 'Warrous', period: 'November 2025 - Present', current: true },
-  { company: 'Aspire Systems Private Limited', period: 'September 2023 - July 2025' },
-  { company: "Visionary Software Solution's Private Limited", period: 'July 2020 - July 2023' },
-];
-
-export const education = {
-  degree: 'B.Sc',
-  university: 'Acharya Nagarjuna University',
-  year: '2020',
-  score: '68.2%',
+export type Job = {
+  company: string;
+  role: string;
+  period: string;
+  current?: boolean;
+  project?: { name: string; client: string; role: string; teamSize: number };
+  highlights: string[];
 };
 
-export const quickFacts: { text: string; highlights?: string[] }[] = [
-  { text: 'Around 5.10 years of IT experience', highlights: ['5.10 years'] },
-  { text: 'Covers all phases of the SDLC', highlights: ['SDLC'] },
-  { text: 'B.Sc from Acharya Nagarjuna University, 2020', highlights: ['B.Sc', 'Acharya Nagarjuna University'] },
-  { text: 'Builds with ASP.NET Core, Web API, Angular and React', highlights: ['ASP.NET Core', 'Web API', 'Angular', 'React'] },
-  { text: 'Works in Agile / Scrum teams', highlights: ['Agile', 'Scrum'] },
-  { text: 'AI-assisted development with GitHub Copilot, Cursor and Claude', highlights: ['GitHub Copilot', 'Cursor', 'Claude'] },
-  { text: 'Microservices & micro-frontend architectures', highlights: ['Microservices', 'micro-frontend'] },
+export const experience: Job[] = [
+  {
+    company: 'Swift Solution Private Limited',
+    role: 'Workday Consultant',
+    period: 'June 2023 - Present',
+    current: true,
+    project: { name: 'Workday Development and Support', client: 'Unity 3D', role: 'Workday Finance Consultant', teamSize: 5 },
+    highlights: [
+      'Implemented and supported Workday Financial modules (GL, AP, AR, FA).',
+      'Configured Workday GL, AP, AR and Procurement modules.',
+      'Configured financial business processes and approval workflows.',
+      'Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.',
+      'Developed custom reports and scheduled them as per business requirements.',
+      'Provided post-production support and resolved financial issues as per SLA.',
+    ],
+  },
+];
+
+export const education: { degree: string; university: string; year: string; score?: string } = {
+  degree: 'MCA',
+  university: 'Acharya Nagarjuna University',
+  year: '2023',
+};
+
+export const coreConcepts: string[] = [
+  'Workday architecture and tenant setup',
+  'Organizational structures: company, cost center, location and project hierarchies',
+  'Business Process Framework: creation, configuration and condition rules',
+  'Security groups, user-based groups and domain policies',
+  'Worktags and financial dimensions: spend categories, revenue categories, custom worktags',
+  'Ledger and accounting setup: ledger accounts, account posting rule sets, journal sources',
+  'Allocation definitions and financial reporting structures',
+  'Data migration using EIB (inbound and outbound)',
 ];

@@ -1,8 +1,10 @@
 # Portfolio Content Guide
 
-How to change what your portfolio says: Home, Skills, Works, About me, Contacts, the CV download and the profile photos.
+How to change what your portfolio says. The site is **one page** that scrolls through these sections, in order:
 
-**Short version:** almost everything lives in one file, `src/data/resume.ts`. Change a value there, save, and the site updates. You don't need to touch any other code for normal content changes.
+Hero (top) → Modules → Processes → Expertise → Experience → Skills → About → Contact → Footer
+
+**Short version:** almost all text lives in one file, `src/data/resume.ts`. Change a value there, save, and the site updates. Other files are only needed for fixed labels, colours, fonts, icons and images.
 
 ---
 
@@ -11,11 +13,11 @@ How to change what your portfolio says: Home, Skills, Works, About me, Contacts,
 Open a terminal **in the project folder** (the folder name has a space, so keep the quotes):
 
 ```powershell
-cd "D:\Mine\Portfolio\New folder"
+cd "D:\Mine\Portfolio\koti portfolio"
 npm run dev
 ```
 
-Open http://localhost:5173. Leave it running. Every time you save a file, the page refreshes by itself.
+Open http://localhost:5173 and leave it running. Every time you save a file, the page refreshes by itself.
 
 > If you see `Could not read package.json`, you're in the wrong folder. Run the `cd` line above first.
 
@@ -25,13 +27,15 @@ Open http://localhost:5173. Leave it running. Every time you save a file, the pa
 
 | What you want to change | File |
 |---|---|
-| All text: name, contacts, hero, skills, projects, jobs, education, facts | `src/data/resume.ts` |
-| Profile photos (Home and About) | images in `public/` + `photo` / `aboutPhoto` in `src/data/resume.ts` |
-| CV / resume download | `public/Resume-Pavan-Kalyan-Kama.docx` |
-| Browser tab title and search description | `index.html` |
-| Colours | `src/styles.css` (top of file) |
-| Tab icon | `public/favicon.svg` |
-| Menu labels, section headings, button labels | the page files (see [section 12](#12-less-common-changes-other-files)) |
+| All content: profile, headline, modules, processes, skills, expertise, jobs, education, summary | `src/data/resume.ts` |
+| Skill and module icons | `src/components/skillIcons.tsx` |
+| Expertise card icons | `src/components/Expertise.tsx` |
+| Sample Workday screens in the hero | `src/components/WorkdayScreens.tsx` |
+| Section headings and small labels | the section's file in `src/components/` (see [section 8](#8-section-headings-and-labels)) |
+| Menu labels | `src/components/Header.tsx` |
+| Colours and fonts | `src/styles.css` (top) and `index.html` |
+| Browser tab title, search description, tab icon | `index.html`, `public/favicon.svg` |
+| Profile photo and CV file | `public/profile.png`, `public/Resume-Koteswara-Rao-Doppalapudi.pdf` |
 
 ---
 
@@ -42,7 +46,8 @@ The file is plain lists of text. Keep the punctuation around what you change and
 - **Text goes inside quotes:** `'like this'`.
 - **Apostrophes:** if the text contains `'` (for example `I'm`), wrap it in double quotes: `"I'm open to..."`.
 - **Commas:** every item in a list ends with a comma. A missing comma is the most common mistake.
-- **Lists use square brackets:** `['C#', 'T-SQL', 'SQL Server']`.
+- **Lists use square brackets:** `['GL', 'AP', 'AR']`.
+- **Blocks use curly braces:** `{ name: '...', text: '...' },`. To add one, copy an existing block including its braces and trailing comma, then edit it.
 - **Order matters:** things show on the site in the same order they appear in the file.
 
 If the page goes blank or shows an error after saving, look at the terminal. It names the line with the problem, which is usually a missing comma or quote. Undo your last change (`Ctrl+Z`) and try again.
@@ -57,310 +62,194 @@ npm run build
 
 ---
 
-## 4. Profile (name, contacts, CV link, photos)
+## 4. Profile (`profile` in `resume.ts`)
 
-In `src/data/resume.ts`, the `profile` block at the top:
-
-```ts
-export const profile = {
-  name: 'Pavan Kalyan Kama',
-  shortName: 'Pavan',
-  role: 'Dot Net Developer',
-  email: 'pavankalyankama99@gmail.com',
-  phone: '+91 8885394611',
-  linkedin: 'https://www.linkedin.com/in/pavan-kalyan-743994280/',
-  address: 'D.no:2-46, Pedanandipadu, Pedanandipadu, Guntur - 522235.',
-  experience: '5.10',
-  resumeFile: '/Resume-Pavan-Kalyan-Kama.docx',
-  currentProject: 'CM-Core',
-  photo: '/profile-home.jpg',
-  aboutPhoto: '/profile.jpg',
-};
-```
-
-| Setting | Where it shows on the site |
+| Field | Where it shows |
 |---|---|
-| `name` | "Hello, i'm …" (Home and About), code window in the Home hero, footer copyright line |
-| `shortName` | Logo text (header and footer), first word of the Home headline ("**Pavan** is a …") |
-| `role` | Footer line under the logo |
-| `email` | Side icon rail, footer icons, mobile menu icons, Home contact box, Contacts page ("Message me here" and #all-media) |
-| `linkedin` | Same places as `email`. Opens your LinkedIn profile in a new tab. The text shown is the address without `https://www.`. |
-| `phone` | Same places as `email`. Clicking it starts a call on phones. |
-| `address` | Contacts page, "Find me here" box. Shorten it here if you don't want the full address public. |
-| `experience` | Code window in the hero ("Years => 5.10") and the big number on the Home #about-me section |
-| `resumeFile` | The "CV" download link in the header and mobile menu |
-| `currentProject` | "Currently working on **CM-Core**" bar under the hero |
-| `photo` | Home hero photo. See [section 5](#5-profile-photos). |
-| `aboutPhoto` | About me page photo. See [section 5](#5-profile-photos). |
+| `name` | Hero heading, footer, copyright line, photo alt text |
+| `shortName` | Header, next to the logo (`'Koteswara Rao'`) |
+| `initials` | The two letters in the logo mark (header and footer) |
+| `role` | Small label above your name in the hero, and under your name in the footer |
+| `email`, `phone` | Contact section and footer icons (clickable) |
+| `linkedin` | Contact section and footer icon; the full `https://...` address |
+| `location` | Contact section only (no link), e.g. `'Hyderabad, India'` |
+| `experience` | Hero fact `3.3 yrs` (just the number, as text: `'3.4'`) |
+| `currentClient` | Hero fact "Current client" |
+| `resumeFile` | Every "Download CV" / "CV" button |
+| `photo` | Hero photo |
 
-> **Contacts are always shown as Email → LinkedIn → Phone**: in the side icon rail (which stays pinned to the left edge as you scroll, on wide screens), the footer, the mobile menu, the Home contact box and the Contacts page. They all read from the same three settings above, so a change there updates every place.
+**Empty values are hidden.** Set `email`, `phone`, `linkedin` or `location` to `''` and that item disappears from the Contact section and the footer.
 
-> **Note:** `experience` doesn't change your summary paragraphs, which also say "5.10 years". When you update your years, change both `experience` and the first `summary` paragraph.
+The header subtitle "Workday FSCM Consultant" is fixed text in `src/components/Header.tsx` (look for `<small>`).
+
+When your experience changes, also update the number in the first `summary` paragraph.
 
 ---
 
-## 5. Profile photos
+## 5. Section by section (`resume.ts`)
 
-There are two photo slots. Each is **one line** in `src/data/resume.ts`; you never need to touch code to change them.
+### Hero
+- `hero.headline`: the paragraph under your name.
+- The three facts under it come from `profile.experience`, the number of `modules`, and `profile.currentClient`. Their labels ("Workday Financials experience", …) are in `src/components/Hero.tsx`.
 
-| Setting | Where it shows | Current file |
+### Modules (`modules`)
+Six tiles. Each has:
+- `name`: the tile title. **It must match a name in `skillIcons.tsx`** (case doesn't matter) to get its own icon and colour. The six current ones already do.
+- `code`: the short badge, e.g. `'GL'`.
+- `text`: one line of description.
+
+### Processes (`processFlows`)
+The tabbed section. Each block is one tab:
+- `key`: a short unique id with no spaces (`'p2p'`). Not shown.
+- `name`: the tab label.
+- `caption`: the sentence next to the title.
+- `steps`: the numbered boxes, each `{ title: '...', items: ['...', '...'] }`. Items show with a tick.
+
+The first tab in the list is the one that opens first.
+
+### Expertise (`workAreas`)
+One card per area:
+- `slug`: unique id, lowercase with dashes (`'fixed-assets'`). It also picks the icon (see below).
+- `name`, `tagline`: card title and subtitle.
+- `description`: the paragraph.
+- `responsibilities`: bullet list. The first 3 show; the rest appear behind "Show N more".
+- `tech`: the tags at the bottom of the card.
+- `accent`: the card's icon and tag colour, as a hex code such as `'#1d4ed8'`.
+
+**Icons:** `src/components/Expertise.tsx` has a list near the top, `const icons = { 'general-ledger': TbBook2, ... }`. A new slug that isn't in that list gets a briefcase. To give it its own icon, add a line with your slug and an icon name (browse icons at https://react-icons.github.io/react-icons/icons/tb/), and add the icon name to the `import { ... } from 'react-icons/tb'` list at the top of the file.
+
+### Experience (`experience`)
+One block per job, newest first:
+- `company`, `role`, `period` (e.g. `'June 2023 - Present'`).
+- `current: true` on your current job only (green date pill). Remove it from the old job when you move on.
+- `project` (optional): `{ name, client, role, teamSize }`, shown as a small fact box. Delete the whole `project: {...},` line if a job has none. `teamSize` is a number without quotes.
+- `highlights`: the ticked bullet list.
+
+### Skills (`skills`)
+Groups, each `{ title: '...', items: ['...', ...] }`. Add a skill by adding it to a group's `items`.
+
+**Skill icons** come from `src/components/skillIcons.tsx`:
+- The `byName` list maps an exact skill name (lowercase) to an icon and colour, e.g. `'unit testing': { icon: TbTestPipe, color: GREEN },`.
+- A new skill not in that list still gets a sensible icon from keywords in its name ("report", "security", "EIB", "test", "support", "config"…), or a default code icon.
+- To give it a specific icon: add a line to `byName` (name in lowercase), and if the icon is new, add it to the `import { ... } from 'react-icons/tb'` list at the top. Colours available: `PURPLE`, `BLUE`, `GREEN`, `YELLOW`, `RED`, `CYAN`, `ORANGE`.
+
+The same file supplies the Modules tile icons, which is why module names must match.
+
+### About (`summary`, `education`, `coreConcepts`)
+- `summary`: one text per paragraph.
+- `education`: `degree`, `university`, `year`, and an optional `score` (e.g. `score: '8.2 CGPA',`) shown in brackets after the year. Leave it out to hide it.
+- `coreConcepts`: the bullet list in the "Core concepts" card.
+
+### Contact (`contactIntro`)
+- `contactIntro`: the sentence under "Let's talk Workday Finance". The contact list itself comes from `profile`.
+
+---
+
+## 6. Sample Workday screens (hero)
+
+The two small "screens" over your photo (an Accounting Journal and a Business Process approval chain) are **illustrative sample data**, not real client data. Edit them in `src/components/WorkdayScreens.tsx`:
+
+- `JournalScreen`: the `lines` list (account, worktags, debit, credit) and the totals in the `Balanced` row. Keep debits and credits equal.
+- `ApprovalScreen`: the `steps` list.
+
+Don't put real client figures here.
+
+---
+
+## 7. Photo and CV
+
+### Photo
+Replace `public/profile.png` with your new photo **using the same file name**. A portrait (taller than wide) with a plain background works best. To use a different name or format, put the file in `public/` and set `profile.photo`, e.g. `photo: '/me.jpg',`. Set `photo: ''` to hide the photo.
+
+### CV
+The site serves the PDF `public/Resume-Koteswara-Rao-Doppalapudi.pdf` (a PDF opens in any browser). To update it, edit the Word resume, save it as PDF (**File → Save As → PDF**), and replace that file **using the same name**; every download button picks it up. To use a different file name, put it in `public/` and set `resumeFile`, e.g. `resumeFile: '/Koteswara-Rao-Doppalapudi-CV.pdf',`. Delete the old file from `public/`: anything in that folder can be downloaded.
+
+**Privacy reminder:** your CV contains your phone number and email address. Anyone who visits the site can download it.
+
+---
+
+## 8. Section headings and labels
+
+Each section's heading is set in its own file in `src/components/`. Change only the text in quotes.
+
+| Section | File | Current eyebrow / title |
 |---|---|---|
-| `photo` | **Home**, in the hero on the right: a framed print with a purple offset border, with the code window overlapping its lower-left corner | `public/profile-home.jpg` (you on the bike at night) |
-| `aboutPhoto` | **About me**, at the top of the right column, above your work timeline | `public/profile.jpg` (portrait) |
+| Modules | `Modules.tsx` | "Workday Financials" / "Modules I configure and support" (+ `intro`) |
+| Processes | `Processes.tsx` | "End-to-end processes" / "How finance flows through the tenant" (+ `intro`) |
+| Expertise | `Expertise.tsx` | "Areas of expertise" / "What I deliver in a Workday tenant" (+ `intro`) |
+| Experience | `Experience.tsx` | "Experience" / "Where I have delivered" |
+| Skills | `Skills.tsx` | "Skills" / "Functional and technical competencies" |
+| About | `About.tsx` | "About me" / "A functional consultant who owns the details" |
+| Contact | `Contact.tsx` | "Contact" / "Let's talk Workday Finance" |
 
-```ts
-photo: '/profile-home.jpg',
-aboutPhoto: '/profile.jpg',
-```
+Look for `<SectionHeading eyebrow="..." title="..." intro="..." />`. The `eyebrow` is the small label above the title; `intro` is optional.
 
-### Replace a photo
+Button labels ("Get in touch", "Download CV") are in `Hero.tsx` and `Contact.tsx`.
 
-**Easiest:** save your new picture over the old file in `public/` with **exactly the same name** (`profile-home.jpg` or `profile.jpg`). Nothing else to change.
-
-**With a new file name:**
-1. Copy the image into the `public` folder, for example `D:\Mine\Portfolio\New folder\public\new-photo.jpg`.
-2. Set the matching line to that name, with a `/` in front: `photo: '/new-photo.jpg',`
-3. Save.
-
-### Turn a photo off
-
-- `photo: '',` → Home shows only the code window, with no photo behind it.
-- `aboutPhoto: '',` → About me reuses the Home `photo`. If both are empty, About me shows no photo, just the timeline.
-
-### Photo tips
-
-- Square or portrait photos work best, ideally at least 700 px wide so they stay sharp on high-resolution screens. Your Home photo is 472 × 534, which is fine but a little soft on retina screens; the About photo is 1008 × 1046.
-- JPG, PNG and WebP all work. Keep each file under about 500 KB so the page loads fast. (Your originals were about 1.4 MB, so the copies in `public/` were saved as JPEGs at about 140 KB.)
-- Use a simple file name with no spaces, like `profile.jpg`. On most web hosts the name is case-sensitive, so `Profile.JPG` and `profile.jpg` are different files.
-- Keep faces in the upper half. On Home, the code window covers roughly the bottom fifth of the photo, and very tall photos are trimmed from the bottom.
-- On Home the photo is shown slightly desaturated so it sits with the dark theme, and it turns full colour on hover.
-- On Home the photo and the code window work like a stack of cards: clicking the photo brings it to the front, and clicking the Developer.cs card brings the card back. This works with the keyboard too (Tab, then Enter). It only applies when `photo` is set; nothing needs configuring.
-
-**If a photo doesn't show:** check the file is really in `public/` and the name matches exactly. A wrong name doesn't break the site: Home shows just the code window, and About me just shows the timeline.
+**Menu labels:** in `src/components/Header.tsx`, the `sections` list near the top. Change the `label` text only; the `id` must stay as it is because it points at the section. Removing a line removes it from the menu (the section itself stays on the page).
 
 ---
 
-## 6. Home page
+## 9. Look and feel
 
-In `src/data/resume.ts`, the `home` block:
+### Colours
+At the top of `src/styles.css`, inside `:root { ... }`. The main ones:
 
-```ts
-export const home = {
-  headline: 'is a [Dot Net developer] building [enterprise web applications]',
-  lead: 'He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices',
-  quote: { text: 'First, solve the problem. Then, write the code.', author: 'John Johnson' },
-  contactIntro: "I'm open to new opportunities. However, ...",
-};
-```
-
-| Setting | What it controls |
+| Token | Used for |
 |---|---|
-| `headline` | Big title. It starts with `shortName` automatically. **Words in `[square brackets]` turn purple.** |
-| `lead` | Smaller grey line under the title |
-| `quote.text`, `quote.author` | Quote box under the hero |
-| `contactIntro` | Text next to the contact box on Home, and on the Contacts page |
+| `--navy`, `--navy-2` | Hero, contact and footer background |
+| `--accent`, `--accent-hover` | Gold buttons and highlights |
+| `--brand` | Blue links and accents |
+| `--bg`, `--surface`, `--tint` | Page, card and alternate-section backgrounds |
+| `--ink`, `--text`, `--muted` | Headings, body text, secondary text |
+| `--line` | Borders |
 
-The rest of the Home page fills itself in from other sections:
+Also update `theme-color` in `index.html` (the mobile browser bar colour) if you change `--navy`.
 
-| Home section | Comes from |
-|---|---|
-| #projects | The **first 3** entries in `projects` ([section 8](#8-works-page-projects)) |
-| #skills | All of `skills` ([section 7](#7-skills-home-and-about)) |
-| #about-me text | The first **2** paragraphs of `summary` |
-| #about-me numbers | `experience`, the number of `projects`, the number of `experience` jobs (all counted automatically) |
-| #contacts | `email`, `linkedin`, `phone`, `contactIntro` |
+### Fonts
+Two steps:
+1. In `index.html`, change the Google Fonts `<link href="https://fonts.googleapis.com/css2?family=Inter...&family=Manrope...">` to your fonts (copy the link from fonts.google.com).
+2. In `src/styles.css`, change the first name in `--font-body` (body text, now Inter) and `--font-head` (headings, now Manrope).
 
----
-
-## 7. Skills (Home and About)
-
-In `src/data/resume.ts`, the `skills` list. Each group becomes one box:
-
-```ts
-{ title: 'Databases', items: ['MS SQL', 'PostgreSQL', 'MongoDB'] },
-```
-
-- **Add a skill:** add it to `items`, for example `['MS SQL', 'PostgreSQL', 'MongoDB', 'Redis']`.
-- **Add a new box:** copy a whole line, paste it below, and change `title` and `items`.
-- **Remove a box:** delete its whole line.
-- **Reorder boxes:** move the lines. Boxes follow the file order.
-
-The same list is used on both the Home page and the About page.
-
-### Skill icons
-
-Every skill shows a small icon in front of its name. Icons are grey and switch to the brand's colour (for example red for Angular, blue for Docker) when a visitor hovers over the box.
-
-- **Icons are matched by the skill's name**, so you don't set them in `resume.ts`.
-- **Adding a new skill:** it gets an icon automatically. Names containing "SQL" or "database" get a database icon, "Azure" or "cloud" a cloud icon, "API" an API icon, ".NET" or "ASP" the .NET logo. Anything else gets a generic `</>` code icon.
-- **Renaming a skill:** keep the same spelling to keep its icon. For example, changing `Docker` to `Docker Compose` drops back to the generic icon.
-- **Giving a skill its own icon:** open `src/components/skillIcons.tsx` and add a line to the `byName` list, using the skill name in lowercase:
-
-  ```ts
-  'docker compose': { icon: TbBrandDocker, color: '#2496ED' },
-  ```
-
-  `icon` is any icon from [react-icons](https://react-icons.github.io/react-icons/) (the site mostly uses the outline `Tb…` set; add it to the `import` list at the top), and `color` is the hover colour.
+### Tab icon, title and description
+- **Tab icon:** replace `public/favicon.svg` (an SVG, same name).
+- **Browser tab title:** `<title>` in `index.html`.
+- **Search-engine description:** `<meta name="description" content="...">` in `index.html`.
 
 ---
 
-## 8. Works page (projects)
-
-In `src/data/resume.ts`, the `projects` list. Each project looks like this:
-
-```ts
-{
-  slug: 'cm-core',
-  name: 'CM-Core',
-  tagline: 'Campaign Management Platform',
-  duration: 'Jan 2025 - Present',
-  tech: ['C#', 'ASP.NET Core 9', 'Web API', 'SQL Server', 'Angular 20'],
-  description: 'CM-Core (CM 2.0) is an enterprise campaign management platform ...',
-  responsibilities: [
-    'Responsible for implementing publish configuration ...',
-    'Responsible for multi-level approval policy integration ...',
-  ],
-  accent: '#C778DD',
-},
-```
-
-| Setting | What it controls |
-|---|---|
-| `slug` | Short unique ID used in links (`/works#cm-core`). Lowercase, hyphens, no spaces. Every project needs a different one. |
-| `name` | Title on the card and on the card's cover |
-| `tagline` | One-line summary under the title |
-| `duration` | Dates shown on the cover |
-| `tech` | Technology strip on the card |
-| `description` | Paragraph shown when "Details" is clicked |
-| `responsibilities` | Bullet list shown when "Details" is clicked |
-| `accent` | Cover colour. Any hex colour; the current ones are purple `#C778DD`, blue `#61AFEF`, green `#98C379`, yellow `#E5C07B`, red `#E06C75`. |
-
-- **Add a project:** copy a whole `{ ... },` block, paste it where you want it, and change the values.
-- **Choose what Home shows:** Home shows the first 3 projects, so move your best ones to the top.
-- **Remove a project:** delete its whole `{ ... },` block.
-
-**Work experience** (the "#work-experience" cards on Works and the timeline on About) comes from the `experience` list:
-
-```ts
-{ company: 'IBridge Techsoft', client: 'Warrous', period: 'November 2025 - Present', current: true },
-{ company: 'Aspire Systems Private Limited', period: 'September 2023 - July 2025' },
-```
-
-- `client` is optional. Leave it out if there isn't one.
-- `current: true` marks your present job: it gets the "Current" label and a filled purple marker on the timeline. Only put it on one job.
-- **Newest job first.** When you change jobs, add the new one at the top, move `current: true` to it, and set an end date on the old one.
-
----
-
-## 9. About me page
-
-| Part of the page | Setting in `resume.ts` |
-|---|---|
-| "Who am i?" subtitle | `pageSubtitles.about` |
-| Intro paragraphs | `summary`: one quoted item per paragraph. **All** are shown here; Home shows the first 2. |
-| Photo (right column) | `profile.aboutPhoto` ([section 5](#5-profile-photos)) |
-| Timeline (right column) | `experience` ([section 8](#8-works-page-projects)) |
-| #skills | `skills` ([section 7](#7-skills-home-and-about)) |
-| #education | `education` (`degree`, `university`, `year`, `score`) |
-| #quick-facts | `quickFacts` (see below) |
-
-**Quick facts** are the little boxes at the bottom:
-
-```ts
-{ text: 'Around 5.10 years of IT experience', highlights: ['5.10 years'] },
-```
-
-- `text` is the sentence.
-- `highlights` lists words in that sentence to show in bright white. They must be copied **exactly** from `text`, including capital letters. `highlights` is optional.
-
----
-
-## 10. Contacts page
-
-| Part of the page | Setting in `resume.ts` |
-|---|---|
-| Subtitle | `pageSubtitles.contacts` |
-| Intro text | `home.contactIntro` (shared with Home) |
-| "Find me here" box | `profile.address` |
-| "Message me here" box | `profile.email`, `profile.linkedin`, `profile.phone` |
-| #all-media | `profile.email`, `profile.linkedin`, `profile.phone` |
-
-The Works page subtitle ("List of my projects") is `pageSubtitles.works`.
-
----
-
-## 11. CV / resume download
-
-The downloadable file is:
-
-```
-public\Resume-Pavan-Kalyan-Kama.docx
-```
-
-- **Updating your CV (simplest):** replace that file with your new one and **keep exactly the same name**. Nothing else to change.
-- **Using a different name or a PDF:** put the new file in `public/`, then update `resumeFile` in `src/data/resume.ts`, for example:
-
-  ```ts
-  resumeFile: '/Pavan-Kalyan-Kama-CV.pdf',
-  ```
-
-  A PDF is a good choice: anyone can open it in a browser, while a .docx needs Word.
-
-- **Delete the old file** from `public/` if you're no longer linking to it. Anything in `public/` can be downloaded by visitors.
-
-**Privacy reminder:** your CV includes your phone number and home address. Anyone who visits the site can download it.
-
-**Links inside the CV:** the resume header lists your Portfolio (`https://portfolio-six-lyart-26.vercel.app/`) and LinkedIn as clickable links under E-mail and Mobile. When you make a new version of your CV in Word, keep those two lines, then replace the file in `public/` as above.
-
----
-
-## 12. Less common changes (other files)
-
-These are fixed labels rather than resume content, so they live in the page files. Change only the text between the quotes or tags.
-
-| What | File | Look for |
-|---|---|---|
-| Menu labels (`#home`, `#works`, …) | `src/components/Header.tsx` | `const links = [` |
-| Section headings (`#projects`, `#skills`, …) | `src/pages/Home.tsx`, `Works.tsx`, `About.tsx`, `Contacts.tsx` | `title="..."` |
-| "Contact me!!" button | `src/pages/Home.tsx` | `Contact me!!` |
-| "Message me here" / "Find me here" headings | `src/pages/Contacts.tsx` and `src/pages/Home.tsx` | `<h3>` |
-| Code-window text in the Home hero | `src/components/HeroArt.tsx` | `public class Developer` |
-| Browser tab title | `index.html` | `<title>` |
-| Search-engine description | `index.html` | `name="description"` |
-| Colours | `src/styles.css` | `:root {` at the top: `--bg` background, `--gray` text, `--primary` purple accent, `--white` headings |
-| Tab icon | `public/favicon.svg` | replace the file |
-| Skill icons and their hover colours | `src/components/skillIcons.tsx` | the `byName` list |
-
-The footer's copyright year updates by itself.
-
----
-
-## 13. Quick checklist: common updates
+## 10. Quick checklist: common updates
 
 | I want to… | Do this |
 |---|---|
 | Update my years of experience | `profile.experience` **and** the first `summary` paragraph |
-| Add a new job | Add it to the top of `experience`, move `current: true` to it, give the old job an end date |
-| Add a new project | Copy a block in `projects`; give it a unique `slug` |
-| Change which projects show on Home | Reorder `projects`: the first 3 show |
-| Add a skill | Add it to the right group's `items` in `skills` |
-| Replace my CV | Overwrite `public/Resume-Pavan-Kalyan-Kama.docx` with the same name |
-| Change my photos | Overwrite `public/profile-home.jpg` (Home) or `public/profile.jpg` (About) with the same name |
-| Change phone, email or LinkedIn | `profile.phone` / `profile.email` / `profile.linkedin` (updates everywhere) |
-| Hide my full address | Shorten `profile.address` |
-| Change the headline | `home.headline`: use `[brackets]` for purple words |
+| Change phone, email or LinkedIn | `profile.phone` / `email` / `linkedin` (`''` hides it) |
+| Show where I'm based | `profile.location`, e.g. `'Hyderabad, India'` |
+| Change client | `profile.currentClient`, the job's `project.client`, and any text that names Unity 3D (`summary`; the Expertise intro follows `currentClient` automatically) |
+| Add a new job | Add it at the top of `experience`, move `current: true` to it, give the old job an end date |
+| Add a work area | Copy a `workAreas` block, give it a unique `slug`, pick an `accent`, optionally add its icon in `Expertise.tsx` |
+| Add a process tab | Copy a `processFlows` block with a unique `key` |
+| Add a skill | Add it to a group's `items`; optionally add an icon in `skillIcons.tsx` |
+| Replace my CV or photo | Overwrite the file in `public/` with the same name |
 
 ---
 
-## 14. Publishing your changes
+## 11. Publishing your changes
+
+Before you publish:
+
+- [ ] `npm run dev` shows every section correctly, including on a narrow window (the menu becomes a button below 960px).
+- [ ] Contact links work: email opens mail, phone dials, LinkedIn opens your profile.
+- [ ] "Download CV" downloads the latest CV, and you're fine with its phone and email being public.
+- [ ] The photo shows, and the sample screens contain no real client data.
+- [ ] Tab title and description in `index.html` are up to date.
+- [ ] `npm run build` ends with `✓ built`.
 
 ```powershell
-cd "D:\Mine\Portfolio\New folder"
+cd "D:\Mine\Portfolio\koti portfolio"
 npm run build
 ```
 
-This creates the finished site in the `dist` folder. Upload the **contents** of `dist` to your host (Netlify, Vercel, GitHub Pages, Azure Static Web Apps, etc.).
-
-One host setting matters: turn on the "single-page app" / "rewrite all routes to `index.html`" option. Without it, opening a link like `/works` directly gives a 404.
+This creates the finished site in the `dist` folder. Upload the **contents** of `dist` to your host (Netlify, Vercel, GitHub Pages, Azure Static Web Apps, etc.). The site is a single page, so no special routing settings are needed.
 
 After each content change, run `npm run build` again and upload the new `dist`.

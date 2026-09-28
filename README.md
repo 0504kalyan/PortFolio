@@ -1,6 +1,6 @@
-# Pavan Kalyan Kama — Portfolio
+# Koteswara Rao Doppalapudi — Portfolio
 
-React + Vite + TypeScript portfolio built from the designs in this folder (`Home.png`, `Projects.png`, `About.png`, `Contacts.png`, `Burger*.png`) with content from `Resume-Pavan-Updated-v2.docx`.
+Single-page React + Vite + TypeScript site for a Workday Finance / FSCM Functional Consultant, with content from the resume; the downloadable CV is `public/Resume-Koteswara-Rao-Doppalapudi.pdf`.
 
 ## Run
 
@@ -13,19 +13,23 @@ npm run preview  # serve the build
 
 ## Edit content
 
-See **[CONTENT-GUIDE.md](CONTENT-GUIDE.md)** for how to update every section: Home, skills, works, about me, contacts, the CV and the profile photo.
+See **[CONTENT-GUIDE.md](CONTENT-GUIDE.md)** for how to update every section.
 
-All text lives in `src/data/resume.ts`. Profile photos are `public/profile-home.jpg` (Home) and `public/profile.jpg` (About me), set by `profile.photo` and `profile.aboutPhoto`.
+All text lives in `src/data/resume.ts`. The profile photo is `public/profile.png`, set by `profile.photo`.
 
-## Pages
+## Sections
 
-| Route       | Design         |
-|-------------|----------------|
-| `/`         | Home.png       |
-| `/works`    | Projects.png   |
-| `/about-me` | About.png      |
-| `/contacts` | Contacts.png   |
+One page, in this order (each is a component in `src/components/`):
 
-Below 768px the nav collapses into the burger menu (Burger.png / Burger open.png).
+| Section      | Component        | What it shows |
+|--------------|------------------|---------------|
+| `#top`       | `Hero`           | Name, role, headline, key facts, photo with sample Workday screens (accounting journal, business process) |
+| `#modules`   | `Modules`        | The six Workday Financials modules |
+| `#processes` | `Processes`      | Tabbed end-to-end flows: Procure-to-Pay, Record-to-Report, Order-to-Cash, Asset Lifecycle |
+| `#expertise` | `Expertise`      | Work areas with responsibilities |
+| `#experience`| `Experience`     | Employment timeline with the client project |
+| `#skills`    | `Skills`         | Competency groups |
+| `#about`     | `About`          | Summary, education, core concepts |
+| `#contact`   | `Contact`        | Email, phone, LinkedIn, CV download |
 
-When deploying to a static host, configure an SPA fallback so every route serves `index.html`.
+Below 960px the navigation collapses into a menu button.
