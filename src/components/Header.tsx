@@ -1,88 +1,82 @@
 import { useEffect, useState } from 'react';
-import { TbDownload, TbMenu2, TbX } from 'react-icons/tb';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { CloseIcon, Logo } from './Icons';
+import { MediaLinks } from './MediaLinks';
 import { usePortfolio } from '../content/PortfolioContext';
 
-/** Page sections in scroll order; each `id` matches a <section id> in the page. */
-const sections = [
-  { id: 'modules', label: 'Modules' },
-  { id: 'processes', label: 'Processes' },
-  { id: 'expertise', label: 'Expertise' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'about', label: 'About' },
-  { id: 'contact', label: 'Contact' },
+const links = [
+  { to: '/', label: 'home' },
+  { to: '/works', label: 'works' },
+  { to: '/about-me', label: 'about-me' },
+  { to: '/contacts', label: 'contacts' },
 ];
-
-/** The id of the section currently in the middle of the viewport. */
-function useActiveSection() {
-  const [active, setActive] = useState('');
-
-  useEffect(() => {
-    const els = sections.map((s) => document.getElementById(s.id)).filter((e): e is HTMLElement => e !== null);
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { rootMargin: '-45% 0px -50% 0px' },
-    );
-    els.forEach((e) => io.observe(e));
-    return () => io.disconnect();
-  }, []);
-
-  return active;
-}
 
 export function Header() {
   const { profile } = usePortfolio();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const active = useActiveSection();
+  const location = useLocation();
+
+  useEffect(() => setOpen(false), [location.pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const close = () => setOpen(false);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }, [open]);
 
   return (
-    <header className={`header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
+    <header className="header">
       <div className="container header__inner">
-        <a href="#top" className="brand" onClick={close}>
-          <span className="brand__mark">{profile.initials}</span>
-          <span className="brand__text">
-            <b>{profile.shortName}</b>
-            <small>{profile.headerTagline}</small>
-          </span>
-        </a>
+        <Link to="/" className="logo">
+          <Logo />
+          <span>{profile.shortName}</span>
+        </Link>
 
-        <nav className="nav" id="site-nav" aria-label="Sections">
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className={`nav__link ${active === s.id ? 'is-active' : ''}`}
-              aria-current={active === s.id ? 'true' : undefined}
-              onClick={close}
-            >
-              {s.label}
-            </a>
+        <nav className="nav" aria-label="Main">
+          {links.map((l) => (
+            <NavLink key={l.to} to={l.to} end className="nav__link">
+              <span className="hash">#</span>
+              {l.label}
+            </NavLink>
           ))}
-          <a className="btn btn--primary btn--sm nav__cv" href={profile.resumeUrl} download>
-            <TbDownload aria-hidden="true" /> CV
+          <a className="nav__cv" href={profile.resumeUrl} download>
+            CV
           </a>
         </nav>
 
         <button
-          className="menu-toggle"
+          className="burger"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
-          aria-controls="site-nav"
           onClick={() => setOpen((o) => !o)}
         >
-          {open ? <TbX size={24} /> : <TbMenu2 size={24} />}
+          {open ? (
+            <CloseIcon size={34} />
+          ) : (
+            <span className="burger__lines">
+              <span />
+              <span />
+            </span>
+          )}
         </button>
       </div>
+
+      {open && (
+        <div className="mobile-menu">
+          <nav className="mobile-menu__nav" aria-label="Mobile">
+            {links.map((l) => (
+              <NavLink key={l.to} to={l.to} end className="mobile-menu__link">
+                <span className="hash">#</span>
+                {l.label}
+              </NavLink>
+            ))}
+            <a className="mobile-menu__link mobile-menu__cv" href={profile.resumeUrl} download>
+              CV
+            </a>
+          </nav>
+          <div className="mobile-menu__media">
+            <MediaLinks size={48} />
+          </div>
+        </div>
+      )}
     </header>
   );
 }

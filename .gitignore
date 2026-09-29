@@ -7,5 +7,9 @@ my image.png
 my photo.png
 my coding photo.png
 
-# local admin dev data
+# local secrets and CMS dev data
+.env
+.env.*
+!.env.example
 .cms
+.vercel

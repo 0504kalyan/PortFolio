@@ -21,10 +21,12 @@ export class ErrorBoundary extends Component<Props, { failed: boolean }> {
 
 export function ContentUnavailable() {
   return (
-    <main className="section">
-      <div className="container">
-        <h2>This portfolio is temporarily unavailable.</h2>
-        <p>Please try again in a few minutes.</p>
+    <main className="container main">
+      <div className="page-title">
+        <h1>
+          <span className="hash">/</span>unavailable
+        </h1>
+        <p>This portfolio is temporarily unavailable. Please try again in a few minutes.</p>
       </div>
     </main>
   );

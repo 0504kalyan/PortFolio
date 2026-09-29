@@ -1,79 +1,89 @@
 # Portfolio Content Guide
 
-How to add, update and delete anything on Koteswara Rao Doppalapudi's portfolio, entirely from the **Portfolio Admin** app: no code, JSON, Git commands or manual deploys.
+How to add, update and delete anything on <https://portfolio-of-pavan.vercel.app/>, entirely from the **Portfolio Admin** app: no code, JSON, Git commands or manual deploys.
 
-**Short version:** open the Portfolio Admin, sign in, choose **Koteswara Rao Doppalapudi** if asked, open a section, make your change, press **Save**. The portfolio updates within about 1–2 minutes. The status at the top of the admin shows **Updating portfolio…** and then **Portfolio is up to date**.
+**Short version:** open the Portfolio Admin, sign in, choose **Pavan Kalyan Kama**, open a section, make your change, press **Save**. Your portfolio updates within about 1–2 minutes. The status at the top of the admin shows **Updating portfolio…** and then **Portfolio is up to date**.
 
-> Every action that changes content (Save, Delete, Restore, the Visible switch, ↑/↓) saves straight to the portfolio. Use **Preview** in any form to see the real page with your change before saving. **Version History** can undo any save.
+> Every action that changes content (Save, Delete, Restore, the Visible switch, ↑/↓) saves straight to the portfolio. Use **Preview** in any form to check a change before saving it. **Version History** can undo any save.
 
 ---
 
 ## 0. Getting in
 
 1. Open the Portfolio Admin URL and sign in.
-2. If your account manages more than one portfolio, choose **Koteswara Rao Doppalapudi** (or switch with the **Portfolio** menu at the top of the sidebar). A Koti-only account goes straight to this portfolio.
-3. The menu lists this portfolio's sections: Profile, Hero & SEO, Modules, Processes, Expertise, Experience, Skills, About & Education, Contact.
+2. If your account manages more than one portfolio, choose **Pavan Kalyan Kama** (or switch with the **Portfolio** menu at the top of the sidebar).
+3. The menu on the left lists this portfolio's sections; **Dashboard** shows what's on the site and whether it's up to date.
 
 ## 1. Add something
 
-Example: a new module tile.
+Example: a new project.
 
-1. Admin → **Modules** → **+ Add module**.
-2. Fill in **Module name**, **Short code** (e.g. `BNK`) and **Description**. Required fields are marked `*`.
-3. Optional: **Preview** opens the page at the Modules section with the new tile.
-4. Press **Add module**. You'll see *"Module added successfully."* It's live when the status shows **Portfolio is up to date**.
+1. Admin → **Projects** → **+ Add project**.
+2. Fill in the form. Required fields are marked `*` (for a project, only the title).
+3. Optional: press **Preview** to see the portfolio with the new project, then **Close preview**.
+4. Press **Add project**. You'll see *"Project added successfully."*
+5. Wait for **Portfolio is up to date** (1–2 minutes). The project is live.
 
-The same steps add a **process** (tab), **work area** (Expertise card), **job** (Experience) or **skill group**.
+The same steps work for every list: **Skills** (pick the category), **Experience**, **Education**, **Certifications**, **Achievements**, and **About → Quick facts**. To show a project on the Home page too, turn on **Feature on Home**; Home shows the first three featured projects.
 
 ## 2. Update something
 
-Example: add a step to a process.
+Example: change a project's technologies.
 
-1. Admin → **Processes** → **Edit** on the process (e.g. *Procure-to-Pay*).
-2. Under **Steps**, use **+ Add step**, then fill **Step title** and **What was configured** (one item per line). ↑/↓ reorder steps; **Remove** deletes one.
+1. Admin → **Projects** → **Edit** on the project.
+2. Change the fields. For **Technologies**, put one per line.
 3. Optional: **Preview**.
-4. Press **Save changes**. You'll see *"Process updated successfully."*
+4. Press **Save changes**. You'll see *"Project updated successfully."* The portfolio updates in 1–2 minutes.
 
-For single sections (**Profile**, **Hero & SEO**, **About & Education**, **Contact**), edit the fields and press that form's **Save**. **Undo changes** puts the form back.
+For single sections (**Profile**, **About**, **Home & SEO**, **Social Links**), edit the fields and press that form's **Save**. **Undo changes** puts the form back as it was.
 
 ## 3. Delete something
 
 1. Admin → the section → **Delete** on the entry.
-2. Confirm: *"Are you sure you want to delete this …?"* → **Delete**. It leaves the portfolio after the next update and moves to the **Deleted** tab.
-3. **Undo:** **Deleted** tab → **Restore**. **Delete for good:** **Deleted** tab → **Delete permanently** (then only Version History can bring it back).
+2. Confirm: *"Are you sure you want to delete this …?"* → **Delete**.
+3. It disappears from the portfolio after the next update (1–2 minutes) and moves to the section's **Deleted** tab.
+
+**Undo a delete:** open the **Deleted** tab → **Restore**. It returns to the portfolio.
+
+**Delete for good:** in the **Deleted** tab → **Delete permanently** → confirm. It can then only be recovered from Version History.
 
 ## 4. Hide, archive, reorder
 
-| Action | How | Effect |
+| Action | How | Effect on the portfolio |
 |---|---|---|
-| Hide / show | The **Visible** switch | Hidden entries stay in the admin but aren't on the page |
-| Archive | **Archive** (undo: **Archived** tab → **Restore**) | Removed from the page, kept for later |
-| Reorder | **↑ / ↓** | The page shows entries in this order. The first process is the tab that opens first. |
+| Hide / show | The **Visible** switch on the row | Hidden entries stay in the admin but aren't shown |
+| Archive | **Archive** on the row (undo: **Archived** tab → **Restore**) | Removed from the portfolio, kept for later |
+| Reorder | **↑ / ↓** on the row | The portfolio shows entries in this order. Skills are ordered within their category. |
 
 ## 5. Undo a change (Version History)
 
-Admin → **Version History** → **View** (preview + what would change) → **Restore** → confirm. The portfolio goes back to that version, saved as a new version, so nothing is lost.
+1. Admin → **Version History**. Every save is listed, newest first, with a description such as *"Update project: iPay-BillPay"*.
+2. **View** shows that version in a preview and lists what restoring it would change.
+3. **Restore** → confirm. The portfolio goes back to that version (saved as a new version, so nothing is lost and you can go forward again).
 
 ---
 
-## Where each admin section shows on the page
+## Where each admin section shows on the portfolio
 
-| Admin section | Page |
+| Admin section | Portfolio |
 |---|---|
-| **Profile** | Name (hero, footer), short name and initials (header logo), role (hero label, footer), header tagline, email/phone/LinkedIn/location (Contact and footer; empty ones are hidden), years of experience and current client (hero facts; the client also appears in the Expertise intro), photo, CV file (every Download CV button). |
-| **Hero & SEO** | The paragraph under your name; the browser-tab title and search description. |
-| **Modules** | The Workday Financials tiles. A module named like a skill icon (e.g. *General Ledger*) gets that icon and colour. The hero's module count updates by itself. |
-| **Processes** | The tabbed "How finance flows through the tenant" section and its numbered steps. |
-| **Expertise** | The "Areas of expertise" cards. The first 3 responsibilities show; the rest are behind "Show N more". The card icon comes from the ID (see the hint under **Advanced → ID**). |
-| **Experience** | The timeline. Tick **current job** for the green date pill. Fill **Project name** to show the project fact box (client, role, team size). |
-| **Skills** | The skill groups and chips. Icons are matched from each skill's name. |
-| **About & Education** | The About paragraphs, the "Core concepts" card and the Education card (score is optional). |
-| **Contact** | The sentence under "Let's talk Workday Finance". |
+| **Profile** | Name, short name (logo and first word of the headline), job title and footer tagline, email/phone (side rail, footer, menu, contact boxes), location ("Find me here" on Contacts), years of experience and "Currently working on" (Home), short bio, the code-window stack, both photos, the CV download. |
+| **About** | The About page paragraphs (Home shows the first two) and the quick facts boxes. |
+| **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote, contact intro, page subtitles, the browser-tab title and the search-engine description. |
+| **Skills** | Categories are the boxes; skills are the entries inside them (Home and About). |
+| **Experience** | #work-experience on Works and the timeline on About. |
+| **Education** | The #education line on About. |
+| **Projects** | Works shows all visible projects; Home shows the featured ones. |
+| **Certifications** / **Achievements** | Sections on About, shown once you add an entry. |
+| **Social Links** | LinkedIn, plus GitHub, X/Twitter and Website when filled in. Empty links are hidden. |
+
+Fields marked *"not displayed by the current site design"* are saved but don't appear on the portfolio yet.
 
 ## Tips
 
-- **Photo and CV:** use **Upload** next to the field, then **Save**. JPG, PNG, WebP, GIF, PDF or DOCX, up to 3 MB. A PDF CV opens in any browser. Uploaded files, including the CV with phone and email, are public.
-- **Years of experience:** also update the number in the first About paragraph.
-- **"The portfolio changed elsewhere":** another tab or device saved first. Press **Reload Latest** and redo your change; nothing was overwritten.
-- **Still "Updating portfolio…" after 5 minutes:** check the portfolio's latest deployment in Vercel.
-- **What still needs a code change:** section headings and labels, menu labels, colours and fonts, icons, and the sample Workday screens in the hero (they are illustrative; don't put real client data there).
+- **Dates:** `YYYY-MM` (e.g. `2025-01`) or a year (`2020`). Tick **current job** / **ongoing** instead of an end date.
+- **Photos and CV:** use the **Upload** button next to the field, then **Save**. JPG, PNG, WebP, GIF, PDF or DOCX, up to 3 MB. Uploaded files, including your CV with your phone and address, are public.
+- **Skill icons** are matched from the name; choose one in the skill's **Icon** field to override.
+- **Quick-fact highlights:** one per line, copied exactly from the fact text.
+- **"The portfolio changed elsewhere":** another tab or device saved first. Press **Reload Latest** and make your change again; nothing was overwritten.
+- **Status stays "Updating portfolio…" for more than 5 minutes:** check the portfolio project's latest deployment in Vercel.

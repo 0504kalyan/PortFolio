@@ -1,604 +1,906 @@
 {
   "schemaVersion": 1,
   "seo": {
-    "title": "Koteswara Rao Doppalapudi · Workday FSCM Consultant",
-    "description": "Koteswara Rao Doppalapudi — Workday FSCM Functional Consultant: Workday Financials GL, AP, AR, Fixed Assets, Procurement and Expenses."
+    "title": "Pavan Kalyan Kama · .NET Developer",
+    "description": "Pavan Kalyan Kama — Dot Net Developer building enterprise web applications with ASP.NET Core, Web API, Angular, React and microservices."
   },
   "profile": {
-    "name": "Koteswara Rao Doppalapudi",
-    "shortName": "Koteswara Rao",
-    "initials": "KR",
-    "role": "Workday Finance / FSCM Functional Consultant",
-    "headerTagline": "Workday FSCM Consultant",
-    "email": "1999koti@gmail.com",
-    "phone": "+91 8464096717",
-    "linkedin": "https://www.linkedin.com/in/doppalapudi-koteswara-rao-3528b024b/",
-    "location": "",
-    "experience": "3.3",
-    "currentClient": "Unity 3D",
-    "photo": "/profile.png",
-    "resumeUrl": "/Resume-Koteswara-Rao-Doppalapudi.pdf"
-  },
-  "hero": {
-    "headline": "I configure and support Workday Financials end to end, from ledgers and posting rules to approvals, security, data loads and reporting."
-  },
-  "about": {
-    "summary": [
-      "I'm an MCA post graduate and a thorough, tenacious Workday FSCM Functional Consultant with 3.3 years of experience across the Workday Financials modules: General Ledger, Accounts Payable, Accounts Receivable, Fixed Assets, Procurement and Expenses. I bring a deep understanding of client business requirements, with a flair for results and problem solving.",
-      "At Swift Solution Private Limited I implement and support Workday Financials for Unity 3D: companies, ledgers and account posting rule sets, worktags and organization hierarchies, financial business processes and approval workflows, security roles, EIB data loads and custom reports.",
-      "I am skilled in functional design, unit testing and user acceptance testing, and provide post-production support with issue analysis and root cause identification within SLA. I have excellent client interaction skills and work well independently as well as in a team."
+    "name": "Pavan Kalyan Kama",
+    "shortName": "Pavan",
+    "title": "Dot Net Developer",
+    "location": "D.no:2-46, Pedanandipadu, Pedanandipadu, Guntur - 522235.",
+    "email": "pavankalyankama99@gmail.com",
+    "phone": "+91 8885394611",
+    "profileImage": "/profile-home.jpg",
+    "aboutImage": "/profile.jpg",
+    "resumeUrl": "/Resume-Pavan-Kalyan-Kama.docx",
+    "yearsOfExperience": "5.11",
+    "currentProject": "CM-Core",
+    "shortBio": "He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices",
+    "about": [
+      "Dot Net Developer with around 5.10 years of IT experience covering all phases of the Software Design Life Cycle (SDLC) including Analysis, Design, Development, Testing, and Support of Web Applications, based on Object Oriented Programming (OOP), Client/Server, N-tier architecture, Web based and Internet Technologies.",
+      "Experienced in building enterprise web applications using ASP.NET Core, Web API, Angular, and microservices/micro-frontend architectures. Skilled in translating business requirements into scalable solutions with multi-level approval workflows, role-based access control, tenant scoping, and scheduled publication features.",
+      "Proficient in AI-assisted development using GitHub Copilot, Cursor, and Claude to improve productivity, code quality, and delivery speed. Worked closely with business analysts and converted the requirements into Dot Net code."
     ],
-    "coreConcepts": [
-      "Workday architecture and tenant setup",
-      "Organizational structures: company, cost center, location and project hierarchies",
-      "Business Process Framework: creation, configuration and condition rules",
-      "Security groups, user-based groups and domain policies",
-      "Worktags and financial dimensions: spend categories, revenue categories, custom worktags",
-      "Ledger and accounting setup: ledger accounts, account posting rule sets, journal sources",
-      "Allocation definitions and financial reporting structures",
-      "Data migration using EIB (inbound and outbound)"
-    ]
+    "techStack": [
+      "ASP.NET Core",
+      "Web API",
+      "Angular",
+      "React",
+      "SQL Server"
+    ],
+    "footerTagline": "ASP.NET Core · Angular · React"
   },
-  "education": {
-    "degree": "MCA",
-    "university": "Acharya Nagarjuna University",
-    "year": "2023",
-    "score": ""
+  "home": {
+    "headline": "is a [Dot Net developer] building [enterprise web applications]",
+    "quote": {
+      "text": "First, solve the problem. Then, write the code.",
+      "author": "John Johnson"
+    },
+    "contactIntro": "I'm open to new opportunities. However, if you have other request or question, don't hesitate to contact me"
   },
-  "contact": {
-    "intro": "Looking for a Workday Finance consultant for an implementation, enhancement or production support? I'd be glad to hear from you."
+  "pageSubtitles": {
+    "works": "List of my projects",
+    "about": "Who am i?",
+    "contacts": "Get in touch"
   },
-  "modules": [
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/pavan-kalyan-743994280/",
+    "github": "",
+    "twitter": "",
+    "website": ""
+  },
+  "skillCategories": [
     {
-      "id": "general-ledger",
+      "id": "languages",
       "displayOrder": 1,
       "isVisible": true,
       "status": "active",
-      "name": "General Ledger",
-      "code": "GL",
-      "text": "Companies, ledgers, calendars, ledger accounts and account posting rule sets."
+      "name": "Languages"
     },
     {
-      "id": "accounts-payable",
+      "id": "databases",
       "displayOrder": 2,
       "isVisible": true,
       "status": "active",
-      "name": "Accounts Payable",
-      "code": "AP",
-      "text": "Supplier invoices, supplier categories, bank accounts and settlement runs."
+      "name": "Databases"
     },
     {
-      "id": "accounts-receivable",
+      "id": "frameworks",
       "displayOrder": 3,
       "isVisible": true,
       "status": "active",
-      "name": "Accounts Receivable",
-      "code": "AR",
-      "text": "Customer invoices, customer categories, sales items and revenue categories."
+      "name": "Frameworks"
     },
     {
-      "id": "fixed-assets",
+      "id": "front-end",
       "displayOrder": 4,
       "isVisible": true,
       "status": "active",
-      "name": "Fixed Assets",
-      "code": "FA",
-      "text": "Asset books, depreciation profiles, transfers, disposal and impairment."
+      "name": "Front-end"
     },
     {
-      "id": "procurement",
+      "id": "architecture",
       "displayOrder": 5,
       "isVisible": true,
       "status": "active",
-      "name": "Procurement",
-      "code": "PRC",
-      "text": "Requisitions, purchase orders, purchase items and the supplier portal."
+      "name": "Architecture"
     },
     {
-      "id": "expenses",
+      "id": "devops",
       "displayOrder": 6,
       "isVisible": true,
       "status": "active",
-      "name": "Expenses",
-      "code": "EXP",
-      "text": "Expense items and spend categories for employee spend."
-    }
-  ],
-  "processFlows": [
-    {
-      "id": "p2p",
-      "displayOrder": 1,
-      "isVisible": true,
-      "status": "active",
-      "name": "Procure-to-Pay",
-      "caption": "From a requisition to a paid supplier and a posted journal.",
-      "steps": [
-        {
-          "title": "Requisition",
-          "items": [
-            "Requisition business process",
-            "Purchase items",
-            "Spend categories"
-          ]
-        },
-        {
-          "title": "Purchase Order",
-          "items": [
-            "PO business process",
-            "Approval workflows"
-          ]
-        },
-        {
-          "title": "Supplier Invoice",
-          "items": [
-            "Supplier Invoice business process",
-            "Supplier categories",
-            "Supplier Invoice EIB"
-          ]
-        },
-        {
-          "title": "Payment",
-          "items": [
-            "Bank accounts",
-            "Payment types",
-            "Settlement runs"
-          ]
-        },
-        {
-          "title": "Accounting",
-          "items": [
-            "Account posting rule sets",
-            "Worktags"
-          ]
-        }
-      ]
+      "name": "DevOps"
     },
     {
-      "id": "r2r",
-      "displayOrder": 2,
-      "isVisible": true,
-      "status": "active",
-      "name": "Record-to-Report",
-      "caption": "Journals posted to the right ledger accounts, allocated and reported.",
-      "steps": [
-        {
-          "title": "Accounting Journal",
-          "items": [
-            "Journal business process",
-            "Journal sources",
-            "Journal EIB"
-          ]
-        },
-        {
-          "title": "Posting",
-          "items": [
-            "Ledger accounts",
-            "Account posting rule sets"
-          ]
-        },
-        {
-          "title": "Allocations",
-          "items": [
-            "Allocation definitions",
-            "Custom validations"
-          ]
-        },
-        {
-          "title": "Intercompany",
-          "items": [
-            "Intercompany processing"
-          ]
-        },
-        {
-          "title": "Reporting",
-          "items": [
-            "Custom reports",
-            "Scheduled reports",
-            "Dashboards"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "o2c",
-      "displayOrder": 3,
-      "isVisible": true,
-      "status": "active",
-      "name": "Order-to-Cash",
-      "caption": "Customers invoiced with the right sales items and revenue categories.",
-      "steps": [
-        {
-          "title": "Customer",
-          "items": [
-            "Customer categories",
-            "Customer master data"
-          ]
-        },
-        {
-          "title": "Sales Item",
-          "items": [
-            "Sales items",
-            "Revenue categories"
-          ]
-        },
-        {
-          "title": "Customer Invoice",
-          "items": [
-            "Customer Invoice business process",
-            "Customer Invoice EIB"
-          ]
-        },
-        {
-          "title": "Revenue",
-          "items": [
-            "Revenue recognition",
-            "Accruals & adjustments"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "assets",
-      "displayOrder": 4,
-      "isVisible": true,
-      "status": "active",
-      "name": "Asset Lifecycle",
-      "caption": "Assets registered, depreciated, moved and retired.",
-      "steps": [
-        {
-          "title": "Register",
-          "items": [
-            "Asset books",
-            "Asset Register EIB"
-          ]
-        },
-        {
-          "title": "Depreciate",
-          "items": [
-            "Depreciation profiles"
-          ]
-        },
-        {
-          "title": "Transfer",
-          "items": [
-            "Asset transfers"
-          ]
-        },
-        {
-          "title": "Retire",
-          "items": [
-            "Impairment",
-            "Disposal",
-            "Dispose Asset EIB"
-          ]
-        }
-      ]
-    }
-  ],
-  "workAreas": [
-    {
-      "id": "general-ledger",
-      "displayOrder": 1,
-      "isVisible": true,
-      "status": "active",
-      "name": "General Ledger",
-      "tagline": "Ledgers, posting rules & allocations",
-      "description": "Accounting foundation of the Workday tenant: companies, ledgers, fiscal calendars and ledger accounts, with account posting rule sets that turn each business transaction into the right journal lines, plus allocation definitions and intercompany processing.",
-      "responsibilities": [
-        "Created Companies, Ledgers, Calendars and Ledger Accounts.",
-        "Defined Account Posting Rule Sets for various transactions.",
-        "Created custom validations and allocation definitions.",
-        "Set up allocation definitions and intercompany processing.",
-        "Configured the Accounting Journal business process.",
-        "Created Accounting Journal EIBs for bulk journal uploads."
-      ],
-      "tech": [
-        "Companies",
-        "Ledgers",
-        "Calendars",
-        "Ledger Accounts",
-        "Account Posting Rule Sets",
-        "Journal Sources",
-        "Allocations",
-        "Intercompany"
-      ],
-      "accent": "#6d28d9"
-    },
-    {
-      "id": "procure-to-pay",
-      "displayOrder": 2,
-      "isVisible": true,
-      "status": "active",
-      "name": "Procure-to-Pay",
-      "tagline": "AP, Procurement & Expenses",
-      "description": "From requisition to payment: requisition, purchase order and supplier invoice business processes, supplier master data and portal, purchase and expense items, and the bank accounts, payment types and settlement runs that pay suppliers.",
-      "responsibilities": [
-        "Configured business processes for Supplier Invoice, Requisition and Purchase Order.",
-        "Set up Supplier categories and supplier master data.",
-        "Implemented Supplier External Site and portal enhancements.",
-        "Created Purchase Items and Expense Items.",
-        "Set up Bank Accounts, Routing Rule Sets, payment types and settlement runs.",
-        "Created Supplier Invoice EIBs for bulk uploads."
-      ],
-      "tech": [
-        "Supplier Invoice",
-        "Requisition",
-        "Purchase Order",
-        "Supplier Categories",
-        "Supplier Portal",
-        "Purchase Items",
-        "Expense Items",
-        "Settlement Runs"
-      ],
-      "accent": "#1d4ed8"
-    },
-    {
-      "id": "accounts-receivable",
-      "displayOrder": 3,
-      "isVisible": true,
-      "status": "active",
-      "name": "Accounts Receivable",
-      "tagline": "Customers, invoices & revenue",
-      "description": "Order-to-cash setup: customer master data and categories, sales items and revenue categories, and the customer invoice business process, grounded in revenue recognition and accrual concepts.",
-      "responsibilities": [
-        "Set up Customer categories and customer master data.",
-        "Created Sales Items and mapped Revenue Categories.",
-        "Configured the Customer Invoice business process.",
-        "Created Customer Invoice EIBs for bulk uploads.",
-        "Applied accounting concepts: journal entries, accruals, adjustments and revenue recognition."
-      ],
-      "tech": [
-        "Customer Invoice",
-        "Customer Categories",
-        "Sales Items",
-        "Revenue Categories",
-        "Revenue Recognition"
-      ],
-      "accent": "#15803d"
-    },
-    {
-      "id": "fixed-assets",
-      "displayOrder": 4,
-      "isVisible": true,
-      "status": "active",
-      "name": "Fixed Assets",
-      "tagline": "Asset books & depreciation",
-      "description": "Full asset lifecycle in Workday: asset books and depreciation profiles, transfers between organizations, disposal and impairment, with the asset register loaded and maintained through EIBs.",
-      "responsibilities": [
-        "Managed Asset Books and Depreciation Profiles.",
-        "Handled Asset Transfers, Disposal and Impairment.",
-        "Created Asset Register and Dispose Asset EIBs for bulk data loads."
-      ],
-      "tech": [
-        "Asset Books",
-        "Depreciation Profiles",
-        "Asset Transfers",
-        "Disposal",
-        "Impairment",
-        "Asset Register EIB"
-      ],
-      "accent": "#b45309"
-    },
-    {
-      "id": "worktags-organizations",
-      "displayOrder": 5,
-      "isVisible": true,
-      "status": "active",
-      "name": "Worktags & Organizations",
-      "tagline": "Financial dimensions & hierarchies",
-      "description": "The dimensions every transaction is tagged with: spend and revenue categories, cost centers, projects and custom worktags, organized into company, cost center, location and project hierarchies for reporting and security.",
-      "responsibilities": [
-        "Configured Worktags: Spend Categories, Revenue Categories, Cost Centers and Projects.",
-        "Mapped financial dimensions across spend, revenue, cost center and project.",
-        "Created Cost Center, Project and Location hierarchies.",
-        "Set up Company organizational hierarchies."
-      ],
-      "tech": [
-        "Spend Categories",
-        "Revenue Categories",
-        "Cost Centers",
-        "Projects",
-        "Locations",
-        "Custom Worktags"
-      ],
-      "accent": "#be123c"
-    },
-    {
-      "id": "security-business-processes",
-      "displayOrder": 6,
-      "isVisible": true,
-      "status": "active",
-      "name": "Security & Business Processes",
-      "tagline": "Roles, domains & approval workflows",
-      "description": "Who can do what, and who approves it: business process definitions with condition rules and approval chains for financial transactions, backed by security roles, user-based groups and domain security policies.",
-      "responsibilities": [
-        "Configured financial business processes and approval workflows.",
-        "Built business process condition rules.",
-        "Created and assigned security roles and user-based groups.",
-        "Maintained domain security policies."
-      ],
-      "tech": [
-        "Business Process Framework",
-        "Condition Rules",
-        "Approval Workflows",
-        "Security Roles",
-        "User-Based Groups",
-        "Domain Security Policies"
-      ],
-      "accent": "#0f766e"
-    },
-    {
-      "id": "eib-data-migration",
+      "id": "tools",
       "displayOrder": 7,
       "isVisible": true,
       "status": "active",
-      "name": "EIB Data Migration",
-      "tagline": "Inbound & outbound data loads",
-      "description": "Moving financial data in and out of Workday with Enterprise Interface Builder: bulk loads for journals, supplier and customer invoices and assets, and outbound extracts, with XSLT transformations where needed.",
-      "responsibilities": [
-        "Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.",
-        "Created Accounting Journal, Supplier Invoice and Customer Invoice EIBs.",
-        "Performed financial data migration with inbound and outbound EIBs.",
-        "Used XSLT for data transformation."
-      ],
-      "tech": [
-        "EIB Inbound",
-        "EIB Outbound",
-        "XSLT",
-        "Journals",
-        "Supplier Invoices",
-        "Customer Invoices",
-        "Assets"
-      ],
-      "accent": "#c2410c"
+      "name": "Tools"
     },
     {
-      "id": "reporting-support",
+      "id": "methodologies",
       "displayOrder": 8,
       "isVisible": true,
       "status": "active",
-      "name": "Reporting & Support",
-      "tagline": "Reports, testing & production support",
-      "description": "Keeping finance running after go-live: custom reports and dashboards scheduled to business needs, functional design and testing for new deliverables, and post-production support with root cause analysis.",
-      "responsibilities": [
-        "Developed custom reports and scheduled them as per business requirements.",
-        "Configured financial reporting and dashboards.",
-        "Wrote functional designs and ran unit testing and user acceptance testing.",
-        "Provided post-production support and resolved financial issues as per SLA.",
-        "Performed issue analysis and root cause identification."
-      ],
-      "tech": [
-        "Custom Reports",
-        "Scheduled Reports",
-        "Dashboards",
-        "Unit Testing",
-        "UAT",
-        "SLA Support"
-      ],
-      "accent": "#4338ca"
+      "name": "Methodologies"
+    }
+  ],
+  "skills": [
+    {
+      "id": "languages-c",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "C#",
+      "category": "languages",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "languages-t-sql",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "T-SQL",
+      "category": "languages",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "languages-pl-sql",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "PL/SQL",
+      "category": "languages",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "languages-javascript",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "JavaScript",
+      "category": "languages",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "languages-typescript",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "TypeScript",
+      "category": "languages",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "databases-ms-sql",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "MS SQL",
+      "category": "databases",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "databases-postgresql",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "PostgreSQL",
+      "category": "databases",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "databases-mongodb",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "MongoDB",
+      "category": "databases",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-dot-net-core",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Dot Net Core",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-asp-net",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Asp.Net",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-asp-net-mvc",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "Asp.Net MVC",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-asp-net-core",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Asp.Net Core",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-web-api",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "WEB API",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-entity-framework",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "Entity Framework",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-dapper",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "name": "Dapper",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-linq",
+      "displayOrder": 8,
+      "isVisible": true,
+      "status": "active",
+      "name": "LINQ",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "frameworks-wcf",
+      "displayOrder": 9,
+      "isVisible": true,
+      "status": "active",
+      "name": "WCF",
+      "category": "frameworks",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-angular-16-18-and-20",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Angular 16, 18 & 20",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-react",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "React",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-rxjs",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "RxJS",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-nx",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Nx",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-module-federation",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "Module Federation",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-html",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "HTML",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-css",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "name": "CSS",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "front-end-tailwind-css",
+      "displayOrder": 8,
+      "isVisible": true,
+      "status": "active",
+      "name": "Tailwind CSS",
+      "category": "front-end",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-microservices",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Microservices",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-micro-frontend",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Micro-frontend",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-rest-apis",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "REST APIs",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-multi-tenant",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Multi-tenant",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-rbac",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "RBAC",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-caching-imemorycache",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "Caching (IMemoryCache)",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "architecture-performance-tuning-and-query-optimization",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "name": "Performance Tuning & Query Optimization",
+      "category": "architecture",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "devops-tfs",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "TFS",
+      "category": "devops",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "devops-git",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Git",
+      "category": "devops",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "devops-azure-devops-ci-cd",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "Azure DevOps CI/CD",
+      "category": "devops",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "devops-docker",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Docker",
+      "category": "devops",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "devops-azure-container-apps",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "Azure Container Apps",
+      "category": "devops",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-visual-studio-net",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Visual Studio .NET",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-sql-server-management-studio",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "SQL Server Management Studio",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-pgadmin",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "pgAdmin",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-visual-studio-code",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Visual Studio Code",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-postman",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "Postman",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-github-copilot",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "GitHub Copilot",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-cursor",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "name": "Cursor",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "tools-claude",
+      "displayOrder": 8,
+      "isVisible": true,
+      "status": "active",
+      "name": "Claude",
+      "category": "tools",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "methodologies-agile",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Agile",
+      "category": "methodologies",
+      "level": "",
+      "icon": ""
+    },
+    {
+      "id": "methodologies-scrum",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Scrum",
+      "category": "methodologies",
+      "level": "",
+      "icon": ""
     }
   ],
   "experience": [
     {
-      "id": "swift-solution-private-limited",
+      "id": "ibridge-techsoft",
       "displayOrder": 1,
       "isVisible": true,
       "status": "active",
-      "company": "Swift Solution Private Limited",
-      "role": "Workday Consultant",
-      "period": "June 2023 - Present",
+      "company": "IBridge Techsoft",
+      "client": "Warrous",
+      "position": "",
+      "location": "",
+      "startDate": "2025-11",
+      "endDate": "",
       "isCurrent": true,
-      "project": {
-        "name": "Workday Development and Support",
-        "client": "Unity 3D",
-        "role": "Workday Finance Consultant",
-        "teamSize": 5
-      },
-      "highlights": [
-        "Implemented and supported Workday Financial modules (GL, AP, AR, FA).",
-        "Configured Workday GL, AP, AR and Procurement modules.",
-        "Configured financial business processes and approval workflows.",
-        "Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.",
-        "Developed custom reports and scheduled them as per business requirements.",
-        "Provided post-production support and resolved financial issues as per SLA."
-      ]
-    }
-  ],
-  "skillGroups": [
-    {
-      "id": "workday-financials",
-      "displayOrder": 1,
-      "isVisible": true,
-      "status": "active",
-      "title": "Workday Financials",
-      "items": [
-        "General Ledger",
-        "Accounts Payable",
-        "Accounts Receivable",
-        "Fixed Assets",
-        "Procurement",
-        "Expenses"
-      ]
+      "description": "",
+      "technologies": []
     },
     {
-      "id": "configuration",
+      "id": "aspire-systems-private-limited",
       "displayOrder": 2,
       "isVisible": true,
       "status": "active",
-      "title": "Configuration",
-      "items": [
-        "Business Process Framework",
-        "Account Posting Rule Sets",
-        "Worktags & Financial Dimensions",
-        "Organization Hierarchies",
-        "Allocation Definitions",
-        "Intercompany",
-        "Custom Validations",
-        "Bank Setup & Settlement Runs"
-      ]
+      "company": "Aspire Systems Private Limited",
+      "client": "",
+      "position": "",
+      "location": "",
+      "startDate": "2023-09",
+      "endDate": "2025-07",
+      "isCurrent": false,
+      "description": "",
+      "technologies": []
     },
     {
-      "id": "security",
+      "id": "visionary-software-solution-s-private-limited",
       "displayOrder": 3,
       "isVisible": true,
       "status": "active",
-      "title": "Security",
-      "items": [
-        "Role Creation",
-        "Security Groups",
-        "User-Based Groups",
-        "Domain Security Policies"
-      ]
+      "company": "Maxton Technologies Private Limited",
+      "client": "",
+      "position": "",
+      "location": "",
+      "startDate": "2020-07",
+      "endDate": "2023-07",
+      "isCurrent": false,
+      "description": "",
+      "technologies": []
+    }
+  ],
+  "education": [
+    {
+      "id": "bsc-acharya-nagarjuna-university",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "institution": "Acharya Nagarjuna University",
+      "degree": "B.Sc",
+      "field": "",
+      "startDate": "",
+      "endDate": "2020",
+      "grade": "68.2%",
+      "description": ""
+    }
+  ],
+  "projects": [
+    {
+      "id": "cm-core",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "title": "CM-Core",
+      "tagline": "Campaign Management Platform",
+      "description": "CM-Core (CM 2.0) is an enterprise campaign management platform for digital asset and template library management, multi-level approval workflows, and scheduled publication of marketing content. The solution uses a micro-frontend architecture with Angular Nx remotes (Library, Approvals, Campaigns, Dashboard) integrated with .NET microservices (Auth, Core, Campaign). It supports tenant-scoped access control, approval policies, publish-now/publish-later scheduling, effective date validation, and automatic content expiration.",
+      "responsibilities": [
+        "Responsible for implementing publish configuration for assets and templates with scheduled publication, effective from/to validation, and 30-day minimum span enforcement.",
+        "Responsible for multi-level approval policy integration, final-level approver publish configuration, and approval review workflows.",
+        "Developed reusable shared UI components and synchronized frontend/backend validation for publication schedules and effective dates.",
+        "Implemented background expiration services to automatically mark assets and templates as Expired when effective end dates pass.",
+        "Enhanced access-point and tenant scoping for role-based permissions across library and approval modules.",
+        "Worked on API contract alignment between Angular services and .NET Core microservices with unit test coverage.",
+        "Leveraged AI coding assistants (GitHub Copilot, Cursor, and Claude) for rapid root-cause analysis, query and API performance optimization, and automated code generation across the Auth, Library, and Campaign microservices, accelerating debugging cycles and feature delivery."
+      ],
+      "startDate": "2025-01",
+      "endDate": "",
+      "isCurrent": true,
+      "technologies": [
+        "C#",
+        "ASP.NET Core 9",
+        "Web API",
+        "Entity Framework Core",
+        "SQL Server",
+        "Angular 20",
+        "Nx",
+        "Module Federation",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "accent": "#C778DD",
+      "featured": true
     },
     {
-      "id": "data-and-integration",
+      "id": "ipay-billpay",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "title": "iPay-BillPay",
+      "tagline": "Online banking & bill payments",
+      "description": "iPay-BillPay is a banking application which is under Jack Henry Associations. The Associations addresses the trade finance, lending, payments, limits, collateral's, treasury, deposits, liquidity management, online banking and mobile banking requirements of corporate banks worldwide and enables them to deliver customized offerings to enterprise clients of all sizes. It provides services to different type of banking like retail banking, corporate banking. The most of the world's leading banks choose Online Banking to offer more features to their customers. Retail customers get full visibility into all their banking accounts and are enabled to transfer and schedule recurring payments safely. As well as corporate customers can manage their unique cash management policies to manage receivables, payables, account services and investments, efficiently.",
+      "responsibilities": [
+        "Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.",
+        "Responsible for sending money or making transfers from one to many and one to one.",
+        "System knowledge sharing and updating/ modifying Design Documents",
+        "Implementation activities based on Client's requirement.",
+        "Analysis and maintenance of Database.",
+        "Creating Queries to generate reports based on given conditions.",
+        "Implementing Queries to make scripts execute only onetime in the whole execution.",
+        "Collaborated with cross-functional teams in an Agile/Scrum environment, participating in sprint planning and code reviews to deliver secure, high-availability banking features on schedule."
+      ],
+      "startDate": "2024-01",
+      "endDate": "2024-12",
+      "isCurrent": false,
+      "technologies": [
+        "C#",
+        "ASP.NET Core",
+        "Web Api",
+        "SQL Server",
+        "React"
+      ],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "accent": "#61AFEF",
+      "featured": true
+    },
+    {
+      "id": "gastly",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "title": "Gastly",
+      "tagline": "Online tax & transaction payments",
+      "description": "Gastly was developed under KPMG to provide services to their customers such as making online transactions and paying tax's of their own consumption's as per their basis. This one will enables to user better way to make or pay their cash related transactions through online very securely. Allows users to calculate, report, and pay their taxes based on their consumption patterns and financial activities and then supports various payment methods, including bank transfers, credit/debit cards, and digital wallets.",
+      "responsibilities": [
+        "Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.",
+        "System knowledge sharing and updating/ modifying Design Documents.",
+        "Implementation activities based on Client's requirement.",
+        "Analysis and maintenance of Database.",
+        "Creating Queries to generate reports based on given conditions.",
+        "Designed with an intuitive UI/UX to provide a seamless experience for users managing their payments and transactions",
+        "Integrated secure payment gateways and digital wallet support, ensuring compliance with financial data-handling best practices."
+      ],
+      "startDate": "2023-09",
+      "endDate": "2024-01",
+      "isCurrent": false,
+      "technologies": [
+        "C#",
+        "ASP.NET Core",
+        "Web Api",
+        "SQL Server",
+        "T-SQL",
+        "Angular14",
+        "HTML5",
+        "CSS3"
+      ],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "accent": "#98C379",
+      "featured": true
+    },
+    {
+      "id": "amr",
       "displayOrder": 4,
       "isVisible": true,
       "status": "active",
-      "title": "Data & Integration",
-      "items": [
-        "EIB (Inbound & Outbound)",
-        "Financial Data Migration",
-        "XSLT"
-      ]
+      "title": "AMR",
+      "tagline": "Automatic Meter Reading",
+      "description": "Implemented and maintained Automatic Meter Reading (AMR) technology to enhance utility data collection and monitoring. Utilized various communication methods (radio, telephone, power line communication) for remote data transmission, ensuring high accuracy, efficiency, and real-time consumption tracking. Expertise in both walk-by/drive-by and fixed network AMR systems, contributing to optimized billing, resource management, and consumer awareness. Demonstrated ability to streamline utility operations and improve customer satisfaction through advanced AMR solutions. The transmitter unit consists of a reed switch that reads the meter data, board that processes the data, and an RF transmitter that sends the data to the receiver unit. The receiver unit then displays the data on an LCD screen.",
+      "responsibilities": [
+        "Interaction with Client for Requirement Analysis.",
+        "Enhancing and Developing various rules in the application according to customer business requirements.",
+        "System knowledge sharing and updating/ modifying Design Documents.",
+        "Implementation activities.",
+        "Analysis and maintenance of Database.",
+        "Creating Queries to generate reports based on given conditions.",
+        "Responsible for analyzing the flow of data, analysis of data mismatch and various business related issues.",
+        "Collaborated with cross-functional engineering teams to monitor system performance and resolve production issues, improving data accuracy and billing reliability."
+      ],
+      "startDate": "2022-05",
+      "endDate": "2023-08",
+      "isCurrent": false,
+      "technologies": [
+        "C#",
+        "ASP.NET Core",
+        "Web Api",
+        "SQL Server",
+        "T-SQL",
+        "Angular11",
+        "HTML5",
+        "CSS3"
+      ],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "accent": "#E5C07B",
+      "featured": false
     },
     {
-      "id": "reporting",
+      "id": "psms",
       "displayOrder": 5,
       "isVisible": true,
       "status": "active",
-      "title": "Reporting",
-      "items": [
-        "Custom Reports",
-        "Scheduled Reports",
-        "Dashboards"
+      "title": "PSMS",
+      "tagline": "Project State Management System",
+      "description": "Implemented and maintained the Project State Management System (PSMS) to enhance both project schedule and safety management. Utilized standardized communication modules and methods based on the STEP (Standard for the Exchange of Product Data) Domain Object Model to synchronize project schedules across departments and companies. Integrated PSMS with PLM/ERP systems, supporting both conventional and agile methodologies, to ensure stable, efficient processes and improved collaboration. Developed tools for real-time safety reports, remote monitoring, and intervention, ensuring adherence to safety policies and reducing project site risks. Demonstrated expertise in optimizing project management and enhancing safety compliance through advanced PSMS solutions.",
+      "responsibilities": [
+        "Design Web page and back-end coding using MVC structure.",
+        "Analysis of current Website to understand the work-flow.",
+        "Worked on the Application Design and Functional Specification documents.",
+        "Responsible for analyzing the flow of data between various interfaces to create the application.",
+        "Development of the code for the application and deploying it accordingly.",
+        "Taking bottom-line responsibility for deliverables in all phases of the project implementation activities",
+        "Contributed to process improvements that streamlined cross-department schedule synchronization, reducing manual coordination effort."
+      ],
+      "startDate": "2020-10",
+      "endDate": "2022-03",
+      "isCurrent": false,
+      "technologies": [
+        "C#",
+        "ASP.NET MVC",
+        "Entity Framework",
+        "JQuery",
+        "SQL Server"
+      ],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "accent": "#E06C75",
+      "featured": false
+    }
+  ],
+  "certifications": [],
+  "achievements": [],
+  "quickFacts": [
+    {
+      "id": "fact-1",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "text": "Around 5.10 years of IT experience",
+      "highlights": [
+        "5.10 years"
       ]
     },
     {
-      "id": "accounting",
+      "id": "fact-2",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "text": "Covers all phases of the SDLC",
+      "highlights": [
+        "SDLC"
+      ]
+    },
+    {
+      "id": "fact-3",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "text": "B.Sc from Acharya Nagarjuna University, 2020",
+      "highlights": [
+        "B.Sc",
+        "Acharya Nagarjuna University"
+      ]
+    },
+    {
+      "id": "fact-4",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "text": "Builds with ASP.NET Core, Web API, Angular and React",
+      "highlights": [
+        "ASP.NET Core",
+        "Web API",
+        "Angular",
+        "React"
+      ]
+    },
+    {
+      "id": "fact-5",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "text": "Works in Agile / Scrum teams",
+      "highlights": [
+        "Agile",
+        "Scrum"
+      ]
+    },
+    {
+      "id": "fact-6",
       "displayOrder": 6,
       "isVisible": true,
       "status": "active",
-      "title": "Accounting",
-      "items": [
-        "Journal Entries",
-        "Accruals",
-        "Adjustments",
-        "Revenue Recognition"
+      "text": "AI-assisted development with GitHub Copilot, Cursor and Claude",
+      "highlights": [
+        "GitHub Copilot",
+        "Cursor",
+        "Claude"
       ]
     },
     {
-      "id": "delivery",
+      "id": "fact-7",
       "displayOrder": 7,
       "isVisible": true,
       "status": "active",
-      "title": "Delivery",
-      "items": [
-        "Functional Design",
-        "Unit Testing",
-        "UAT",
-        "Production Support",
-        "Root Cause Analysis"
+      "text": "Microservices & micro-frontend architectures",
+      "highlights": [
+        "Microservices",
+        "micro-frontend"
       ]
     }
   ]

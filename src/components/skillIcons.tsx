@@ -1,112 +1,125 @@
 import type { IconType } from 'react-icons';
 import {
-  TbAdjustments,
-  TbArrowsExchange,
-  TbArrowsSplit2,
-  TbBook2,
-  TbBug,
-  TbBuildingBank,
-  TbBuildingWarehouse,
-  TbCalendarTime,
-  TbChartBar,
-  TbChecklist,
-  TbCircleCheck,
+  TbApi,
+  TbBolt,
+  TbBrandAngular,
+  TbBrandAzure,
+  TbBrandCSharp,
+  TbBrandCss3,
+  TbBrandDocker,
+  TbBrandGit,
+  TbBrandGithubCopilot,
+  TbBrandHtml5,
+  TbBrandJavascript,
+  TbBrandMongodb,
+  TbBrandReact,
+  TbBrandTailwind,
+  TbBrandTypescript,
+  TbBrandVisualStudio,
+  TbBrandVscode,
+  TbBuildingSkyscraper,
+  TbCloudComputing,
   TbCode,
-  TbDatabaseImport,
-  TbFileCode,
-  TbFileDescription,
-  TbFileDollar,
-  TbFileInvoice,
-  TbHeadset,
-  TbHierarchy2,
-  TbKey,
-  TbLayoutDashboard,
-  TbListCheck,
-  TbLock,
-  TbNotebook,
-  TbPlusMinus,
-  TbReceipt2,
-  TbReportAnalytics,
-  TbRoute,
-  TbSearch,
+  TbDatabase,
+  TbDatabaseCog,
+  TbFileTypeSql,
+  TbFilter,
+  TbGauge,
+  TbHexagons,
+  TbLayoutBoardSplit,
+  TbLayoutGrid,
+  TbPlugConnected,
+  TbPuzzle,
+  TbRepeat,
   TbShieldLock,
-  TbShoppingCart,
-  TbTags,
-  TbTestPipe,
-  TbTrendingUp,
-  TbUserShield,
+  TbSql,
+  TbTable,
+  TbTimeline,
   TbUsersGroup,
-  TbCalendarDollar,
+  TbVersions,
+  TbWebhook,
+  TbWorldWww,
 } from 'react-icons/tb';
+import { SiClaude, SiCursor, SiDotnet, SiNx, SiPostgresql, SiPostman } from 'react-icons/si';
 
-/** An icon plus its colour (tuned for a light background). */
+/** An icon plus the brand colour it turns on hover (colours lightened where needed for the dark background). */
 export type SkillIcon = { icon: IconType; color: string };
 
-const PURPLE = '#6d28d9';
-const BLUE = '#1d4ed8';
-const GREEN = '#15803d';
-const YELLOW = '#b45309';
-const RED = '#be123c';
-const CYAN = '#0f766e';
-const ORANGE = '#c2410c';
+const PURPLE = '#C778DD';
 
-/** Exact skill name (case-insensitive) → icon. Add an entry here to give a new skill its own icon. */
+/** Exact skill name (case-insensitive) → icon. Add an entry here to give a new skill its own icon (and add the key to the
+ * skills "icon" options in content/schema.json so the admin offers it). */
 const byName: Record<string, SkillIcon> = {
-  // Workday Financials
-  'general ledger': { icon: TbBook2, color: PURPLE },
-  'accounts payable': { icon: TbFileInvoice, color: BLUE },
-  'accounts receivable': { icon: TbFileDollar, color: GREEN },
-  'fixed assets': { icon: TbBuildingWarehouse, color: YELLOW },
-  procurement: { icon: TbShoppingCart, color: BLUE },
-  expenses: { icon: TbReceipt2, color: ORANGE },
-  // Configuration
-  'business process framework': { icon: TbRoute, color: CYAN },
-  'account posting rule sets': { icon: TbListCheck, color: PURPLE },
-  'worktags & financial dimensions': { icon: TbTags, color: RED },
-  'organization hierarchies': { icon: TbHierarchy2, color: RED },
-  'allocation definitions': { icon: TbArrowsSplit2, color: PURPLE },
-  intercompany: { icon: TbArrowsExchange, color: PURPLE },
-  'custom validations': { icon: TbCircleCheck, color: GREEN },
-  'bank setup & settlement runs': { icon: TbBuildingBank, color: BLUE },
-  // Security
-  'role creation': { icon: TbUserShield, color: CYAN },
-  'security groups': { icon: TbShieldLock, color: CYAN },
-  'user-based groups': { icon: TbUsersGroup, color: CYAN },
-  'domain security policies': { icon: TbLock, color: CYAN },
-  // Data & Integration
-  'eib (inbound & outbound)': { icon: TbDatabaseImport, color: ORANGE },
-  'financial data migration': { icon: TbArrowsExchange, color: ORANGE },
-  xslt: { icon: TbFileCode, color: ORANGE },
-  // Reporting
-  'custom reports': { icon: TbReportAnalytics, color: YELLOW },
-  'scheduled reports': { icon: TbCalendarTime, color: YELLOW },
-  dashboards: { icon: TbLayoutDashboard, color: YELLOW },
-  // Accounting
-  'journal entries': { icon: TbNotebook, color: PURPLE },
-  accruals: { icon: TbCalendarDollar, color: GREEN },
-  adjustments: { icon: TbPlusMinus, color: GREEN },
-  'revenue recognition': { icon: TbTrendingUp, color: GREEN },
-  // Delivery
-  'functional design': { icon: TbFileDescription, color: BLUE },
-  'unit testing': { icon: TbTestPipe, color: GREEN },
-  uat: { icon: TbChecklist, color: GREEN },
-  'production support': { icon: TbHeadset, color: RED },
-  'root cause analysis': { icon: TbSearch, color: RED },
+  // Languages
+  'c#': { icon: TbBrandCSharp, color: '#B77DDB' },
+  't-sql': { icon: TbSql, color: '#E0525A' },
+  'pl/sql': { icon: TbFileTypeSql, color: '#F29111' },
+  javascript: { icon: TbBrandJavascript, color: '#F7DF1E' },
+  typescript: { icon: TbBrandTypescript, color: '#4A9BE8' },
+  // Databases
+  'ms sql': { icon: TbDatabase, color: '#E0525A' },
+  postgresql: { icon: SiPostgresql, color: '#5B8DEF' },
+  mongodb: { icon: TbBrandMongodb, color: '#47A248' },
+  // Frameworks
+  'dot net core': { icon: SiDotnet, color: '#8C6CF2' },
+  'asp.net': { icon: TbWorldWww, color: '#8C6CF2' },
+  'asp.net mvc': { icon: TbLayoutBoardSplit, color: '#8C6CF2' },
+  'asp.net core': { icon: SiDotnet, color: '#8C6CF2' },
+  'web api': { icon: TbApi, color: '#8C6CF2' },
+  'entity framework': { icon: TbTable, color: '#8C6CF2' },
+  dapper: { icon: TbDatabaseCog, color: '#8C6CF2' },
+  linq: { icon: TbFilter, color: '#8C6CF2' },
+  wcf: { icon: TbPlugConnected, color: '#8C6CF2' },
+  // Front-end
+  'angular 16, 18 & 20': { icon: TbBrandAngular, color: '#E23237' },
+  react: { icon: TbBrandReact, color: '#61DAFB' },
+  rxjs: { icon: TbTimeline, color: '#E535AB' },
+  nx: { icon: SiNx, color: '#FFFFFF' },
+  'module federation': { icon: TbPuzzle, color: PURPLE },
+  html: { icon: TbBrandHtml5, color: '#E34F26' },
+  css: { icon: TbBrandCss3, color: '#3D8FD6' },
+  'tailwind css': { icon: TbBrandTailwind, color: '#38BDF8' },
+  // Architecture
+  microservices: { icon: TbHexagons, color: PURPLE },
+  'micro-frontend': { icon: TbLayoutGrid, color: PURPLE },
+  'rest apis': { icon: TbWebhook, color: PURPLE },
+  'multi-tenant': { icon: TbBuildingSkyscraper, color: PURPLE },
+  rbac: { icon: TbShieldLock, color: PURPLE },
+  'caching (imemorycache)': { icon: TbBolt, color: '#E5C07B' },
+  'performance tuning & query optimization': { icon: TbGauge, color: '#98C379' },
+  // DevOps
+  tfs: { icon: TbVersions, color: '#3D8FD6' },
+  git: { icon: TbBrandGit, color: '#F05032' },
+  'azure devops ci/cd': { icon: TbBrandAzure, color: '#3D8FD6' },
+  docker: { icon: TbBrandDocker, color: '#2496ED' },
+  'azure container apps': { icon: TbCloudComputing, color: '#3D8FD6' },
+  // Tools
+  'visual studio .net': { icon: TbBrandVisualStudio, color: '#A77BF3' },
+  'sql server management studio': { icon: TbDatabase, color: '#E0525A' },
+  pgadmin: { icon: SiPostgresql, color: '#5B8DEF' },
+  'visual studio code': { icon: TbBrandVscode, color: '#23A9F2' },
+  postman: { icon: SiPostman, color: '#FF6C37' },
+  'github copilot': { icon: TbBrandGithubCopilot, color: '#FFFFFF' },
+  cursor: { icon: SiCursor, color: '#FFFFFF' },
+  claude: { icon: SiClaude, color: '#D97757' },
+  // Methodologies
+  agile: { icon: TbRepeat, color: '#98C379' },
+  scrum: { icon: TbUsersGroup, color: '#98C379' },
 };
 
 /** Keyword fallbacks so new skills still get a sensible icon without a code change. */
 const byKeyword: [RegExp, SkillIcon][] = [
-  [/security|domain|role/i, { icon: TbKey, color: CYAN }],
-  [/report|dashboard/i, { icon: TbChartBar, color: YELLOW }],
-  [/eib|integration|migration/i, { icon: TbDatabaseImport, color: ORANGE }],
-  [/test|uat/i, { icon: TbTestPipe, color: GREEN }],
-  [/issue|defect|support/i, { icon: TbBug, color: RED }],
-  [/config|setup/i, { icon: TbAdjustments, color: PURPLE }],
+  [/sql|database|db\b/i, { icon: TbDatabase, color: PURPLE }],
+  [/azure|cloud/i, { icon: TbCloudComputing, color: '#3D8FD6' }],
+  [/api|rest|graphql/i, { icon: TbApi, color: PURPLE }],
+  [/\.net|asp/i, { icon: SiDotnet, color: '#8C6CF2' }],
 ];
 
 const fallback: SkillIcon = { icon: TbCode, color: PURPLE };
 
-export function getSkillIcon(skill: string): SkillIcon {
+/** Icon for a skill: the explicit `iconKey` when it is a known key, otherwise matched by name. */
+export function getSkillIcon(skill: string, iconKey = ''): SkillIcon {
   const key = skill.trim().toLowerCase();
-  return byName[key] ?? byKeyword.find(([re]) => re.test(key))?.[1] ?? fallback;
+  const lookup = byName as Record<string, SkillIcon>;
+  return lookup[iconKey.trim().toLowerCase()] ?? lookup[key] ?? byKeyword.find(([re]) => re.test(key))?.[1] ?? fallback;
 }

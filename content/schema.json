@@ -3,36 +3,20 @@
   "schemaVersion": 1,
   "previewPages": [
     {
-      "path": "#top",
-      "label": "Hero"
+      "path": "/",
+      "label": "Home"
     },
     {
-      "path": "#modules",
-      "label": "Modules"
+      "path": "/works",
+      "label": "Works"
     },
     {
-      "path": "#processes",
-      "label": "Processes"
+      "path": "/about-me",
+      "label": "About me"
     },
     {
-      "path": "#expertise",
-      "label": "Expertise"
-    },
-    {
-      "path": "#experience",
-      "label": "Experience"
-    },
-    {
-      "path": "#skills",
-      "label": "Skills"
-    },
-    {
-      "path": "#about",
-      "label": "About"
-    },
-    {
-      "path": "#contact",
-      "label": "Contact"
+      "path": "/contacts",
+      "label": "Contacts"
     }
   ],
   "sections": {
@@ -65,85 +49,56 @@
           "label": "Full name",
           "type": "text",
           "required": true,
-          "hint": "Hero heading, footer and copyright line."
+          "hint": "\"Hello, i'm …\", the hero code window and the footer."
         },
         {
           "name": "shortName",
           "label": "Short name",
           "type": "text",
           "required": true,
-          "hint": "Header, next to the logo."
+          "hint": "Logo text and the first word of the Home headline."
         },
         {
-          "name": "initials",
-          "label": "Initials",
+          "name": "title",
+          "label": "Job title",
           "type": "text",
           "required": true,
-          "maxLength": 3,
-          "hint": "The letters in the logo mark."
+          "hint": "Shown in the footer."
         },
         {
-          "name": "role",
-          "label": "Role",
+          "name": "location",
+          "label": "Location / address",
           "type": "text",
-          "required": true,
           "wide": true,
-          "hint": "Label above your name in the hero, and in the footer."
-        },
-        {
-          "name": "headerTagline",
-          "label": "Header tagline",
-          "type": "text",
-          "hint": "Small line under your name in the header."
+          "hint": "The \"Find me here\" box on Contacts. This is public."
         },
         {
           "name": "email",
           "label": "Email",
           "type": "email",
-          "hint": "Contact section and footer. Leave empty to hide."
+          "required": true
         },
         {
           "name": "phone",
           "label": "Phone",
           "type": "tel",
-          "placeholder": "+91 8464096717",
-          "hint": "Leave empty to hide."
+          "placeholder": "+91 8885394611"
         },
         {
-          "name": "linkedin",
-          "label": "LinkedIn",
-          "type": "url",
-          "wide": true,
-          "placeholder": "https://www.linkedin.com/in/…",
-          "hint": "Leave empty to hide."
-        },
-        {
-          "name": "location",
-          "label": "Location",
-          "type": "text",
-          "placeholder": "e.g. Hyderabad, India",
-          "hint": "Contact section only. Leave empty to hide."
-        },
-        {
-          "name": "experience",
-          "label": "Years of experience",
-          "type": "text",
-          "placeholder": "3.3",
-          "hint": "Hero fact, shown as \"3.3 yrs\". Also update the first About paragraph."
-        },
-        {
-          "name": "currentClient",
-          "label": "Current client",
-          "type": "text",
-          "hint": "Hero fact and the Expertise intro."
-        },
-        {
-          "name": "photo",
-          "label": "Photo",
+          "name": "profileImage",
+          "label": "Home photo",
           "type": "asset",
           "accept": "image",
           "wide": true,
-          "hint": "Hero photo. A portrait with a plain background works best. Leave empty to hide."
+          "hint": "Leave empty to show only the code window."
+        },
+        {
+          "name": "aboutImage",
+          "label": "About page photo",
+          "type": "asset",
+          "accept": "image",
+          "wide": true,
+          "hint": "Leave empty to reuse the Home photo."
         },
         {
           "name": "resumeUrl",
@@ -151,238 +106,395 @@
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "Every \"Download CV\" button. PDF recommended."
+          "hint": "The \"CV\" download link. PDF is easiest for visitors to open."
+        },
+        {
+          "name": "yearsOfExperience",
+          "label": "Years of experience",
+          "type": "text",
+          "hint": "Hero code window and the big number on Home."
+        },
+        {
+          "name": "currentProject",
+          "label": "Currently working on",
+          "type": "text",
+          "hint": "The status bar under the hero. Leave empty to hide it."
+        },
+        {
+          "name": "shortBio",
+          "label": "Short bio",
+          "type": "textarea",
+          "wide": true,
+          "hint": "The grey line under the Home headline."
+        },
+        {
+          "name": "about",
+          "label": "About paragraphs",
+          "type": "list",
+          "wide": true,
+          "required": true,
+          "hint": "One paragraph per line. The About page shows all of them; Home shows the first two."
+        },
+        {
+          "name": "techStack",
+          "label": "Hero code window stack",
+          "type": "list",
+          "hint": "One per line. Shown in the Developer.cs window."
+        },
+        {
+          "name": "footerTagline",
+          "label": "Footer tagline",
+          "type": "text",
+          "hint": "Shown after the job title in the footer, e.g. \"ASP.NET Core · Angular · React\"."
         }
       ]
     },
-    "hero": {
+    "home": {
       "type": "object",
-      "label": "Hero",
+      "label": "Home page",
       "fields": [
         {
           "name": "headline",
           "label": "Headline",
-          "type": "textarea",
-          "required": true,
-          "wide": true,
-          "hint": "The paragraph under your name."
-        }
-      ]
-    },
-    "about": {
-      "type": "object",
-      "label": "About",
-      "fields": [
-        {
-          "name": "summary",
-          "label": "About paragraphs",
-          "type": "list",
-          "required": true,
-          "wide": true,
-          "hint": "One paragraph per line."
-        },
-        {
-          "name": "coreConcepts",
-          "label": "Core concepts",
-          "type": "list",
-          "wide": true,
-          "hint": "One per line. The bullet list in the \"Core concepts\" card."
-        }
-      ]
-    },
-    "education": {
-      "type": "object",
-      "label": "Education",
-      "fields": [
-        {
-          "name": "degree",
-          "label": "Degree",
           "type": "text",
           "required": true,
-          "placeholder": "e.g. MCA"
-        },
-        {
-          "name": "university",
-          "label": "University",
-          "type": "text",
-          "required": true
-        },
-        {
-          "name": "year",
-          "label": "Year",
-          "type": "text",
-          "pattern": "^\\d{4}$",
-          "patternMessage": "Enter a year, e.g. 2023."
-        },
-        {
-          "name": "score",
-          "label": "Score",
-          "type": "text",
-          "placeholder": "e.g. 8.2 CGPA",
-          "hint": "Optional. Shown in brackets after the year."
-        }
-      ]
-    },
-    "contact": {
-      "type": "object",
-      "label": "Contact",
-      "fields": [
-        {
-          "name": "intro",
-          "label": "Contact intro",
-          "type": "textarea",
           "wide": true,
-          "hint": "The sentence under \"Let's talk Workday Finance\"."
-        }
-      ]
-    },
-    "modules": {
-      "type": "collection",
-      "label": "Modules",
-      "singular": "module",
-      "labelField": "name",
-      "metaFields": [
-        "code",
-        "text"
-      ],
-      "description": "The Workday Financials tiles. A module whose name matches a skill icon (e.g. \"General Ledger\") gets that icon and colour.",
-      "fields": [
-        {
-          "name": "name",
-          "label": "Module name",
-          "type": "text",
-          "required": true
+          "hint": "Starts with your short name. Words in [square brackets] are shown in purple."
         },
         {
-          "name": "code",
-          "label": "Short code",
-          "type": "text",
-          "required": true,
-          "maxLength": 6,
-          "placeholder": "e.g. GL"
-        },
-        {
-          "name": "text",
-          "label": "Description",
-          "type": "textarea",
-          "required": true,
-          "wide": true,
-          "hint": "One line."
-        }
-      ],
-      "preview": "#modules"
-    },
-    "processFlows": {
-      "type": "collection",
-      "label": "Processes",
-      "singular": "process",
-      "labelField": "name",
-      "metaFields": [
-        "caption"
-      ],
-      "description": "The tabbed \"How finance flows\" section. The first process is the tab that opens first.",
-      "idHint": "Internal tab key, e.g. \"p2p\".",
-      "fields": [
-        {
-          "name": "name",
-          "label": "Tab label",
-          "type": "text",
-          "required": true
-        },
-        {
-          "name": "caption",
-          "label": "Caption",
-          "type": "text",
-          "wide": true,
-          "hint": "The sentence next to the title."
-        },
-        {
-          "name": "steps",
-          "label": "Steps",
-          "type": "objectList",
-          "required": true,
-          "wide": true,
-          "itemLabel": "title",
-          "hint": "The numbered boxes, in order.",
-          "fields": [
-            {
-              "name": "title",
-              "label": "Step title",
-              "type": "text",
-              "required": true
-            },
-            {
-              "name": "items",
-              "label": "What was configured",
-              "type": "list",
-              "hint": "One per line."
-            }
-          ]
-        }
-      ],
-      "preview": "#processes"
-    },
-    "workAreas": {
-      "type": "collection",
-      "label": "Expertise",
-      "singular": "work area",
-      "labelField": "name",
-      "metaFields": [
-        "tagline"
-      ],
-      "description": "The \"Areas of expertise\" cards.",
-      "idHint": "Also picks the card icon (general-ledger, procure-to-pay, accounts-receivable, fixed-assets, worktags-organizations, security-business-processes, eib-data-migration, reporting-support). Other IDs get a briefcase.",
-      "fields": [
-        {
-          "name": "name",
-          "label": "Title",
-          "type": "text",
-          "required": true
-        },
-        {
-          "name": "tagline",
-          "label": "Subtitle",
-          "type": "text"
-        },
-        {
-          "name": "description",
-          "label": "Description",
+          "name": "quote.text",
+          "label": "Quote",
           "type": "textarea",
           "wide": true
         },
         {
-          "name": "responsibilities",
-          "label": "Responsibilities",
-          "type": "list",
+          "name": "quote.author",
+          "label": "Quote author",
+          "type": "text"
+        },
+        {
+          "name": "contactIntro",
+          "label": "Contact intro",
+          "type": "textarea",
           "wide": true,
-          "hint": "One per line. The first 3 show; the rest appear behind \"Show N more\"."
+          "hint": "Next to the contact box on Home and on Contacts."
+        }
+      ]
+    },
+    "pageSubtitles": {
+      "type": "object",
+      "label": "Page subtitles",
+      "fields": [
+        {
+          "name": "works",
+          "label": "Works page subtitle",
+          "type": "text"
         },
         {
-          "name": "tech",
-          "label": "Tags",
-          "type": "list",
-          "hint": "One per line."
+          "name": "about",
+          "label": "About page subtitle",
+          "type": "text"
         },
         {
-          "name": "accent",
-          "label": "Accent colour",
-          "type": "color",
-          "required": true,
-          "default": "#1d4ed8"
+          "name": "contacts",
+          "label": "Contacts page subtitle",
+          "type": "text"
+        }
+      ]
+    },
+    "socialLinks": {
+      "type": "object",
+      "label": "Social links",
+      "fields": [
+        {
+          "name": "linkedin",
+          "label": "LinkedIn",
+          "type": "url",
+          "wide": true,
+          "placeholder": "https://www.linkedin.com/in/…"
+        },
+        {
+          "name": "github",
+          "label": "GitHub",
+          "type": "url",
+          "wide": true,
+          "placeholder": "https://github.com/…"
+        },
+        {
+          "name": "twitter",
+          "label": "X / Twitter",
+          "type": "url",
+          "wide": true,
+          "placeholder": "https://x.com/…"
+        },
+        {
+          "name": "website",
+          "label": "Website",
+          "type": "url",
+          "wide": true,
+          "placeholder": "https://…"
+        }
+      ]
+    },
+    "skillCategories": {
+      "type": "collection",
+      "label": "Skill categories",
+      "singular": "skill category",
+      "labelField": "name",
+      "description": "Each category is one box of skills. Order them to choose which box comes first.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Category name",
+          "type": "text",
+          "required": true
         }
       ],
-      "preview": "#expertise"
+      "preview": "/about-me"
+    },
+    "skills": {
+      "type": "collection",
+      "label": "Skills",
+      "singular": "skill",
+      "labelField": "name",
+      "groupBy": "category",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Skill name",
+          "type": "text",
+          "required": true,
+          "hint": "The icon is picked from the name unless you choose one below."
+        },
+        {
+          "name": "category",
+          "label": "Category",
+          "type": "select",
+          "required": true,
+          "optionsFrom": {
+            "section": "skillCategories",
+            "labelField": "name"
+          }
+        },
+        {
+          "name": "level",
+          "label": "Level",
+          "type": "text",
+          "placeholder": "e.g. Advanced",
+          "hint": "Saved with your content, but not displayed by the current site design."
+        },
+        {
+          "name": "icon",
+          "label": "Icon",
+          "type": "select",
+          "options": [
+            {
+              "value": "",
+              "label": "Automatic (match by name)"
+            },
+            {
+              "value": "agile",
+              "label": "agile"
+            },
+            {
+              "value": "angular 16, 18 & 20",
+              "label": "angular 16, 18 & 20"
+            },
+            {
+              "value": "asp.net",
+              "label": "asp.net"
+            },
+            {
+              "value": "asp.net core",
+              "label": "asp.net core"
+            },
+            {
+              "value": "asp.net mvc",
+              "label": "asp.net mvc"
+            },
+            {
+              "value": "azure container apps",
+              "label": "azure container apps"
+            },
+            {
+              "value": "azure devops ci/cd",
+              "label": "azure devops ci/cd"
+            },
+            {
+              "value": "c#",
+              "label": "c#"
+            },
+            {
+              "value": "caching (imemorycache)",
+              "label": "caching (imemorycache)"
+            },
+            {
+              "value": "claude",
+              "label": "claude"
+            },
+            {
+              "value": "css",
+              "label": "css"
+            },
+            {
+              "value": "cursor",
+              "label": "cursor"
+            },
+            {
+              "value": "dapper",
+              "label": "dapper"
+            },
+            {
+              "value": "docker",
+              "label": "docker"
+            },
+            {
+              "value": "dot net core",
+              "label": "dot net core"
+            },
+            {
+              "value": "entity framework",
+              "label": "entity framework"
+            },
+            {
+              "value": "git",
+              "label": "git"
+            },
+            {
+              "value": "github copilot",
+              "label": "github copilot"
+            },
+            {
+              "value": "html",
+              "label": "html"
+            },
+            {
+              "value": "javascript",
+              "label": "javascript"
+            },
+            {
+              "value": "linq",
+              "label": "linq"
+            },
+            {
+              "value": "micro-frontend",
+              "label": "micro-frontend"
+            },
+            {
+              "value": "microservices",
+              "label": "microservices"
+            },
+            {
+              "value": "module federation",
+              "label": "module federation"
+            },
+            {
+              "value": "mongodb",
+              "label": "mongodb"
+            },
+            {
+              "value": "ms sql",
+              "label": "ms sql"
+            },
+            {
+              "value": "multi-tenant",
+              "label": "multi-tenant"
+            },
+            {
+              "value": "nx",
+              "label": "nx"
+            },
+            {
+              "value": "performance tuning & query optimization",
+              "label": "performance tuning & query optimization"
+            },
+            {
+              "value": "pgadmin",
+              "label": "pgadmin"
+            },
+            {
+              "value": "pl/sql",
+              "label": "pl/sql"
+            },
+            {
+              "value": "postgresql",
+              "label": "postgresql"
+            },
+            {
+              "value": "postman",
+              "label": "postman"
+            },
+            {
+              "value": "rbac",
+              "label": "rbac"
+            },
+            {
+              "value": "react",
+              "label": "react"
+            },
+            {
+              "value": "rest apis",
+              "label": "rest apis"
+            },
+            {
+              "value": "rxjs",
+              "label": "rxjs"
+            },
+            {
+              "value": "scrum",
+              "label": "scrum"
+            },
+            {
+              "value": "sql server management studio",
+              "label": "sql server management studio"
+            },
+            {
+              "value": "t-sql",
+              "label": "t-sql"
+            },
+            {
+              "value": "tailwind css",
+              "label": "tailwind css"
+            },
+            {
+              "value": "tfs",
+              "label": "tfs"
+            },
+            {
+              "value": "typescript",
+              "label": "typescript"
+            },
+            {
+              "value": "visual studio .net",
+              "label": "visual studio .net"
+            },
+            {
+              "value": "visual studio code",
+              "label": "visual studio code"
+            },
+            {
+              "value": "wcf",
+              "label": "wcf"
+            },
+            {
+              "value": "web api",
+              "label": "web api"
+            }
+          ]
+        }
+      ],
+      "preview": "/about-me"
     },
     "experience": {
       "type": "collection",
       "label": "Experience",
-      "singular": "job",
+      "singular": "experience",
       "labelField": "company",
       "metaFields": [
-        "role",
-        "period"
+        "position",
+        "client"
       ],
-      "description": "Newest job first.",
+      "description": "Shown on Works (#work-experience) and the About timeline. The first entry is at the top.",
       "fields": [
         {
           "name": "company",
@@ -391,131 +503,413 @@
           "required": true
         },
         {
-          "name": "role",
-          "label": "Role",
+          "name": "client",
+          "label": "Client",
           "type": "text",
-          "required": true
+          "hint": "Optional. Shown as \"Client: …\"."
         },
         {
-          "name": "period",
-          "label": "Period",
+          "name": "position",
+          "label": "Position",
           "type": "text",
+          "hint": "Shown under the company when set."
+        },
+        {
+          "name": "location",
+          "label": "Location",
+          "type": "text",
+          "hint": "Saved with your content, but not displayed by the current site design."
+        },
+        {
+          "name": "startDate",
+          "label": "Start date",
+          "type": "date",
           "required": true,
-          "placeholder": "June 2023 - Present"
+          "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
+        },
+        {
+          "name": "endDate",
+          "label": "End date",
+          "type": "date",
+          "hint": "Leave empty for your current job."
         },
         {
           "name": "isCurrent",
-          "label": "This is my current job (green date pill)",
+          "label": "This is my current job",
           "type": "toggle"
         },
         {
-          "name": "project.name",
-          "label": "Project name",
-          "type": "text",
-          "hint": "Optional project fact box. Leave the name empty to hide it."
-        },
-        {
-          "name": "project.client",
-          "label": "Project client",
-          "type": "text"
-        },
-        {
-          "name": "project.role",
-          "label": "Project role",
-          "type": "text"
-        },
-        {
-          "name": "project.teamSize",
-          "label": "Team size",
-          "type": "number",
-          "min": 1,
-          "max": 10000
-        },
-        {
-          "name": "highlights",
-          "label": "Highlights",
-          "type": "list",
+          "name": "description",
+          "label": "Description",
+          "type": "textarea",
           "wide": true,
-          "hint": "One per line."
+          "hint": "Saved with your content, but not displayed by the current site design."
+        },
+        {
+          "name": "technologies",
+          "label": "Technologies",
+          "type": "list",
+          "hint": "One per line. Saved with your content, but not displayed by the current site design."
         }
       ],
-      "preview": "#experience"
+      "rules": [
+        {
+          "type": "dateRange",
+          "start": "startDate",
+          "end": "endDate",
+          "current": "isCurrent",
+          "requireEnd": true
+        }
+      ],
+      "preview": "/works"
     },
-    "skillGroups": {
+    "education": {
       "type": "collection",
-      "label": "Skills",
-      "singular": "skill group",
-      "labelField": "title",
-      "description": "Each group is one box of skills. Skill icons are matched from the skill name.",
+      "label": "Education",
+      "singular": "education",
+      "labelField": "degree",
+      "metaFields": [
+        "institution",
+        "endDate"
+      ],
       "fields": [
         {
-          "name": "title",
-          "label": "Group title",
+          "name": "institution",
+          "label": "Institution",
           "type": "text",
           "required": true
         },
         {
-          "name": "items",
-          "label": "Skills",
-          "type": "list",
+          "name": "degree",
+          "label": "Degree",
+          "type": "text",
           "required": true,
+          "placeholder": "e.g. B.Sc"
+        },
+        {
+          "name": "field",
+          "label": "Field of study",
+          "type": "text",
+          "hint": "Shown as \"B.Sc in …\" when set."
+        },
+        {
+          "name": "startDate",
+          "label": "Start date",
+          "type": "date",
+          "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
+        },
+        {
+          "name": "endDate",
+          "label": "End date",
+          "type": "date",
+          "hint": "The year is shown on the site."
+        },
+        {
+          "name": "grade",
+          "label": "Grade / score",
+          "type": "text",
+          "placeholder": "e.g. 68.2%"
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "textarea",
           "wide": true,
-          "hint": "One per line."
+          "hint": "Saved with your content, but not displayed by the current site design."
         }
       ],
-      "preview": "#skills"
+      "rules": [
+        {
+          "type": "dateRange",
+          "start": "startDate",
+          "end": "endDate"
+        }
+      ],
+      "preview": "/about-me"
+    },
+    "projects": {
+      "type": "collection",
+      "label": "Projects",
+      "singular": "project",
+      "labelField": "title",
+      "metaFields": [
+        "tagline"
+      ],
+      "idHint": "Used in links like /works#cm-core. Changing it breaks links that use the old ID.",
+      "description": "Featured projects appear in the Home #projects section (first three by order). All visible projects appear on Works.",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Project title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "tagline",
+          "label": "Tagline",
+          "type": "text",
+          "hint": "One-line summary under the title."
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "textarea",
+          "wide": true,
+          "hint": "Shown when \"Details\" is opened on Works."
+        },
+        {
+          "name": "responsibilities",
+          "label": "Responsibilities",
+          "type": "list",
+          "wide": true,
+          "hint": "One per line."
+        },
+        {
+          "name": "startDate",
+          "label": "Start date",
+          "type": "date",
+          "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
+        },
+        {
+          "name": "endDate",
+          "label": "End date",
+          "type": "date",
+          "hint": "Leave empty if ongoing."
+        },
+        {
+          "name": "isCurrent",
+          "label": "Ongoing (shows \"Present\")",
+          "type": "toggle"
+        },
+        {
+          "name": "technologies",
+          "label": "Technologies",
+          "type": "list",
+          "hint": "One per line."
+        },
+        {
+          "name": "image",
+          "label": "Cover image",
+          "type": "asset",
+          "accept": "image",
+          "wide": true,
+          "hint": "Optional. Replaces the coloured cover with a picture."
+        },
+        {
+          "name": "liveUrl",
+          "label": "Live URL",
+          "type": "url",
+          "hint": "Optional. Adds a \"Live\" button."
+        },
+        {
+          "name": "githubUrl",
+          "label": "GitHub URL",
+          "type": "url",
+          "hint": "Optional. Adds a \"Github\" button."
+        },
+        {
+          "name": "accent",
+          "label": "Cover colour",
+          "type": "color",
+          "required": true,
+          "default": "#C778DD"
+        },
+        {
+          "name": "featured",
+          "label": "Feature on Home",
+          "type": "toggle"
+        }
+      ],
+      "rules": [
+        {
+          "type": "dateRange",
+          "start": "startDate",
+          "end": "endDate",
+          "current": "isCurrent"
+        }
+      ],
+      "preview": "/works"
+    },
+    "certifications": {
+      "type": "collection",
+      "label": "Certifications",
+      "singular": "certification",
+      "labelField": "name",
+      "metaFields": [
+        "issuer",
+        "issueDate"
+      ],
+      "description": "Shown on the About page in a #certifications section once you add one.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Certification",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "issuer",
+          "label": "Issuer",
+          "type": "text"
+        },
+        {
+          "name": "issueDate",
+          "label": "Issue date",
+          "type": "date",
+          "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
+        },
+        {
+          "name": "credentialUrl",
+          "label": "Credential URL",
+          "type": "url",
+          "hint": "Optional. Makes the name a link."
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "textarea",
+          "wide": true,
+          "hint": "Saved with your content, but not displayed by the current site design."
+        }
+      ],
+      "preview": "/about-me"
+    },
+    "achievements": {
+      "type": "collection",
+      "label": "Achievements",
+      "singular": "achievement",
+      "labelField": "title",
+      "metaFields": [
+        "date"
+      ],
+      "description": "Shown on the About page in an #achievements section once you add one.",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "textarea",
+          "wide": true
+        },
+        {
+          "name": "date",
+          "label": "Date",
+          "type": "date",
+          "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
+        },
+        {
+          "name": "url",
+          "label": "URL",
+          "type": "url",
+          "hint": "Optional. Makes the title a link."
+        }
+      ],
+      "preview": "/about-me"
+    },
+    "quickFacts": {
+      "type": "collection",
+      "label": "Quick facts",
+      "singular": "quick fact",
+      "labelField": "text",
+      "description": "The small boxes at the bottom of the About page.",
+      "fields": [
+        {
+          "name": "text",
+          "label": "Fact",
+          "type": "text",
+          "required": true,
+          "wide": true
+        },
+        {
+          "name": "highlights",
+          "label": "Highlighted words",
+          "type": "list",
+          "wide": true,
+          "mustAppearIn": "text",
+          "hint": "One per line. Copy each exactly from the fact text, including capitals."
+        }
+      ],
+      "preview": "/about-me"
     }
   },
   "pages": [
     {
       "id": "profile",
       "label": "Profile",
-      "description": "Name, contact details, photo and CV.",
+      "description": "Your name, contact details, photos and CV.",
       "sections": [
         {
           "section": "profile",
-          "preview": "#contact"
+          "fields": [
+            "name",
+            "shortName",
+            "title",
+            "footerTagline",
+            "email",
+            "phone",
+            "location",
+            "yearsOfExperience",
+            "currentProject",
+            "shortBio",
+            "techStack",
+            "profileImage",
+            "aboutImage",
+            "resumeUrl"
+          ]
         }
       ]
     },
     {
-      "id": "hero",
-      "label": "Hero & SEO",
-      "description": "The top of the page and what search engines show.",
+      "id": "about",
+      "label": "About",
+      "description": "The introduction on the About page and the quick facts at the bottom.",
       "sections": [
         {
-          "section": "hero",
-          "preview": "#top"
+          "section": "profile",
+          "title": "About",
+          "fields": [
+            "about"
+          ],
+          "preview": "/about-me"
         },
         {
-          "section": "seo"
+          "section": "quickFacts"
         }
       ]
     },
     {
-      "id": "modules",
-      "label": "Modules",
+      "id": "home",
+      "label": "Home & SEO",
+      "description": "Home page text, page subtitles and what search engines show.",
       "sections": [
         {
-          "section": "modules"
+          "section": "home"
+        },
+        {
+          "section": "pageSubtitles",
+          "preview": "/works"
+        },
+        {
+          "section": "seo",
+          "description": "Written into the portfolio's HTML when it rebuilds, so search engines see it without running JavaScript."
         }
       ]
     },
     {
-      "id": "processes",
-      "label": "Processes",
+      "id": "skills",
+      "label": "Skills",
+      "description": "Skills are grouped into categories. Both appear on Home and About.",
       "sections": [
         {
-          "section": "processFlows"
-        }
-      ]
-    },
-    {
-      "id": "expertise",
-      "label": "Expertise",
-      "sections": [
+          "section": "skillCategories"
+        },
         {
-          "section": "workAreas"
+          "section": "skills"
         }
       ]
     },
@@ -529,35 +923,49 @@
       ]
     },
     {
-      "id": "skills",
-      "label": "Skills",
+      "id": "education",
+      "label": "Education",
       "sections": [
         {
-          "section": "skillGroups"
+          "section": "education"
         }
       ]
     },
     {
-      "id": "about",
-      "label": "About & Education",
+      "id": "projects",
+      "label": "Projects",
       "sections": [
         {
-          "section": "about",
-          "preview": "#about"
-        },
-        {
-          "section": "education",
-          "preview": "#about"
+          "section": "projects"
         }
       ]
     },
     {
-      "id": "contact",
-      "label": "Contact",
+      "id": "certifications",
+      "label": "Certifications",
       "sections": [
         {
-          "section": "contact",
-          "preview": "#contact"
+          "section": "certifications"
+        }
+      ]
+    },
+    {
+      "id": "achievements",
+      "label": "Achievements",
+      "sections": [
+        {
+          "section": "achievements"
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social Links",
+      "description": "Shown with your email and phone in the side rail, footer, menu and Contacts page. Empty links are hidden.",
+      "sections": [
+        {
+          "section": "socialLinks",
+          "preview": "/contacts"
         }
       ]
     }
