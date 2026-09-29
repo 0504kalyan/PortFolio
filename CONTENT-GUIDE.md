@@ -1,255 +1,79 @@
 # Portfolio Content Guide
 
-How to change what your portfolio says. The site is **one page** that scrolls through these sections, in order:
+How to add, update and delete anything on Koteswara Rao Doppalapudi's portfolio, entirely from the **Portfolio Admin** app: no code, JSON, Git commands or manual deploys.
 
-Hero (top) → Modules → Processes → Expertise → Experience → Skills → About → Contact → Footer
+**Short version:** open the Portfolio Admin, sign in, choose **Koteswara Rao Doppalapudi** if asked, open a section, make your change, press **Save**. The portfolio updates within about 1–2 minutes. The status at the top of the admin shows **Updating portfolio…** and then **Portfolio is up to date**.
 
-**Short version:** almost all text lives in one file, `src/data/resume.ts`. Change a value there, save, and the site updates. Other files are only needed for fixed labels, colours, fonts, icons and images.
-
----
-
-## 1. Before you start
-
-Open a terminal **in the project folder** (the folder name has a space, so keep the quotes):
-
-```powershell
-cd "D:\Mine\Portfolio\koti portfolio"
-npm run dev
-```
-
-Open http://localhost:5173 and leave it running. Every time you save a file, the page refreshes by itself.
-
-> If you see `Could not read package.json`, you're in the wrong folder. Run the `cd` line above first.
+> Every action that changes content (Save, Delete, Restore, the Visible switch, ↑/↓) saves straight to the portfolio. Use **Preview** in any form to see the real page with your change before saving. **Version History** can undo any save.
 
 ---
 
-## 2. Where everything lives
+## 0. Getting in
 
-| What you want to change | File |
-|---|---|
-| All content: profile, headline, modules, processes, skills, expertise, jobs, education, summary | `src/data/resume.ts` |
-| Skill and module icons | `src/components/skillIcons.tsx` |
-| Expertise card icons | `src/components/Expertise.tsx` |
-| Sample Workday screens in the hero | `src/components/WorkdayScreens.tsx` |
-| Section headings and small labels | the section's file in `src/components/` (see [section 8](#8-section-headings-and-labels)) |
-| Menu labels | `src/components/Header.tsx` |
-| Colours and fonts | `src/styles.css` (top) and `index.html` |
-| Browser tab title, search description, tab icon | `index.html`, `public/favicon.svg` |
-| Profile photo and CV file | `public/profile.png`, `public/Resume-Koteswara-Rao-Doppalapudi.pdf` |
+1. Open the Portfolio Admin URL and sign in.
+2. If your account manages more than one portfolio, choose **Koteswara Rao Doppalapudi** (or switch with the **Portfolio** menu at the top of the sidebar). A Koti-only account goes straight to this portfolio.
+3. The menu lists this portfolio's sections: Profile, Hero & SEO, Modules, Processes, Expertise, Experience, Skills, About & Education, Contact.
 
----
+## 1. Add something
 
-## 3. Editing rules for `resume.ts` (read once)
+Example: a new module tile.
 
-The file is plain lists of text. Keep the punctuation around what you change and it will work.
+1. Admin → **Modules** → **+ Add module**.
+2. Fill in **Module name**, **Short code** (e.g. `BNK`) and **Description**. Required fields are marked `*`.
+3. Optional: **Preview** opens the page at the Modules section with the new tile.
+4. Press **Add module**. You'll see *"Module added successfully."* It's live when the status shows **Portfolio is up to date**.
 
-- **Text goes inside quotes:** `'like this'`.
-- **Apostrophes:** if the text contains `'` (for example `I'm`), wrap it in double quotes: `"I'm open to..."`.
-- **Commas:** every item in a list ends with a comma. A missing comma is the most common mistake.
-- **Lists use square brackets:** `['GL', 'AP', 'AR']`.
-- **Blocks use curly braces:** `{ name: '...', text: '...' },`. To add one, copy an existing block including its braces and trailing comma, then edit it.
-- **Order matters:** things show on the site in the same order they appear in the file.
+The same steps add a **process** (tab), **work area** (Expertise card), **job** (Experience) or **skill group**.
 
-If the page goes blank or shows an error after saving, look at the terminal. It names the line with the problem, which is usually a missing comma or quote. Undo your last change (`Ctrl+Z`) and try again.
+## 2. Update something
 
-To check everything is valid before publishing:
+Example: add a step to a process.
 
-```powershell
-npm run build
-```
+1. Admin → **Processes** → **Edit** on the process (e.g. *Procure-to-Pay*).
+2. Under **Steps**, use **+ Add step**, then fill **Step title** and **What was configured** (one item per line). ↑/↓ reorder steps; **Remove** deletes one.
+3. Optional: **Preview**.
+4. Press **Save changes**. You'll see *"Process updated successfully."*
 
-`✓ built` means you're good.
+For single sections (**Profile**, **Hero & SEO**, **About & Education**, **Contact**), edit the fields and press that form's **Save**. **Undo changes** puts the form back.
 
----
+## 3. Delete something
 
-## 4. Profile (`profile` in `resume.ts`)
+1. Admin → the section → **Delete** on the entry.
+2. Confirm: *"Are you sure you want to delete this …?"* → **Delete**. It leaves the portfolio after the next update and moves to the **Deleted** tab.
+3. **Undo:** **Deleted** tab → **Restore**. **Delete for good:** **Deleted** tab → **Delete permanently** (then only Version History can bring it back).
 
-| Field | Where it shows |
-|---|---|
-| `name` | Hero heading, footer, copyright line, photo alt text |
-| `shortName` | Header, next to the logo (`'Koteswara Rao'`) |
-| `initials` | The two letters in the logo mark (header and footer) |
-| `role` | Small label above your name in the hero, and under your name in the footer |
-| `email`, `phone` | Contact section and footer icons (clickable) |
-| `linkedin` | Contact section and footer icon; the full `https://...` address |
-| `location` | Contact section only (no link), e.g. `'Hyderabad, India'` |
-| `experience` | Hero fact `3.3 yrs` (just the number, as text: `'3.4'`) |
-| `currentClient` | Hero fact "Current client" |
-| `resumeFile` | Every "Download CV" / "CV" button |
-| `photo` | Hero photo |
+## 4. Hide, archive, reorder
 
-**Empty values are hidden.** Set `email`, `phone`, `linkedin` or `location` to `''` and that item disappears from the Contact section and the footer.
-
-The header subtitle "Workday FSCM Consultant" is fixed text in `src/components/Header.tsx` (look for `<small>`).
-
-When your experience changes, also update the number in the first `summary` paragraph.
-
----
-
-## 5. Section by section (`resume.ts`)
-
-### Hero
-- `hero.headline`: the paragraph under your name.
-- The three facts under it come from `profile.experience`, the number of `modules`, and `profile.currentClient`. Their labels ("Workday Financials experience", …) are in `src/components/Hero.tsx`.
-
-### Modules (`modules`)
-Six tiles. Each has:
-- `name`: the tile title. **It must match a name in `skillIcons.tsx`** (case doesn't matter) to get its own icon and colour. The six current ones already do.
-- `code`: the short badge, e.g. `'GL'`.
-- `text`: one line of description.
-
-### Processes (`processFlows`)
-The tabbed section. Each block is one tab:
-- `key`: a short unique id with no spaces (`'p2p'`). Not shown.
-- `name`: the tab label.
-- `caption`: the sentence next to the title.
-- `steps`: the numbered boxes, each `{ title: '...', items: ['...', '...'] }`. Items show with a tick.
-
-The first tab in the list is the one that opens first.
-
-### Expertise (`workAreas`)
-One card per area:
-- `slug`: unique id, lowercase with dashes (`'fixed-assets'`). It also picks the icon (see below).
-- `name`, `tagline`: card title and subtitle.
-- `description`: the paragraph.
-- `responsibilities`: bullet list. The first 3 show; the rest appear behind "Show N more".
-- `tech`: the tags at the bottom of the card.
-- `accent`: the card's icon and tag colour, as a hex code such as `'#1d4ed8'`.
-
-**Icons:** `src/components/Expertise.tsx` has a list near the top, `const icons = { 'general-ledger': TbBook2, ... }`. A new slug that isn't in that list gets a briefcase. To give it its own icon, add a line with your slug and an icon name (browse icons at https://react-icons.github.io/react-icons/icons/tb/), and add the icon name to the `import { ... } from 'react-icons/tb'` list at the top of the file.
-
-### Experience (`experience`)
-One block per job, newest first:
-- `company`, `role`, `period` (e.g. `'June 2023 - Present'`).
-- `current: true` on your current job only (green date pill). Remove it from the old job when you move on.
-- `project` (optional): `{ name, client, role, teamSize }`, shown as a small fact box. Delete the whole `project: {...},` line if a job has none. `teamSize` is a number without quotes.
-- `highlights`: the ticked bullet list.
-
-### Skills (`skills`)
-Groups, each `{ title: '...', items: ['...', ...] }`. Add a skill by adding it to a group's `items`.
-
-**Skill icons** come from `src/components/skillIcons.tsx`:
-- The `byName` list maps an exact skill name (lowercase) to an icon and colour, e.g. `'unit testing': { icon: TbTestPipe, color: GREEN },`.
-- A new skill not in that list still gets a sensible icon from keywords in its name ("report", "security", "EIB", "test", "support", "config"…), or a default code icon.
-- To give it a specific icon: add a line to `byName` (name in lowercase), and if the icon is new, add it to the `import { ... } from 'react-icons/tb'` list at the top. Colours available: `PURPLE`, `BLUE`, `GREEN`, `YELLOW`, `RED`, `CYAN`, `ORANGE`.
-
-The same file supplies the Modules tile icons, which is why module names must match.
-
-### About (`summary`, `education`, `coreConcepts`)
-- `summary`: one text per paragraph.
-- `education`: `degree`, `university`, `year`, and an optional `score` (e.g. `score: '8.2 CGPA',`) shown in brackets after the year. Leave it out to hide it.
-- `coreConcepts`: the bullet list in the "Core concepts" card.
-
-### Contact (`contactIntro`)
-- `contactIntro`: the sentence under "Let's talk Workday Finance". The contact list itself comes from `profile`.
-
----
-
-## 6. Sample Workday screens (hero)
-
-The two small "screens" over your photo (an Accounting Journal and a Business Process approval chain) are **illustrative sample data**, not real client data. Edit them in `src/components/WorkdayScreens.tsx`:
-
-- `JournalScreen`: the `lines` list (account, worktags, debit, credit) and the totals in the `Balanced` row. Keep debits and credits equal.
-- `ApprovalScreen`: the `steps` list.
-
-Don't put real client figures here.
-
----
-
-## 7. Photo and CV
-
-### Photo
-Replace `public/profile.png` with your new photo **using the same file name**. A portrait (taller than wide) with a plain background works best. To use a different name or format, put the file in `public/` and set `profile.photo`, e.g. `photo: '/me.jpg',`. Set `photo: ''` to hide the photo.
-
-### CV
-The site serves the PDF `public/Resume-Koteswara-Rao-Doppalapudi.pdf` (a PDF opens in any browser). To update it, edit the Word resume, save it as PDF (**File → Save As → PDF**), and replace that file **using the same name**; every download button picks it up. To use a different file name, put it in `public/` and set `resumeFile`, e.g. `resumeFile: '/Koteswara-Rao-Doppalapudi-CV.pdf',`. Delete the old file from `public/`: anything in that folder can be downloaded.
-
-**Privacy reminder:** your CV contains your phone number and email address. Anyone who visits the site can download it.
-
----
-
-## 8. Section headings and labels
-
-Each section's heading is set in its own file in `src/components/`. Change only the text in quotes.
-
-| Section | File | Current eyebrow / title |
+| Action | How | Effect |
 |---|---|---|
-| Modules | `Modules.tsx` | "Workday Financials" / "Modules I configure and support" (+ `intro`) |
-| Processes | `Processes.tsx` | "End-to-end processes" / "How finance flows through the tenant" (+ `intro`) |
-| Expertise | `Expertise.tsx` | "Areas of expertise" / "What I deliver in a Workday tenant" (+ `intro`) |
-| Experience | `Experience.tsx` | "Experience" / "Where I have delivered" |
-| Skills | `Skills.tsx` | "Skills" / "Functional and technical competencies" |
-| About | `About.tsx` | "About me" / "A functional consultant who owns the details" |
-| Contact | `Contact.tsx` | "Contact" / "Let's talk Workday Finance" |
+| Hide / show | The **Visible** switch | Hidden entries stay in the admin but aren't on the page |
+| Archive | **Archive** (undo: **Archived** tab → **Restore**) | Removed from the page, kept for later |
+| Reorder | **↑ / ↓** | The page shows entries in this order. The first process is the tab that opens first. |
 
-Look for `<SectionHeading eyebrow="..." title="..." intro="..." />`. The `eyebrow` is the small label above the title; `intro` is optional.
+## 5. Undo a change (Version History)
 
-Button labels ("Get in touch", "Download CV") are in `Hero.tsx` and `Contact.tsx`.
-
-**Menu labels:** in `src/components/Header.tsx`, the `sections` list near the top. Change the `label` text only; the `id` must stay as it is because it points at the section. Removing a line removes it from the menu (the section itself stays on the page).
+Admin → **Version History** → **View** (preview + what would change) → **Restore** → confirm. The portfolio goes back to that version, saved as a new version, so nothing is lost.
 
 ---
 
-## 9. Look and feel
+## Where each admin section shows on the page
 
-### Colours
-At the top of `src/styles.css`, inside `:root { ... }`. The main ones:
-
-| Token | Used for |
+| Admin section | Page |
 |---|---|
-| `--navy`, `--navy-2` | Hero, contact and footer background |
-| `--accent`, `--accent-hover` | Gold buttons and highlights |
-| `--brand` | Blue links and accents |
-| `--bg`, `--surface`, `--tint` | Page, card and alternate-section backgrounds |
-| `--ink`, `--text`, `--muted` | Headings, body text, secondary text |
-| `--line` | Borders |
+| **Profile** | Name (hero, footer), short name and initials (header logo), role (hero label, footer), header tagline, email/phone/LinkedIn/location (Contact and footer; empty ones are hidden), years of experience and current client (hero facts; the client also appears in the Expertise intro), photo, CV file (every Download CV button). |
+| **Hero & SEO** | The paragraph under your name; the browser-tab title and search description. |
+| **Modules** | The Workday Financials tiles. A module named like a skill icon (e.g. *General Ledger*) gets that icon and colour. The hero's module count updates by itself. |
+| **Processes** | The tabbed "How finance flows through the tenant" section and its numbered steps. |
+| **Expertise** | The "Areas of expertise" cards. The first 3 responsibilities show; the rest are behind "Show N more". The card icon comes from the ID (see the hint under **Advanced → ID**). |
+| **Experience** | The timeline. Tick **current job** for the green date pill. Fill **Project name** to show the project fact box (client, role, team size). |
+| **Skills** | The skill groups and chips. Icons are matched from each skill's name. |
+| **About & Education** | The About paragraphs, the "Core concepts" card and the Education card (score is optional). |
+| **Contact** | The sentence under "Let's talk Workday Finance". |
 
-Also update `theme-color` in `index.html` (the mobile browser bar colour) if you change `--navy`.
+## Tips
 
-### Fonts
-Two steps:
-1. In `index.html`, change the Google Fonts `<link href="https://fonts.googleapis.com/css2?family=Inter...&family=Manrope...">` to your fonts (copy the link from fonts.google.com).
-2. In `src/styles.css`, change the first name in `--font-body` (body text, now Inter) and `--font-head` (headings, now Manrope).
-
-### Tab icon, title and description
-- **Tab icon:** replace `public/favicon.svg` (an SVG, same name).
-- **Browser tab title:** `<title>` in `index.html`.
-- **Search-engine description:** `<meta name="description" content="...">` in `index.html`.
-
----
-
-## 10. Quick checklist: common updates
-
-| I want to… | Do this |
-|---|---|
-| Update my years of experience | `profile.experience` **and** the first `summary` paragraph |
-| Change phone, email or LinkedIn | `profile.phone` / `email` / `linkedin` (`''` hides it) |
-| Show where I'm based | `profile.location`, e.g. `'Hyderabad, India'` |
-| Change client | `profile.currentClient`, the job's `project.client`, and any text that names Unity 3D (`summary`; the Expertise intro follows `currentClient` automatically) |
-| Add a new job | Add it at the top of `experience`, move `current: true` to it, give the old job an end date |
-| Add a work area | Copy a `workAreas` block, give it a unique `slug`, pick an `accent`, optionally add its icon in `Expertise.tsx` |
-| Add a process tab | Copy a `processFlows` block with a unique `key` |
-| Add a skill | Add it to a group's `items`; optionally add an icon in `skillIcons.tsx` |
-| Replace my CV or photo | Overwrite the file in `public/` with the same name |
-
----
-
-## 11. Publishing your changes
-
-Before you publish:
-
-- [ ] `npm run dev` shows every section correctly, including on a narrow window (the menu becomes a button below 960px).
-- [ ] Contact links work: email opens mail, phone dials, LinkedIn opens your profile.
-- [ ] "Download CV" downloads the latest CV, and you're fine with its phone and email being public.
-- [ ] The photo shows, and the sample screens contain no real client data.
-- [ ] Tab title and description in `index.html` are up to date.
-- [ ] `npm run build` ends with `✓ built`.
-
-```powershell
-cd "D:\Mine\Portfolio\koti portfolio"
-npm run build
-```
-
-This creates the finished site in the `dist` folder. Upload the **contents** of `dist` to your host (Netlify, Vercel, GitHub Pages, Azure Static Web Apps, etc.). The site is a single page, so no special routing settings are needed.
-
-After each content change, run `npm run build` again and upload the new `dist`.
+- **Photo and CV:** use **Upload** next to the field, then **Save**. JPG, PNG, WebP, GIF, PDF or DOCX, up to 3 MB. A PDF CV opens in any browser. Uploaded files, including the CV with phone and email, are public.
+- **Years of experience:** also update the number in the first About paragraph.
+- **"The portfolio changed elsewhere":** another tab or device saved first. Press **Reload Latest** and redo your change; nothing was overwritten.
+- **Still "Updating portfolio…" after 5 minutes:** check the portfolio's latest deployment in Vercel.
+- **What still needs a code change:** section headings and labels, menu labels, colours and fonts, icons, and the sample Workday screens in the hero (they are illustrative; don't put real client data there).

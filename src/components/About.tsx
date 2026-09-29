@@ -1,14 +1,15 @@
 import { TbBulb, TbSchool } from 'react-icons/tb';
-import { coreConcepts, education, summary } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 import { SectionHeading } from './SectionHeading';
 
 export function About() {
+  const { about, education } = usePortfolio();
   return (
     <section className="section section--tint" id="about">
       <div className="container about">
         <div className="about__text">
           <SectionHeading eyebrow="About me" title="A functional consultant who owns the details" />
-          {summary.map((s) => (
+          {about.summary.map((s) => (
             <p key={s}>{s}</p>
           ))}
         </div>
@@ -20,7 +21,8 @@ export function About() {
             </h3>
             <p className="info-card__main">{education.degree}</p>
             <p>
-              {education.university}, {education.year}
+              {education.university}
+              {education.year && `, ${education.year}`}
               {education.score && ` (${education.score})`}
             </p>
           </div>
@@ -29,7 +31,7 @@ export function About() {
               <TbBulb aria-hidden="true" /> Core concepts
             </h3>
             <ul className="info-card__list">
-              {coreConcepts.map((c) => (
+              {about.coreConcepts.map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>

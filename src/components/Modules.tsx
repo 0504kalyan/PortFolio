@@ -1,9 +1,10 @@
 import type { CSSProperties } from 'react';
-import { modules } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 import { getSkillIcon } from './skillIcons';
 import { SectionHeading } from './SectionHeading';
 
 export function Modules() {
+  const { modules } = usePortfolio();
   return (
     <section className="section" id="modules">
       <div className="container">
@@ -16,7 +17,7 @@ export function Modules() {
           {modules.map((m) => {
             const { icon: Icon, color } = getSkillIcon(m.name);
             return (
-              <article key={m.name} className="module" style={{ '--tone': color } as CSSProperties}>
+              <article key={m.id} className="module" style={{ '--tone': color } as CSSProperties}>
                 <div className="module__top">
                   <span className="module__icon">
                     <Icon aria-hidden="true" />

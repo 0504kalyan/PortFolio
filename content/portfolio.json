@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "seo": {
+    "title": "Koteswara Rao Doppalapudi · Workday FSCM Consultant",
+    "description": "Koteswara Rao Doppalapudi — Workday FSCM Functional Consultant: Workday Financials GL, AP, AR, Fixed Assets, Procurement and Expenses."
+  },
+  "profile": {
+    "name": "Koteswara Rao Doppalapudi",
+    "shortName": "Koteswara Rao",
+    "initials": "KR",
+    "role": "Workday Finance / FSCM Functional Consultant",
+    "headerTagline": "Workday FSCM Consultant",
+    "email": "1999koti@gmail.com",
+    "phone": "+91 8464096717",
+    "linkedin": "https://www.linkedin.com/in/doppalapudi-koteswara-rao-3528b024b/",
+    "location": "",
+    "experience": "3.3",
+    "currentClient": "Unity 3D",
+    "photo": "/profile.png",
+    "resumeUrl": "/Resume-Koteswara-Rao-Doppalapudi.pdf"
+  },
+  "hero": {
+    "headline": "I configure and support Workday Financials end to end, from ledgers and posting rules to approvals, security, data loads and reporting."
+  },
+  "about": {
+    "summary": [
+      "I'm an MCA post graduate and a thorough, tenacious Workday FSCM Functional Consultant with 3.3 years of experience across the Workday Financials modules: General Ledger, Accounts Payable, Accounts Receivable, Fixed Assets, Procurement and Expenses. I bring a deep understanding of client business requirements, with a flair for results and problem solving.",
+      "At Swift Solution Private Limited I implement and support Workday Financials for Unity 3D: companies, ledgers and account posting rule sets, worktags and organization hierarchies, financial business processes and approval workflows, security roles, EIB data loads and custom reports.",
+      "I am skilled in functional design, unit testing and user acceptance testing, and provide post-production support with issue analysis and root cause identification within SLA. I have excellent client interaction skills and work well independently as well as in a team."
+    ],
+    "coreConcepts": [
+      "Workday architecture and tenant setup",
+      "Organizational structures: company, cost center, location and project hierarchies",
+      "Business Process Framework: creation, configuration and condition rules",
+      "Security groups, user-based groups and domain policies",
+      "Worktags and financial dimensions: spend categories, revenue categories, custom worktags",
+      "Ledger and accounting setup: ledger accounts, account posting rule sets, journal sources",
+      "Allocation definitions and financial reporting structures",
+      "Data migration using EIB (inbound and outbound)"
+    ]
+  },
+  "education": {
+    "degree": "MCA",
+    "university": "Acharya Nagarjuna University",
+    "year": "2023",
+    "score": ""
+  },
+  "contact": {
+    "intro": "Looking for a Workday Finance consultant for an implementation, enhancement or production support? I'd be glad to hear from you."
+  },
+  "modules": [
+    {
+      "id": "general-ledger",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "General Ledger",
+      "code": "GL",
+      "text": "Companies, ledgers, calendars, ledger accounts and account posting rule sets."
+    },
+    {
+      "id": "accounts-payable",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Accounts Payable",
+      "code": "AP",
+      "text": "Supplier invoices, supplier categories, bank accounts and settlement runs."
+    },
+    {
+      "id": "accounts-receivable",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "Accounts Receivable",
+      "code": "AR",
+      "text": "Customer invoices, customer categories, sales items and revenue categories."
+    },
+    {
+      "id": "fixed-assets",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Fixed Assets",
+      "code": "FA",
+      "text": "Asset books, depreciation profiles, transfers, disposal and impairment."
+    },
+    {
+      "id": "procurement",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "Procurement",
+      "code": "PRC",
+      "text": "Requisitions, purchase orders, purchase items and the supplier portal."
+    },
+    {
+      "id": "expenses",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "Expenses",
+      "code": "EXP",
+      "text": "Expense items and spend categories for employee spend."
+    }
+  ],
+  "processFlows": [
+    {
+      "id": "p2p",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "Procure-to-Pay",
+      "caption": "From a requisition to a paid supplier and a posted journal.",
+      "steps": [
+        {
+          "title": "Requisition",
+          "items": [
+            "Requisition business process",
+            "Purchase items",
+            "Spend categories"
+          ]
+        },
+        {
+          "title": "Purchase Order",
+          "items": [
+            "PO business process",
+            "Approval workflows"
+          ]
+        },
+        {
+          "title": "Supplier Invoice",
+          "items": [
+            "Supplier Invoice business process",
+            "Supplier categories",
+            "Supplier Invoice EIB"
+          ]
+        },
+        {
+          "title": "Payment",
+          "items": [
+            "Bank accounts",
+            "Payment types",
+            "Settlement runs"
+          ]
+        },
+        {
+          "title": "Accounting",
+          "items": [
+            "Account posting rule sets",
+            "Worktags"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2r",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Record-to-Report",
+      "caption": "Journals posted to the right ledger accounts, allocated and reported.",
+      "steps": [
+        {
+          "title": "Accounting Journal",
+          "items": [
+            "Journal business process",
+            "Journal sources",
+            "Journal EIB"
+          ]
+        },
+        {
+          "title": "Posting",
+          "items": [
+            "Ledger accounts",
+            "Account posting rule sets"
+          ]
+        },
+        {
+          "title": "Allocations",
+          "items": [
+            "Allocation definitions",
+            "Custom validations"
+          ]
+        },
+        {
+          "title": "Intercompany",
+          "items": [
+            "Intercompany processing"
+          ]
+        },
+        {
+          "title": "Reporting",
+          "items": [
+            "Custom reports",
+            "Scheduled reports",
+            "Dashboards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o2c",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "Order-to-Cash",
+      "caption": "Customers invoiced with the right sales items and revenue categories.",
+      "steps": [
+        {
+          "title": "Customer",
+          "items": [
+            "Customer categories",
+            "Customer master data"
+          ]
+        },
+        {
+          "title": "Sales Item",
+          "items": [
+            "Sales items",
+            "Revenue categories"
+          ]
+        },
+        {
+          "title": "Customer Invoice",
+          "items": [
+            "Customer Invoice business process",
+            "Customer Invoice EIB"
+          ]
+        },
+        {
+          "title": "Revenue",
+          "items": [
+            "Revenue recognition",
+            "Accruals & adjustments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assets",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Asset Lifecycle",
+      "caption": "Assets registered, depreciated, moved and retired.",
+      "steps": [
+        {
+          "title": "Register",
+          "items": [
+            "Asset books",
+            "Asset Register EIB"
+          ]
+        },
+        {
+          "title": "Depreciate",
+          "items": [
+            "Depreciation profiles"
+          ]
+        },
+        {
+          "title": "Transfer",
+          "items": [
+            "Asset transfers"
+          ]
+        },
+        {
+          "title": "Retire",
+          "items": [
+            "Impairment",
+            "Disposal",
+            "Dispose Asset EIB"
+          ]
+        }
+      ]
+    }
+  ],
+  "workAreas": [
+    {
+      "id": "general-ledger",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "name": "General Ledger",
+      "tagline": "Ledgers, posting rules & allocations",
+      "description": "Accounting foundation of the Workday tenant: companies, ledgers, fiscal calendars and ledger accounts, with account posting rule sets that turn each business transaction into the right journal lines, plus allocation definitions and intercompany processing.",
+      "responsibilities": [
+        "Created Companies, Ledgers, Calendars and Ledger Accounts.",
+        "Defined Account Posting Rule Sets for various transactions.",
+        "Created custom validations and allocation definitions.",
+        "Set up allocation definitions and intercompany processing.",
+        "Configured the Accounting Journal business process.",
+        "Created Accounting Journal EIBs for bulk journal uploads."
+      ],
+      "tech": [
+        "Companies",
+        "Ledgers",
+        "Calendars",
+        "Ledger Accounts",
+        "Account Posting Rule Sets",
+        "Journal Sources",
+        "Allocations",
+        "Intercompany"
+      ],
+      "accent": "#6d28d9"
+    },
+    {
+      "id": "procure-to-pay",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "name": "Procure-to-Pay",
+      "tagline": "AP, Procurement & Expenses",
+      "description": "From requisition to payment: requisition, purchase order and supplier invoice business processes, supplier master data and portal, purchase and expense items, and the bank accounts, payment types and settlement runs that pay suppliers.",
+      "responsibilities": [
+        "Configured business processes for Supplier Invoice, Requisition and Purchase Order.",
+        "Set up Supplier categories and supplier master data.",
+        "Implemented Supplier External Site and portal enhancements.",
+        "Created Purchase Items and Expense Items.",
+        "Set up Bank Accounts, Routing Rule Sets, payment types and settlement runs.",
+        "Created Supplier Invoice EIBs for bulk uploads."
+      ],
+      "tech": [
+        "Supplier Invoice",
+        "Requisition",
+        "Purchase Order",
+        "Supplier Categories",
+        "Supplier Portal",
+        "Purchase Items",
+        "Expense Items",
+        "Settlement Runs"
+      ],
+      "accent": "#1d4ed8"
+    },
+    {
+      "id": "accounts-receivable",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "name": "Accounts Receivable",
+      "tagline": "Customers, invoices & revenue",
+      "description": "Order-to-cash setup: customer master data and categories, sales items and revenue categories, and the customer invoice business process, grounded in revenue recognition and accrual concepts.",
+      "responsibilities": [
+        "Set up Customer categories and customer master data.",
+        "Created Sales Items and mapped Revenue Categories.",
+        "Configured the Customer Invoice business process.",
+        "Created Customer Invoice EIBs for bulk uploads.",
+        "Applied accounting concepts: journal entries, accruals, adjustments and revenue recognition."
+      ],
+      "tech": [
+        "Customer Invoice",
+        "Customer Categories",
+        "Sales Items",
+        "Revenue Categories",
+        "Revenue Recognition"
+      ],
+      "accent": "#15803d"
+    },
+    {
+      "id": "fixed-assets",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "name": "Fixed Assets",
+      "tagline": "Asset books & depreciation",
+      "description": "Full asset lifecycle in Workday: asset books and depreciation profiles, transfers between organizations, disposal and impairment, with the asset register loaded and maintained through EIBs.",
+      "responsibilities": [
+        "Managed Asset Books and Depreciation Profiles.",
+        "Handled Asset Transfers, Disposal and Impairment.",
+        "Created Asset Register and Dispose Asset EIBs for bulk data loads."
+      ],
+      "tech": [
+        "Asset Books",
+        "Depreciation Profiles",
+        "Asset Transfers",
+        "Disposal",
+        "Impairment",
+        "Asset Register EIB"
+      ],
+      "accent": "#b45309"
+    },
+    {
+      "id": "worktags-organizations",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "name": "Worktags & Organizations",
+      "tagline": "Financial dimensions & hierarchies",
+      "description": "The dimensions every transaction is tagged with: spend and revenue categories, cost centers, projects and custom worktags, organized into company, cost center, location and project hierarchies for reporting and security.",
+      "responsibilities": [
+        "Configured Worktags: Spend Categories, Revenue Categories, Cost Centers and Projects.",
+        "Mapped financial dimensions across spend, revenue, cost center and project.",
+        "Created Cost Center, Project and Location hierarchies.",
+        "Set up Company organizational hierarchies."
+      ],
+      "tech": [
+        "Spend Categories",
+        "Revenue Categories",
+        "Cost Centers",
+        "Projects",
+        "Locations",
+        "Custom Worktags"
+      ],
+      "accent": "#be123c"
+    },
+    {
+      "id": "security-business-processes",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "name": "Security & Business Processes",
+      "tagline": "Roles, domains & approval workflows",
+      "description": "Who can do what, and who approves it: business process definitions with condition rules and approval chains for financial transactions, backed by security roles, user-based groups and domain security policies.",
+      "responsibilities": [
+        "Configured financial business processes and approval workflows.",
+        "Built business process condition rules.",
+        "Created and assigned security roles and user-based groups.",
+        "Maintained domain security policies."
+      ],
+      "tech": [
+        "Business Process Framework",
+        "Condition Rules",
+        "Approval Workflows",
+        "Security Roles",
+        "User-Based Groups",
+        "Domain Security Policies"
+      ],
+      "accent": "#0f766e"
+    },
+    {
+      "id": "eib-data-migration",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "name": "EIB Data Migration",
+      "tagline": "Inbound & outbound data loads",
+      "description": "Moving financial data in and out of Workday with Enterprise Interface Builder: bulk loads for journals, supplier and customer invoices and assets, and outbound extracts, with XSLT transformations where needed.",
+      "responsibilities": [
+        "Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.",
+        "Created Accounting Journal, Supplier Invoice and Customer Invoice EIBs.",
+        "Performed financial data migration with inbound and outbound EIBs.",
+        "Used XSLT for data transformation."
+      ],
+      "tech": [
+        "EIB Inbound",
+        "EIB Outbound",
+        "XSLT",
+        "Journals",
+        "Supplier Invoices",
+        "Customer Invoices",
+        "Assets"
+      ],
+      "accent": "#c2410c"
+    },
+    {
+      "id": "reporting-support",
+      "displayOrder": 8,
+      "isVisible": true,
+      "status": "active",
+      "name": "Reporting & Support",
+      "tagline": "Reports, testing & production support",
+      "description": "Keeping finance running after go-live: custom reports and dashboards scheduled to business needs, functional design and testing for new deliverables, and post-production support with root cause analysis.",
+      "responsibilities": [
+        "Developed custom reports and scheduled them as per business requirements.",
+        "Configured financial reporting and dashboards.",
+        "Wrote functional designs and ran unit testing and user acceptance testing.",
+        "Provided post-production support and resolved financial issues as per SLA.",
+        "Performed issue analysis and root cause identification."
+      ],
+      "tech": [
+        "Custom Reports",
+        "Scheduled Reports",
+        "Dashboards",
+        "Unit Testing",
+        "UAT",
+        "SLA Support"
+      ],
+      "accent": "#4338ca"
+    }
+  ],
+  "experience": [
+    {
+      "id": "swift-solution-private-limited",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "company": "Swift Solution Private Limited",
+      "role": "Workday Consultant",
+      "period": "June 2023 - Present",
+      "isCurrent": true,
+      "project": {
+        "name": "Workday Development and Support",
+        "client": "Unity 3D",
+        "role": "Workday Finance Consultant",
+        "teamSize": 5
+      },
+      "highlights": [
+        "Implemented and supported Workday Financial modules (GL, AP, AR, FA).",
+        "Configured Workday GL, AP, AR and Procurement modules.",
+        "Configured financial business processes and approval workflows.",
+        "Created EIBs for bulk data uploads: Journal, Supplier Invoice, Asset Register and Dispose Asset.",
+        "Developed custom reports and scheduled them as per business requirements.",
+        "Provided post-production support and resolved financial issues as per SLA."
+      ]
+    }
+  ],
+  "skillGroups": [
+    {
+      "id": "workday-financials",
+      "displayOrder": 1,
+      "isVisible": true,
+      "status": "active",
+      "title": "Workday Financials",
+      "items": [
+        "General Ledger",
+        "Accounts Payable",
+        "Accounts Receivable",
+        "Fixed Assets",
+        "Procurement",
+        "Expenses"
+      ]
+    },
+    {
+      "id": "configuration",
+      "displayOrder": 2,
+      "isVisible": true,
+      "status": "active",
+      "title": "Configuration",
+      "items": [
+        "Business Process Framework",
+        "Account Posting Rule Sets",
+        "Worktags & Financial Dimensions",
+        "Organization Hierarchies",
+        "Allocation Definitions",
+        "Intercompany",
+        "Custom Validations",
+        "Bank Setup & Settlement Runs"
+      ]
+    },
+    {
+      "id": "security",
+      "displayOrder": 3,
+      "isVisible": true,
+      "status": "active",
+      "title": "Security",
+      "items": [
+        "Role Creation",
+        "Security Groups",
+        "User-Based Groups",
+        "Domain Security Policies"
+      ]
+    },
+    {
+      "id": "data-and-integration",
+      "displayOrder": 4,
+      "isVisible": true,
+      "status": "active",
+      "title": "Data & Integration",
+      "items": [
+        "EIB (Inbound & Outbound)",
+        "Financial Data Migration",
+        "XSLT"
+      ]
+    },
+    {
+      "id": "reporting",
+      "displayOrder": 5,
+      "isVisible": true,
+      "status": "active",
+      "title": "Reporting",
+      "items": [
+        "Custom Reports",
+        "Scheduled Reports",
+        "Dashboards"
+      ]
+    },
+    {
+      "id": "accounting",
+      "displayOrder": 6,
+      "isVisible": true,
+      "status": "active",
+      "title": "Accounting",
+      "items": [
+        "Journal Entries",
+        "Accruals",
+        "Adjustments",
+        "Revenue Recognition"
+      ]
+    },
+    {
+      "id": "delivery",
+      "displayOrder": 7,
+      "isVisible": true,
+      "status": "active",
+      "title": "Delivery",
+      "items": [
+        "Functional Design",
+        "Unit Testing",
+        "UAT",
+        "Production Support",
+        "Root Cause Analysis"
+      ]
+    }
+  ]
+}

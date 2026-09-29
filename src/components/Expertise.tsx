@@ -12,10 +12,11 @@ import {
   TbShieldLock,
   TbShoppingCart,
 } from 'react-icons/tb';
-import { profile, workAreas, type WorkArea } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
+import type { WorkArea } from '../content/types';
 import { SectionHeading } from './SectionHeading';
 
-/** Work area slug → icon. Unknown slugs get a briefcase. */
+/** Work area id → icon. Unknown ids get a briefcase. */
 const icons: Record<string, IconType> = {
   'general-ledger': TbBook2,
   'procure-to-pay': TbShoppingCart,
@@ -31,12 +32,12 @@ const PREVIEW = 3;
 
 function AreaCard({ area }: Readonly<{ area: WorkArea }>) {
   const [open, setOpen] = useState(false);
-  const Icon = icons[area.slug] ?? TbBriefcase;
+  const Icon = icons[area.id] ?? TbBriefcase;
   const shown = open ? area.responsibilities : area.responsibilities.slice(0, PREVIEW);
   const hidden = area.responsibilities.length - PREVIEW;
 
   return (
-    <article className="area" id={area.slug} style={{ '--tone': area.accent } as CSSProperties}>
+    <article className="area" id={area.id} style={{ '--tone': area.accent } as CSSProperties}>
       <header className="area__head">
         <span className="area__icon">
           <Icon aria-hidden="true" />
@@ -70,6 +71,7 @@ function AreaCard({ area }: Readonly<{ area: WorkArea }>) {
 }
 
 export function Expertise() {
+  const { profile, workAreas } = usePortfolio();
   return (
     <section className="section" id="expertise">
       <div className="container">
@@ -80,7 +82,7 @@ export function Expertise() {
         />
         <div className="area-grid">
           {workAreas.map((a) => (
-            <AreaCard key={a.slug} area={a} />
+            <AreaCard key={a.id} area={a} />
           ))}
         </div>
       </div>

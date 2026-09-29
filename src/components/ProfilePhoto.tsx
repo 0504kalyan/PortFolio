@@ -1,10 +1,11 @@
 import { useState, type HTMLAttributes, type ReactNode } from 'react';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 type Props = HTMLAttributes<HTMLDivElement> & { src: string; className: string; fallback?: ReactNode };
 
 /** Shows the photo at `src` when it is set and loads; otherwise renders the fallback. */
 export function ProfilePhoto({ src, className, fallback = null, ...rest }: Readonly<Props>) {
+  const { profile } = usePortfolio();
   const [failed, setFailed] = useState(false);
 
   if (!src || failed) return <>{fallback}</>;

@@ -1,8 +1,10 @@
 import { TbArrowUp } from 'react-icons/tb';
-import { profile } from '../data/resume';
-import { contactItems } from './Contact';
+import { usePortfolio } from '../content/PortfolioContext';
+import { useContactItems } from './Contact';
 
 export function Footer() {
+  const { profile } = usePortfolio();
+  const contactItems = useContactItems();
   return (
     <footer className="footer">
       <div className="container footer__inner">

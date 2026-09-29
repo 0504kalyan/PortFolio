@@ -1,9 +1,10 @@
 import { TbArrowRight, TbDownload } from 'react-icons/tb';
-import { hero, modules, profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 import { ProfilePhoto } from './ProfilePhoto';
 import { ApprovalScreen, JournalScreen } from './WorkdayScreens';
 
 export function Hero() {
+  const { hero, modules, profile } = usePortfolio();
   const facts = [
     { value: `${profile.experience} yrs`, label: 'Workday Financials experience' },
     { value: String(modules.length), label: 'Financials modules' },
@@ -21,7 +22,7 @@ export function Hero() {
             <a className="btn btn--accent" href="#contact">
               Get in touch <TbArrowRight aria-hidden="true" />
             </a>
-            <a className="btn btn--outline-light" href={profile.resumeFile} download>
+            <a className="btn btn--outline-light" href={profile.resumeUrl} download>
               <TbDownload aria-hidden="true" /> Download CV
             </a>
           </div>

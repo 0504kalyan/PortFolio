@@ -1,16 +1,17 @@
 import { TbBuilding, TbCircleCheckFilled } from 'react-icons/tb';
-import { experience } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 import { SectionHeading } from './SectionHeading';
 
 export function Experience() {
+  const { experience } = usePortfolio();
   return (
     <section className="section section--tint" id="experience">
       <div className="container">
         <SectionHeading eyebrow="Experience" title="Where I have delivered" />
         <ol className="timeline">
           {experience.map((j) => (
-            <li key={j.company} className="timeline__item">
-              <span className={`timeline__dot ${j.current ? 'is-current' : ''}`} aria-hidden="true" />
+            <li key={j.id} className="timeline__item">
+              <span className={`timeline__dot ${j.isCurrent ? 'is-current' : ''}`} aria-hidden="true" />
               <article className="job">
                 <header className="job__head">
                   <div>
@@ -19,27 +20,33 @@ export function Experience() {
                       <TbBuilding aria-hidden="true" /> {j.company}
                     </p>
                   </div>
-                  <span className={`pill ${j.current ? 'pill--success' : ''}`}>{j.period}</span>
+                  <span className={`pill ${j.isCurrent ? 'pill--success' : ''}`}>{j.period}</span>
                 </header>
 
-                {j.project && (
+                {j.project.name && (
                   <dl className="project-meta">
                     <div>
                       <dt>Project</dt>
                       <dd>{j.project.name}</dd>
                     </div>
-                    <div>
-                      <dt>Client</dt>
-                      <dd>{j.project.client}</dd>
-                    </div>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>{j.project.role}</dd>
-                    </div>
-                    <div>
-                      <dt>Team size</dt>
-                      <dd>{j.project.teamSize}</dd>
-                    </div>
+                    {j.project.client && (
+                      <div>
+                        <dt>Client</dt>
+                        <dd>{j.project.client}</dd>
+                      </div>
+                    )}
+                    {j.project.role && (
+                      <div>
+                        <dt>Role</dt>
+                        <dd>{j.project.role}</dd>
+                      </div>
+                    )}
+                    {j.project.teamSize != null && (
+                      <div>
+                        <dt>Team size</dt>
+                        <dd>{j.project.teamSize}</dd>
+                      </div>
+                    )}
                   </dl>
                 )}
 

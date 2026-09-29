@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { TbDownload, TbMenu2, TbX } from 'react-icons/tb';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 /** Page sections in scroll order; each `id` matches a <section id> in the page. */
 const sections = [
@@ -31,6 +31,7 @@ function useActiveSection() {
 }
 
 export function Header() {
+  const { profile } = usePortfolio();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection();
@@ -51,7 +52,7 @@ export function Header() {
           <span className="brand__mark">{profile.initials}</span>
           <span className="brand__text">
             <b>{profile.shortName}</b>
-            <small>Workday FSCM Consultant</small>
+            <small>{profile.headerTagline}</small>
           </span>
         </a>
 
@@ -67,7 +68,7 @@ export function Header() {
               {s.label}
             </a>
           ))}
-          <a className="btn btn--primary btn--sm nav__cv" href={profile.resumeFile} download>
+          <a className="btn btn--primary btn--sm nav__cv" href={profile.resumeUrl} download>
             <TbDownload aria-hidden="true" /> CV
           </a>
         </nav>

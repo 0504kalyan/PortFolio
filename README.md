@@ -1,35 +1,35 @@
 # Koteswara Rao Doppalapudi — Portfolio
 
-Single-page React + Vite + TypeScript site for a Workday Finance / FSCM Functional Consultant, with content from the resume; the downloadable CV is `public/Resume-Koteswara-Rao-Doppalapudi.pdf`.
+React 18 + Vite + TypeScript one-page portfolio for a Workday FSCM Functional Consultant.
 
-## Run
+Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio\portfolio-admin`, its own repository and Vercel project), which also manages Pavan's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
+
+## What connects this site to the admin
+
+| Path | What it is |
+|---|---|
+| `content/portfolio.json` | **The single source of truth** for all content: profile, hero, modules, processes, expertise, experience, skills, about, education, contact, SEO. Written by the admin; don't hand-edit it. |
+| `content/schema.json` | Describes that content for the admin: sections, fields, labels, hints, validation rules and the admin menu. The admin builds its forms from it. |
+| `preview.html`, `src/preview.tsx` | Renders the page with unsaved content sent from the admin (its Preview button), scrolled to the section being edited. Accepts messages only from `VITE_ADMIN_ORIGIN`. |
+| `/version.json` | Emitted at build time (`vite.config.ts`): the content file's Git blob SHA, so the admin can show when a save is live. |
+| `src/content/` | Types and `usePortfolio()`: the only place components get content from. |
+
+**Adding a new field:** add it to `content/schema.json` (so the admin shows and keeps it) and `src/content/types.ts`, then use it in a component. Fields that aren't in the schema are dropped when the admin saves.
+
+## Local development
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build in dist/
-npm run preview  # serve the build
+npm run dev      # http://localhost:5173 (use `npm run dev -- --port 5175` next to Pavan's portfolio)
+npm run build    # type-check + production build into dist/
 ```
 
-## Edit content
+To edit content locally, run the Portfolio Admin alongside it with `CONTENT_STORE=local` (see its README).
 
-See **[CONTENT-GUIDE.md](CONTENT-GUIDE.md)** for how to update every section.
+## Deploying
 
-All text lives in `src/data/resume.ts`. The profile photo is `public/profile.png`, set by `profile.photo`.
+This site's repository is `0504kalyan/koti_potifoli`. Deploy it as a Vercel project (framework **Vite**; `vercel.json` sets the build) connected to that repository, so each save from the admin redeploys it within 1–2 minutes. Add the environment variable **`VITE_ADMIN_ORIGIN`** = the Portfolio Admin URL (not a secret; it enables the admin's Preview).
 
-## Sections
+## Design pieces that live in code
 
-One page, in this order (each is a component in `src/components/`):
-
-| Section      | Component        | What it shows |
-|--------------|------------------|---------------|
-| `#top`       | `Hero`           | Name, role, headline, key facts, photo with sample Workday screens (accounting journal, business process) |
-| `#modules`   | `Modules`        | The six Workday Financials modules |
-| `#processes` | `Processes`      | Tabbed end-to-end flows: Procure-to-Pay, Record-to-Report, Order-to-Cash, Asset Lifecycle |
-| `#expertise` | `Expertise`      | Work areas with responsibilities |
-| `#experience`| `Experience`     | Employment timeline with the client project |
-| `#skills`    | `Skills`         | Competency groups |
-| `#about`     | `About`          | Summary, education, core concepts |
-| `#contact`   | `Contact`        | Email, phone, LinkedIn, CV download |
-
-Below 960px the navigation collapses into a menu button.
+Section headings and labels (each file in `src/components/`), the menu (`Header.tsx`), colours and fonts (`src/styles.css`, `index.html`), the tab icon (`public/favicon.svg`), skill and module icons (`src/components/skillIcons.tsx`, matched by name), Expertise card icons (`src/components/Expertise.tsx`, matched by work-area ID) and the illustrative Workday screens in the hero (`src/components/WorkdayScreens.tsx`, sample data only).
