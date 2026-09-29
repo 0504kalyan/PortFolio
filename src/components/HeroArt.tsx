@@ -1,7 +1,7 @@
-import { useState, type KeyboardEvent } from 'react';
+import { Fragment, useState, type KeyboardEvent } from 'react';
 import { Dots, Squares } from './Decor';
 import { ProfilePhoto } from './ProfilePhoto';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 type Layer = 'card' | 'photo';
 
@@ -22,20 +22,45 @@ function layerProps(layer: Layer, front: Layer, bringToFront: (layer: Layer) => 
   };
 }
 
+/** The Stack array in the code window, two strings per line. */
+function StackLines({ stack }: Readonly<{ stack: string[] }>) {
+  const lines: string[][] = [];
+  for (let i = 0; i < stack.length; i += 2) lines.push(stack.slice(i, i + 2));
+  if (!lines.length) return <>{'    [];\n'}</>;
+  return (
+    <>
+      {lines.map((line, i) => (
+        <Fragment key={i}>
+          {i === 0 ? '    [' : '     '}
+          {line.map((s, j) => (
+            <Fragment key={j}>
+              {j > 0 && ', '}
+              <span className="s">"{s}"</span>
+            </Fragment>
+          ))}
+          {i === lines.length - 1 ? '];' : ','}
+          {'\n'}
+        </Fragment>
+      ))}
+    </>
+  );
+}
+
 /**
- * Hero visual: a terminal-style code window. When profile.photo is set, the photo sits
+ * Hero visual: a terminal-style code window. When profile.profileImage is set, the photo sits
  * behind it as a framed print and the window overlaps its lower-left corner. Clicking
  * either layer brings it to the front.
  */
 export function HeroArt() {
+  const { profile } = usePortfolio();
   const [front, setFront] = useState<Layer>('card');
-  const stacked = Boolean(profile.photo);
+  const stacked = Boolean(profile.profileImage);
 
   return (
     <div className="hero-art">
       <Squares className="hero-art__squares" />
       <ProfilePhoto
-        src={profile.photo}
+        src={profile.profileImage}
         className={`hero-art__photo ${front === 'photo' ? 'is-front' : ''}`}
         {...layerProps('photo', front, setFront, 'Show photo')}
       />
@@ -55,21 +80,21 @@ export function HeroArt() {
               <span className="k">public class</span> <span className="t">Developer</span>
               {'\n{\n'}
               {'  '}<span className="k">public string</span> Name =&gt; <span className="s">"{profile.name}"</span>;{'\n'}
-              {'  '}<span className="k">public double</span> Years =&gt; <span className="n">{profile.experience}</span>;{'\n'}
+              {'  '}<span className="k">public double</span> Years =&gt; <span className="n">{profile.yearsOfExperience}</span>;{'\n'}
               {'  '}<span className="k">public string</span>[] Stack =&gt;{'\n'}
-              {'    '}[<span className="s">"ASP.NET Core"</span>, <span className="s">"Web API"</span>,{'\n'}
-              {'     '}<span className="s">"Angular"</span>, <span className="s">"React"</span>,{'\n'}
-              {'     '}<span className="s">"SQL Server"</span>];{'\n'}
+              <StackLines stack={profile.techStack} />
               {'}'}
             </code>
           </pre>
         </div>
-        <div className="status">
-          <span className="status__dot" />
-          <span>
-            Currently working on <b>{profile.currentProject}</b>
-          </span>
-        </div>
+        {profile.currentProject && (
+          <div className="status">
+            <span className="status__dot" />
+            <span>
+              Currently working on <b>{profile.currentProject}</b>
+            </span>
+          </div>
+        )}
       </div>
       <Dots className="hero-art__dots" />
     </div>

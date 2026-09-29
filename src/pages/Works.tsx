@@ -3,9 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { PageTitle, Section } from '../components/Section';
 import { ProjectCard } from '../components/ProjectCard';
 import { Dots, Square } from '../components/Decor';
-import { experience, pageSubtitles, projects } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 export function Works() {
+  const { experience, pageSubtitles, projects } = usePortfolio();
   const { hash } = useLocation();
   const target = hash.slice(1);
 
@@ -22,7 +23,7 @@ export function Works() {
       <Section title="complete-apps">
         <div className="cards">
           {projects.map((p) => (
-            <ProjectCard key={p.slug} project={p} detailed defaultOpen={p.slug === target} />
+            <ProjectCard key={p.id} project={p} detailed defaultOpen={p.id === target} />
           ))}
         </div>
       </Section>
@@ -30,10 +31,11 @@ export function Works() {
       <Section title="work-experience">
         <div className="cards">
           {experience.map((j) => (
-            <article key={j.company} className="card card--small">
-              <div className="card__tech">{j.current ? 'Current' : 'Previous'}</div>
+            <article key={j.id} className="card card--small">
+              <div className="card__tech">{j.isCurrent ? 'Current' : 'Previous'}</div>
               <div className="card__body">
                 <h3 className="card__title">{j.company}</h3>
+                {j.position && <p className="card__desc">{j.position}</p>}
                 {j.client && <p className="card__desc">Client: {j.client}</p>}
                 <span className="btn btn--ghost btn--static">{j.period}</span>
               </div>

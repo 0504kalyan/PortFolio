@@ -6,7 +6,7 @@ import { Section } from '../components/Section';
 import { ProjectCard } from '../components/ProjectCard';
 import { SkillsGrid } from '../components/SkillsGrid';
 import { Dots, Square, Squares } from '../components/Decor';
-import { experience, home, profile, projects, summary } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 /** Renders text with [bracketed] words in the accent colour. */
 function Accented({ text }: { text: string }) {
@@ -26,6 +26,7 @@ function Accented({ text }: { text: string }) {
 }
 
 export function Home() {
+  const { experience, featuredProjects, home, profile, projects } = usePortfolio();
   return (
     <>
       <section className="hero">
@@ -33,7 +34,7 @@ export function Home() {
           <h1 className="hero__title">
             {profile.shortName} <Accented text={home.headline} />
           </h1>
-          <p className="hero__lead">{home.lead}</p>
+          <p className="hero__lead">{profile.shortBio}</p>
           <Link to="/contacts" className="btn btn--primary btn--lg">
             Contact me!!
           </Link>
@@ -57,8 +58,8 @@ export function Home() {
 
       <Section title="projects" lineWidth={511} viewAll="/works">
         <div className="cards">
-          {projects.slice(0, 3).map((p) => (
-            <ProjectCard key={p.slug} project={p} />
+          {featuredProjects.map((p) => (
+            <ProjectCard key={p.id} project={p} />
           ))}
         </div>
       </Section>
@@ -80,8 +81,9 @@ export function Home() {
         <div className="about-preview__grid">
           <div className="about-text">
             <p>Hello, i'm {profile.name}!</p>
-            <p>{summary[0]}</p>
-            <p>{summary[1]}</p>
+            {profile.about.slice(0, 2).map((s) => (
+              <p key={s}>{s}</p>
+            ))}
             <Link to="/about-me" className="btn btn--primary">
               Read more -&gt;
             </Link>
@@ -89,7 +91,7 @@ export function Home() {
           <div className="about-stats">
             <Dots cols={5} rows={4} className="about-stats__dots" />
             <div className="stat">
-              <b>{profile.experience}</b>
+              <b>{profile.yearsOfExperience}</b>
               <span>years of IT experience</span>
             </div>
             <div className="stat">
