@@ -47,7 +47,8 @@ export type SkillIcon = { icon: IconType; color: string };
 
 const PURPLE = '#C778DD';
 
-/** Exact skill name (case-insensitive) → icon. Add an entry here to give a new skill its own icon. */
+/** Exact skill name (case-insensitive) → icon. Add an entry here to give a new skill its own icon (and add the key to the
+ * skills "icon" options in content/schema.json so the admin offers it). */
 const byName: Record<string, SkillIcon> = {
   // Languages
   'c#': { icon: TbBrandCSharp, color: '#B77DDB' },
@@ -116,7 +117,9 @@ const byKeyword: [RegExp, SkillIcon][] = [
 
 const fallback: SkillIcon = { icon: TbCode, color: PURPLE };
 
-export function getSkillIcon(skill: string): SkillIcon {
+/** Icon for a skill: the explicit `iconKey` when it is a known key, otherwise matched by name. */
+export function getSkillIcon(skill: string, iconKey = ''): SkillIcon {
   const key = skill.trim().toLowerCase();
-  return byName[key] ?? byKeyword.find(([re]) => re.test(key))?.[1] ?? fallback;
+  const lookup = byName as Record<string, SkillIcon>;
+  return lookup[iconKey.trim().toLowerCase()] ?? lookup[key] ?? byKeyword.find(([re]) => re.test(key))?.[1] ?? fallback;
 }

@@ -1,8 +1,9 @@
 import { Logo } from './Icons';
 import { MediaLinks } from './MediaLinks';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 export function Footer() {
+  const { profile } = usePortfolio();
   return (
     <footer className="footer">
       <div className="container">
@@ -17,7 +18,7 @@ export function Footer() {
                 {profile.email}
               </a>
             </div>
-            <p className="footer__role">{profile.role} · ASP.NET Core · Angular · React</p>
+            <p className="footer__role">{[profile.title, profile.footerTagline].filter(Boolean).join(' · ')}</p>
           </div>
           <div className="footer__media">
             <h3>Media</h3>

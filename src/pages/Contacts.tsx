@@ -2,9 +2,10 @@ import { PageTitle, Section } from '../components/Section';
 import { PinIcon } from '../components/Icons';
 import { ContactList } from '../components/MediaLinks';
 import { Dots, Square } from '../components/Decor';
-import { home, pageSubtitles, profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 export function Contacts() {
+  const { home, pageSubtitles, profile } = usePortfolio();
   return (
     <>
       <PageTitle title="contacts" subtitle={pageSubtitles.contacts} />
@@ -17,7 +18,7 @@ export function Contacts() {
           <div className="contact-box">
             <h3>Find me here</h3>
             <span>
-              <PinIcon size={22} /> {profile.address}
+              <PinIcon size={22} /> {profile.location}
             </span>
           </div>
           <div className="contact-box">

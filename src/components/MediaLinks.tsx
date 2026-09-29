@@ -1,54 +1,50 @@
 import type { ComponentType } from 'react';
+import { TbBrandGithub, TbBrandX, TbWorld } from 'react-icons/tb';
 import { LinkedinIcon, MailIcon, PhoneIcon } from './Icons';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
+import type { ContactKind, ContactView } from '../content/view';
 
-type Contact = {
-  key: string;
-  label: string;
-  text: string;
-  href: string;
-  external?: boolean;
-  Icon: ComponentType<{ size?: number }>;
+const icons: Record<ContactKind, ComponentType<{ size?: number }>> = {
+  email: MailIcon,
+  linkedin: LinkedinIcon,
+  phone: PhoneIcon,
+  github: ({ size }) => <TbBrandGithub size={size} aria-hidden="true" />,
+  twitter: ({ size }) => <TbBrandX size={size} aria-hidden="true" />,
+  website: ({ size }) => <TbWorld size={size} aria-hidden="true" />,
 };
 
-/** Email, LinkedIn, phone — the one contact list used everywhere on the site. */
-export const contacts: Contact[] = [
-  { key: 'email', label: 'Email', text: profile.email, href: `mailto:${profile.email}`, Icon: MailIcon },
-  {
-    key: 'linkedin',
-    label: 'LinkedIn',
-    text: profile.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''),
-    href: profile.linkedin,
-    external: true,
-    Icon: LinkedinIcon,
-  },
-  { key: 'phone', label: 'Phone', text: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}`, Icon: PhoneIcon },
-];
+const linkProps = (c: ContactView) => (c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
-const linkProps = (c: Contact) => (c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
-
-/** Icon-only links (side rail, footer, mobile menu). */
+/** Icon-only links (side rail, footer, mobile menu). Email, LinkedIn, phone, then any other social links. */
 export function MediaLinks({ size = 32 }: Readonly<{ size?: number }>) {
+  const { contacts } = usePortfolio();
   return (
     <>
-      {contacts.map((c) => (
-        <a key={c.key} href={c.href} aria-label={c.label} title={c.text} {...linkProps(c)}>
-          <c.Icon size={size} />
-        </a>
-      ))}
+      {contacts.map((c) => {
+        const Icon = icons[c.key];
+        return (
+          <a key={c.key} href={c.href} aria-label={c.label} title={c.text} {...linkProps(c)}>
+            <Icon size={size} />
+          </a>
+        );
+      })}
     </>
   );
 }
 
 /** Icon + text links (contact boxes, #all-media). */
 export function ContactList({ size = 22 }: Readonly<{ size?: number }>) {
+  const { contacts } = usePortfolio();
   return (
     <>
-      {contacts.map((c) => (
-        <a key={c.key} href={c.href} aria-label={`${c.label}: ${c.text}`} {...linkProps(c)}>
-          <c.Icon size={size} /> {c.text}
-        </a>
-      ))}
+      {contacts.map((c) => {
+        const Icon = icons[c.key];
+        return (
+          <a key={c.key} href={c.href} aria-label={`${c.label}: ${c.text}`} {...linkProps(c)}>
+            <Icon size={size} /> {c.text}
+          </a>
+        );
+      })}
     </>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { CloseIcon, Logo } from './Icons';
 import { MediaLinks } from './MediaLinks';
-import { profile } from '../data/resume';
+import { usePortfolio } from '../content/PortfolioContext';
 
 const links = [
   { to: '/', label: 'home' },
@@ -12,6 +12,7 @@ const links = [
 ];
 
 export function Header() {
+  const { profile } = usePortfolio();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -36,7 +37,7 @@ export function Header() {
               {l.label}
             </NavLink>
           ))}
-          <a className="nav__cv" href={profile.resumeFile} download>
+          <a className="nav__cv" href={profile.resumeUrl} download>
             CV
           </a>
         </nav>
@@ -67,7 +68,7 @@ export function Header() {
                 {l.label}
               </NavLink>
             ))}
-            <a className="mobile-menu__link mobile-menu__cv" href={profile.resumeFile} download>
+            <a className="mobile-menu__link mobile-menu__cv" href={profile.resumeUrl} download>
               CV
             </a>
           </nav>
