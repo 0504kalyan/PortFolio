@@ -1,31 +1,35 @@
-# Pavan Kalyan Kama — Portfolio
+# Koteswara Rao Doppalapudi — Portfolio
 
-React + Vite + TypeScript portfolio built from the designs in this folder (`Home.png`, `Projects.png`, `About.png`, `Contacts.png`, `Burger*.png`) with content from `Resume-Pavan-Updated-v2.docx`.
+React 18 + Vite + TypeScript one-page portfolio for a Workday FSCM Functional Consultant.
 
-## Run
+Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio\portfolio-admin`, its own repository and Vercel project), which also manages Pavan's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
+
+## What connects this site to the admin
+
+| Path | What it is |
+|---|---|
+| `content/portfolio.json` | **The single source of truth** for all content: profile, hero, modules, processes, expertise, experience, skills, about, education, contact, SEO. Written by the admin; don't hand-edit it. |
+| `content/schema.json` | Describes that content for the admin: sections, fields, labels, hints, validation rules and the admin menu. The admin builds its forms from it. |
+| `preview.html`, `src/preview.tsx` | Renders the page with unsaved content sent from the admin (its Preview button), scrolled to the section being edited. Accepts messages only from `VITE_ADMIN_ORIGIN`. |
+| `/version.json` | Emitted at build time (`vite.config.ts`): the content file's Git blob SHA, so the admin can show when a save is live. |
+| `src/content/` | Types and `usePortfolio()`: the only place components get content from. |
+
+**Adding a new field:** add it to `content/schema.json` (so the admin shows and keeps it) and `src/content/types.ts`, then use it in a component. Fields that aren't in the schema are dropped when the admin saves.
+
+## Local development
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build in dist/
-npm run preview  # serve the build
+npm run dev      # http://localhost:5173 (use `npm run dev -- --port 5175` next to Pavan's portfolio)
+npm run build    # type-check + production build into dist/
 ```
 
-## Edit content
+To edit content locally, run the Portfolio Admin alongside it with `CONTENT_STORE=local` (see its README).
 
-See **[CONTENT-GUIDE.md](CONTENT-GUIDE.md)** for how to update every section: Home, skills, works, about me, contacts, the CV and the profile photo.
+## Deploying
 
-All text lives in `src/data/resume.ts`. Profile photos are `public/profile-home.jpg` (Home) and `public/profile.jpg` (About me), set by `profile.photo` and `profile.aboutPhoto`.
+This site's repository is `0504kalyan/koti_potifoli`. Deploy it as a Vercel project (framework **Vite**; `vercel.json` sets the build) connected to that repository, so each save from the admin redeploys it within 1–2 minutes. Add the environment variable **`VITE_ADMIN_ORIGIN`** = the Portfolio Admin URL (not a secret; it enables the admin's Preview).
 
-## Pages
+## Design pieces that live in code
 
-| Route       | Design         |
-|-------------|----------------|
-| `/`         | Home.png       |
-| `/works`    | Projects.png   |
-| `/about-me` | About.png      |
-| `/contacts` | Contacts.png   |
-
-Below 768px the nav collapses into the burger menu (Burger.png / Burger open.png).
-
-When deploying to a static host, configure an SPA fallback so every route serves `index.html`.
+Section headings and labels (each file in `src/components/`), the menu (`Header.tsx`), colours and fonts (`src/styles.css`, `index.html`), the tab icon (`public/favicon.svg`), skill and module icons (`src/components/skillIcons.tsx`, matched by name), Expertise card icons (`src/components/Expertise.tsx`, matched by work-area ID) and the illustrative Workday screens in the hero (`src/components/WorkdayScreens.tsx`, sample data only).
