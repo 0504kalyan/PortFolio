@@ -835,6 +835,96 @@
         }
       ],
       "preview": "/about-me"
+    },
+    "roles": {
+      "type": "collection",
+      "label": "Roles",
+      "singular": "role",
+      "labelField": "name",
+      "metaFields": [
+        "title"
+      ],
+      "idHint": "The role's web address: /r/<id> on this site, /p/<name>/<id> on a profile. Don't use works, about-me or contacts.",
+      "description": "Job-based versions of the portfolio, each at its own address. A role replaces the title, headline, bio and CV, and shows only the skills, projects and experience you pick (nothing picked shows everything).",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Role name",
+          "type": "text",
+          "required": true,
+          "placeholder": "e.g. Frontend Developer",
+          "hint": "For you; also the default job title."
+        },
+        {
+          "name": "title",
+          "label": "Job title",
+          "type": "text",
+          "hint": "Replaces the profile's job title. Empty uses the role name."
+        },
+        {
+          "name": "headline",
+          "label": "Home headline",
+          "type": "text",
+          "wide": true,
+          "hint": "Replaces the Home headline. Words in [square brackets] are shown in purple."
+        },
+        {
+          "name": "shortBio",
+          "label": "Short bio",
+          "type": "textarea",
+          "wide": true,
+          "hint": "Replaces the grey line under the Home headline."
+        },
+        {
+          "name": "about",
+          "label": "About paragraphs",
+          "type": "list",
+          "wide": true,
+          "hint": "One paragraph per line. Empty keeps the profile's About text."
+        },
+        {
+          "name": "techStack",
+          "label": "Hero code window stack",
+          "type": "list",
+          "hint": "One per line. Empty keeps the profile's stack."
+        },
+        {
+          "name": "resumeUrl",
+          "label": "CV / resume file for this role",
+          "type": "asset",
+          "accept": "document",
+          "wide": true,
+          "hint": "Empty uses the profile's CV."
+        },
+        {
+          "name": "skills",
+          "label": "Skills to show",
+          "type": "multiselect",
+          "optionsFrom": {
+            "section": "skills",
+            "labelField": "name"
+          }
+        },
+        {
+          "name": "projects",
+          "label": "Projects to show",
+          "type": "multiselect",
+          "optionsFrom": {
+            "section": "projects",
+            "labelField": "title"
+          },
+          "hint": "Shown in this order on Works; the first three are featured on Home."
+        },
+        {
+          "name": "experience",
+          "label": "Experience to show",
+          "type": "multiselect",
+          "optionsFrom": {
+            "section": "experience",
+            "labelField": "company"
+          }
+        }
+      ]
     }
   },
   "pages": [
@@ -966,6 +1056,16 @@
         {
           "section": "socialLinks",
           "preview": "/contacts"
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "label": "Roles",
+      "description": "Tailor the portfolio for each kind of job, with one address per role to send with applications.",
+      "sections": [
+        {
+          "section": "roles"
         }
       ]
     }

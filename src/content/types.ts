@@ -138,6 +138,21 @@ export interface QuickFact extends BaseItem {
   highlights: string[];
 }
 
+/** A job-based version of the portfolio, at /r/<id> (or /p/<profile>/<id>). Empty fields keep the profile's. */
+export interface Role extends BaseItem {
+  name: string;
+  title: string;
+  headline: string;
+  shortBio: string;
+  about: string[];
+  techStack: string[];
+  resumeUrl: string;
+  /** Ids to show; empty shows all. */
+  skills: string[];
+  projects: string[];
+  experience: string[];
+}
+
 export interface PortfolioContent {
   schemaVersion: number;
   seo: Seo;
@@ -153,6 +168,7 @@ export interface PortfolioContent {
   certifications: Certification[];
   achievements: Achievement[];
   quickFacts: QuickFact[];
+  roles: Role[];
 }
 
 export type CollectionKey =
@@ -163,7 +179,8 @@ export type CollectionKey =
   | 'projects'
   | 'certifications'
   | 'achievements'
-  | 'quickFacts';
+  | 'quickFacts'
+  | 'roles';
 
 export type SingletonKey = 'seo' | 'profile' | 'home' | 'pageSubtitles' | 'socialLinks';
 

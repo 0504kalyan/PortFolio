@@ -13,6 +13,21 @@ Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio
 | `preview.html`, `src/preview.tsx` | Renders the site with unsaved content sent from the admin (its Preview button). Accepts messages only from `VITE_ADMIN_ORIGIN`. |
 | `/version.json` | Emitted at build time (`vite.config.ts`): the content file's Git blob SHA, so the admin can show when a save is live. |
 | `src/content/` | Types, normalization and `usePortfolio()`: the only place components get content from. |
+| `content/profiles/<name>.json` | Portfolios other people created from their resumes in the admin (`<admin>/start`). Written by the admin, never by hand. `<name>.owner.json` next to each holds only the hash of its edit link and is never published. |
+| `/profiles/<name>.json` | Emitted at build time (`vite.config.ts`) from each profile: its content and Git blob SHA, fetched by the site at `/p/<name>` and by the admin's "up to date" check. |
+
+## Roles and profile URLs
+
+`src/main.tsx` picks the content from the URL, then runs the normal app under that prefix (React Router `basename`), so `/works`, `/about-me` and `/contacts` work under every prefix:
+
+| URL | Shows |
+|---|---|
+| `/` | This portfolio |
+| `/r/<role>` | This portfolio as one role (Admin → **Roles**) |
+| `/p/<name>` | A profile created from a resume |
+| `/p/<name>/<role>` | That profile as one of its roles |
+
+A role (`src/content/roles.ts`) replaces the job title, headline, short bio, About text, stack and CV when set, and shows only the skills, projects and experience it picks (nothing picked shows everything; its first three projects are featured on Home). Unknown roles redirect to the portfolio without a role. Role ids can't be `works`, `about-me` or `contacts`. Profiles are fetched at runtime, so they don't grow the bundle, and they carry this site's SEO title in the HTML until the page runs.
 
 **Adding a new field:** add it to `content/schema.json` (so the admin shows and keeps it), to `src/content/types.ts` and `src/content/normalize.ts`, then use it in a component. Fields that aren't in the schema are dropped when the admin saves.
 

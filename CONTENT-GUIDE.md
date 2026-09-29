@@ -55,7 +55,20 @@ For single sections (**Profile**, **About**, **Home & SEO**, **Social Links**), 
 | Archive | **Archive** on the row (undo: **Archived** tab → **Restore**) | Removed from the portfolio, kept for later |
 | Reorder | **↑ / ↓** on the row | The portfolio shows entries in this order. Skills are ordered within their category. |
 
-## 5. Undo a change (Version History)
+## 5. Roles: one link per kind of job
+
+Admin → **Roles** → **+ Add role**, e.g. *Frontend Developer*. Each role is the same portfolio aimed at one job:
+
+- **Job title, Home headline, Short bio, About paragraphs, Hero stack, CV file** replace the profile's when filled in.
+- **Skills / Projects / Experience to show**: tick what matters for this job. Nothing ticked shows everything. The first three projects ticked are featured on Home.
+
+Save, and the role is live at `https://portfolio-of-pavan.vercel.app/r/<role id>` (the ID is set when you add it, e.g. `frontend-developer`). Send that link with applications for that kind of job. Hide or archive a role to take its link down.
+
+## 6. Portfolios for other people
+
+Anyone can create their own portfolio from their resume at the Portfolio Admin's **/start** page, with no account. It's published on this site at `/p/<their name>`, with a link per role. They get a private edit link to change or delete it later. You can see and delete them from the admin **Dashboard → Portfolios created from resumes**.
+
+## 7. Undo a change (Version History)
 
 1. Admin → **Version History**. Every save is listed, newest first, with a description such as *"Update project: iPay-BillPay"*.
 2. **View** shows that version in a preview and lists what restoring it would change.
@@ -76,13 +89,14 @@ For single sections (**Profile**, **About**, **Home & SEO**, **Social Links**), 
 | **Projects** | Works shows all visible projects; Home shows the featured ones. |
 | **Certifications** / **Achievements** | Sections on About, shown once you add an entry. |
 | **Social Links** | LinkedIn, plus GitHub, X/Twitter and Website when filled in. Empty links are hidden. |
+| **Roles** | Nothing on `/`; each role is its own version of the site at `/r/<role id>`. |
 
 Fields marked *"not displayed by the current site design"* are saved but don't appear on the portfolio yet.
 
 ## Tips
 
 - **Dates:** `YYYY-MM` (e.g. `2025-01`) or a year (`2020`). Tick **current job** / **ongoing** instead of an end date.
-- **Photos and CV:** use the **Upload** button next to the field, then **Save**. JPG, PNG, WebP, GIF, PDF or DOCX, up to 3 MB. Uploaded files, including your CV with your phone and address, are public.
+- **Photos and CV:** use the **Upload** button next to the field, then **Save**. JPG, PNG, WebP, GIF, PDF, DOC or DOCX, up to 3 MB. Uploaded files, including your CV with your phone and address, are public.
 - **Skill icons** are matched from the name; choose one in the skill's **Icon** field to override.
 - **Quick-fact highlights:** one per line, copied exactly from the fact text.
 - **"The portfolio changed elsewhere":** another tab or device saved first. Press **Reload Latest** and make your change again; nothing was overwritten.
