@@ -6,6 +6,7 @@ import { ContentUnavailable, ErrorBoundary } from './components/ErrorBoundary';
 import { PortfolioProvider } from './content/PortfolioContext';
 import { normalizeContent } from './content/normalize.js';
 import { publishedContent } from './content/published';
+import { withGeneratedResume } from './content/resume.js';
 import { applyRole, findRole } from './content/roles.js';
 import type { PortfolioContent } from './content/types.js';
 import './styles.css';
@@ -29,11 +30,17 @@ function locate(pathname: string) {
 
 const where = locate(window.location.pathname);
 
-/** The content with the URL's role applied, or null when there's no such role. */
-function withRole(content: PortfolioContent, roleId: string) {
-  if (!roleId) return content;
+/**
+ * The content with the URL's role applied, or null when there's no such role. With automatic CVs on,
+ * the CV links point at the files the build generated for exactly this profile and role, unless the
+ * role has its own uploaded CV.
+ */
+function withRole(content: PortfolioContent, roleId: string, profile = '') {
+  if (!roleId) return withGeneratedResume(content, { profile });
   const role = findRole(content, roleId);
-  return role ? applyRole(content, role) : null;
+  if (!role) return null;
+  const applied = applyRole(content, role);
+  return role.resumeUrl ? applied : withGeneratedResume(applied, { profile, roleId });
 }
 
 function setDocumentMeta({ seo }: PortfolioContent) {
@@ -75,7 +82,7 @@ function Profile({ name, roleId }: Readonly<{ name: string; roleId: string }>) {
 
   if (state === 'loading') return null;
   if (state === 'missing') return <NotFound message="This portfolio doesn't exist (yet). If it was just published, try again in a minute." />;
-  const content = withRole(state.content, roleId);
+  const content = withRole(state.content, roleId, name);
   if (!content) {
     window.location.replace(`/p/${encodeURIComponent(name)}`);
     return null;

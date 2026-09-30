@@ -26,7 +26,8 @@ export function applyRole(content: PortfolioContent, role: Role): PortfolioConte
       shortBio: role.shortBio || profile.shortBio,
       about: role.about.length ? role.about : profile.about,
       techStack: role.techStack.length ? role.techStack : profile.techStack,
-      resumeUrl: role.resumeUrl || profile.resumeUrl,
+      // A role's own CV replaces both of the profile's formats.
+      ...(role.resumeUrl ? { resumeUrl: role.resumeUrl, resumeAltUrl: role.resumeAltUrl } : {}),
     },
     home: { ...home, headline: role.headline || home.headline },
     skills: pick(content.skills, role.skills),

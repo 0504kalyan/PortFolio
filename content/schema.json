@@ -101,12 +101,27 @@
           "hint": "Leave empty to reuse the Home photo."
         },
         {
+          "name": "resumeAuto",
+          "label": "Generate CV automatically from this portfolio",
+          "type": "toggle",
+          "default": true,
+          "hint": "On: every save rebuilds the CV (PDF and Word) from your profile, skills, experience, education and projects. Off: visitors download the files uploaded below."
+        },
+        {
           "name": "resumeUrl",
           "label": "CV / resume file",
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "The \"CV\" download link. PDF is easiest for visitors to open."
+          "hint": "Used when automatic CV is off. PDF or Word."
+        },
+        {
+          "name": "resumeAltUrl",
+          "label": "CV in another format",
+          "type": "asset",
+          "accept": "document",
+          "wide": true,
+          "hint": "Optional, used when automatic CV is off: the same CV in the other format. Visitors then choose which to download."
         },
         {
           "name": "yearsOfExperience",
@@ -894,7 +909,15 @@
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "Empty uses the profile's CV."
+          "hint": "Optional: upload a CV for this role. Empty uses the automatic CV for this role (or the profile's uploaded CV when automatic CV is off)."
+        },
+        {
+          "name": "resumeAltUrl",
+          "label": "This role's CV in another format",
+          "type": "asset",
+          "accept": "document",
+          "wide": true,
+          "hint": "Optional second format for this role's CV."
         },
         {
           "name": "skills",
@@ -949,7 +972,9 @@
             "techStack",
             "profileImage",
             "aboutImage",
-            "resumeUrl"
+            "resumeAuto",
+            "resumeUrl",
+            "resumeAltUrl"
           ]
         }
       ]

@@ -7,6 +7,7 @@ import App from './App';
 import { ContentUnavailable, ErrorBoundary } from './components/ErrorBoundary';
 import { PortfolioProvider } from './content/PortfolioContext';
 import { normalizeContent } from './content/normalize.js';
+import { withGeneratedResume } from './content/resume.js';
 import type { PortfolioContent } from './content/types.js';
 import './styles.css';
 
@@ -25,7 +26,7 @@ function Preview() {
       // Only accept content from the admin portal that embeds us.
       if (!ADMIN_ORIGINS.includes(e.origin) || e.source !== window.parent) return;
       if (e.data?.type === 'portfolio-preview') {
-        setMessage({ ...e.data, content: normalizeContent(e.data.content) });
+        setMessage({ ...e.data, content: withGeneratedResume(normalizeContent(e.data.content)) });
       }
     };
     window.addEventListener('message', onMessage);

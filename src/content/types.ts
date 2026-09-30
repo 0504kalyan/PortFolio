@@ -30,7 +30,11 @@ export interface Profile {
   profileImage: string;
   /** About page photo; falls back to profileImage when empty. */
   aboutImage: string;
+  /** Build the CV (PDF + Word) from this content on every deploy; the uploaded files below are then unused. */
+  resumeAuto: boolean;
+  /** The CV download. With resumeAltUrl set, visitors choose between the two formats (e.g. PDF or Word). */
   resumeUrl: string;
+  resumeAltUrl: string;
   yearsOfExperience: string;
   currentProject: string;
   /** Grey line under the Home headline. */
@@ -146,7 +150,9 @@ export interface Role extends BaseItem {
   shortBio: string;
   about: string[];
   techStack: string[];
+  /** This role's CV (and optional second format); empty uses the profile's. */
   resumeUrl: string;
+  resumeAltUrl: string;
   /** Ids to show; empty shows all. */
   skills: string[];
   projects: string[];
