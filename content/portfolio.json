@@ -13,7 +13,9 @@
     "phone": "+91 8885394611",
     "profileImage": "/profile-home.jpg",
     "aboutImage": "/profile.jpg",
-    "resumeUrl": "/Resume-Pavan-Kalyan-Kama.docx",
+    "resumeAuto": true,
+    "resumeUrl": "/uploads/Resume-Pavan-Kalyan-Kama-manual.docx",
+    "resumeAltUrl": "/uploads/Resume-Pavan-Kalyan-Kama-manual.pdf",
     "yearsOfExperience": "5.11",
     "currentProject": "CM-Core",
     "shortBio": "He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices",
@@ -903,5 +905,6 @@
         "micro-frontend"
       ]
     }
-  ]
+  ],
+  "roles": []
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { CloseIcon, Logo } from './Icons';
+import { CvDownload } from './CvDownload';
 import { MediaLinks } from './MediaLinks';
 import { usePortfolio } from '../content/PortfolioContext';
 
@@ -37,9 +38,7 @@ export function Header() {
               {l.label}
             </NavLink>
           ))}
-          <a className="nav__cv" href={profile.resumeUrl} download>
-            CV
-          </a>
+          <CvDownload className="nav__cv" />
         </nav>
 
         <button
@@ -68,9 +67,7 @@ export function Header() {
                 {l.label}
               </NavLink>
             ))}
-            <a className="mobile-menu__link mobile-menu__cv" href={profile.resumeUrl} download>
-              CV
-            </a>
+            <CvDownload className="mobile-menu__link mobile-menu__cv" />
           </nav>
           <div className="mobile-menu__media">
             <MediaLinks size={48} />

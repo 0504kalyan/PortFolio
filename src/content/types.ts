@@ -30,7 +30,11 @@ export interface Profile {
   profileImage: string;
   /** About page photo; falls back to profileImage when empty. */
   aboutImage: string;
+  /** Build the CV (PDF + Word) from this content on every deploy; the uploaded files below are then unused. */
+  resumeAuto: boolean;
+  /** The CV download. With resumeAltUrl set, visitors choose between the two formats (e.g. PDF or Word). */
   resumeUrl: string;
+  resumeAltUrl: string;
   yearsOfExperience: string;
   currentProject: string;
   /** Grey line under the Home headline. */
@@ -138,6 +142,23 @@ export interface QuickFact extends BaseItem {
   highlights: string[];
 }
 
+/** A job-based version of the portfolio, at /r/<id> (or /p/<profile>/<id>). Empty fields keep the profile's. */
+export interface Role extends BaseItem {
+  name: string;
+  title: string;
+  headline: string;
+  shortBio: string;
+  about: string[];
+  techStack: string[];
+  /** This role's CV (and optional second format); empty uses the profile's. */
+  resumeUrl: string;
+  resumeAltUrl: string;
+  /** Ids to show; empty shows all. */
+  skills: string[];
+  projects: string[];
+  experience: string[];
+}
+
 export interface PortfolioContent {
   schemaVersion: number;
   seo: Seo;
@@ -153,6 +174,7 @@ export interface PortfolioContent {
   certifications: Certification[];
   achievements: Achievement[];
   quickFacts: QuickFact[];
+  roles: Role[];
 }
 
 export type CollectionKey =
@@ -163,7 +185,8 @@ export type CollectionKey =
   | 'projects'
   | 'certifications'
   | 'achievements'
-  | 'quickFacts';
+  | 'quickFacts'
+  | 'roles';
 
 export type SingletonKey = 'seo' | 'profile' | 'home' | 'pageSubtitles' | 'socialLinks';
 

@@ -50,6 +50,19 @@ const ITEM_FIELDS: { [K in CollectionKey]: FieldSpec<ItemOf<K>> } = {
   certifications: { name: 'short', issuer: 'short', issueDate: 'short', credentialUrl: 'short', description: 'text' },
   achievements: { title: 'short', description: 'text', date: 'short', url: 'short' },
   quickFacts: { text: 'short', highlights: 'list' },
+  roles: {
+    name: 'short',
+    title: 'short',
+    headline: 'short',
+    shortBio: 'text',
+    about: 'list',
+    techStack: 'list',
+    resumeUrl: 'short',
+    resumeAltUrl: 'short',
+    skills: 'list',
+    projects: 'list',
+    experience: 'list',
+  },
 };
 
 const SINGLETON_FIELDS: { [K in Exclude<SingletonKey, 'home'>]: FieldSpec<PortfolioContent[K]> } = {
@@ -63,7 +76,9 @@ const SINGLETON_FIELDS: { [K in Exclude<SingletonKey, 'home'>]: FieldSpec<Portfo
     phone: 'short',
     profileImage: 'short',
     aboutImage: 'short',
+    resumeAuto: 'bool',
     resumeUrl: 'short',
+    resumeAltUrl: 'short',
     yearsOfExperience: 'short',
     currentProject: 'short',
     shortBio: 'text',
