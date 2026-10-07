@@ -7,6 +7,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import { SkillsGrid } from '../components/SkillsGrid';
 import { Dots, Square, Squares } from '../components/Decor';
 import { usePortfolio } from '../content/PortfolioContext';
+import { quoteOfTheDay } from '../content/quotes';
 
 /** Renders text with [bracketed] words in the accent colour. */
 function Accented({ text }: { text: string }) {
@@ -27,6 +28,7 @@ function Accented({ text }: { text: string }) {
 
 export function Home() {
   const { experience, featuredProjects, home, profile, projects } = usePortfolio();
+  const quote = quoteOfTheDay(home.quote);
   return (
     <>
       <section className="hero">
@@ -47,12 +49,12 @@ export function Home() {
           <span className="quote__mark quote__mark--top">
             <QuoteIcon />
           </span>
-          <p>{home.quote.text}</p>
+          <p>{quote.text}</p>
           <span className="quote__mark quote__mark--bottom">
             <QuoteIcon />
           </span>
         </div>
-        <div className="quote__author">- {home.quote.author}</div>
+        <div className="quote__author">- {quote.author}</div>
         <Square size={91} className="deco deco--right" style={{ top: 10 }} />
       </section>
 

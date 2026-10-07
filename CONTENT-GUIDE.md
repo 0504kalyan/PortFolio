@@ -82,7 +82,7 @@ Anyone can create their own portfolio from their resume at the Portfolio Admin's
 |---|---|
 | **Profile** | Name, short name (logo and first word of the headline), job title and footer tagline, email/phone (side rail, footer, menu, contact boxes), location ("Find me here" on Contacts), years of experience and "Currently working on" (Home), short bio, the code-window stack, both photos, the CV download. |
 | **About** | The About page paragraphs (Home shows the first two) and the quick facts boxes. |
-| **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote, contact intro, page subtitles, the browser-tab title and the search-engine description. |
+| **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote (one of the Home "quote of the day" rotation, which changes daily from `src/content/quotes.ts`), contact intro, page subtitles, the browser-tab title and the search-engine description. |
 | **Skills** | Categories are the boxes; skills are the entries inside them (Home and About). |
 | **Experience** | #work-experience on Works and the timeline on About. |
 | **Education** | The #education line on About. |
