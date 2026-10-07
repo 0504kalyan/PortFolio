@@ -613,11 +613,26 @@ button {
 }
 
 .quote__author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   padding: 16px;
   border: 1px solid var(--gray);
   border-top: 0;
   color: var(--white);
   font-size: 24px;
+}
+
+.quote__refresh {
+  display: inline-flex;
+  padding: 4px;
+  color: var(--gray);
+  transition: color 0.2s, transform 0.4s;
+}
+
+.quote__refresh:hover {
+  color: var(--primary);
+  transform: rotate(180deg);
 }
 
 .quote .deco--right {

@@ -92,13 +92,23 @@ const QUOTES: Quote[] = [
 
 const MS_PER_DAY = 86_400_000;
 
+/** The quotes on offer: the list, plus the quote set in the admin when it isn't already in it. */
+function quotePool(adminQuote: Quote): Quote[] {
+  return adminQuote.text && !QUOTES.some((q) => q.text === adminQuote.text) ? [adminQuote, ...QUOTES] : QUOTES;
+}
+
 /**
  * Today's quote, chosen by the visitor's local date: each consecutive day gets the next quote, and
- * the list repeats after it runs out. The quote set in the admin joins the rotation when it isn't
- * already in the list.
+ * the list repeats after it runs out.
  */
 export function quoteOfTheDay(adminQuote: Quote, date = new Date()): Quote {
-  const pool = adminQuote.text && !QUOTES.some((q) => q.text === adminQuote.text) ? [adminQuote, ...QUOTES] : QUOTES;
+  const pool = quotePool(adminQuote);
   const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / MS_PER_DAY);
   return pool[day % pool.length];
+}
+
+/** A random quote other than the one showing, for the Home refresh button. */
+export function anotherQuote(adminQuote: Quote, current: Quote): Quote {
+  const others = quotePool(adminQuote).filter((q) => q.text !== current.text);
+  return others[Math.floor(Math.random() * others.length)] ?? current;
 }

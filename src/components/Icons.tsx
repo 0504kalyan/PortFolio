@@ -1,4 +1,4 @@
-import { TbBrandLinkedin } from 'react-icons/tb';
+import { TbBrandLinkedin, TbRefresh } from 'react-icons/tb';
 
 type P = { size?: number };
 
@@ -22,6 +22,8 @@ export const PhoneIcon = ({ size = 32 }: P) => (
 );
 
 export const LinkedinIcon = ({ size = 32 }: P) => <TbBrandLinkedin size={size} aria-hidden="true" />;
+
+export const RefreshIcon = ({ size = 20 }: P) => <TbRefresh size={size} aria-hidden="true" />;
 
 export const PinIcon = ({ size = 32 }: P) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HeroArt } from '../components/HeroArt';
-import { QuoteIcon } from '../components/Icons';
+import { QuoteIcon, RefreshIcon } from '../components/Icons';
 import { ContactList } from '../components/MediaLinks';
 import { Section } from '../components/Section';
 import { ProjectCard } from '../components/ProjectCard';
 import { SkillsGrid } from '../components/SkillsGrid';
 import { Dots, Square, Squares } from '../components/Decor';
 import { usePortfolio } from '../content/PortfolioContext';
-import { quoteOfTheDay } from '../content/quotes';
+import { anotherQuote, quoteOfTheDay, type Quote } from '../content/quotes';
 
 /** Renders text with [bracketed] words in the accent colour. */
 function Accented({ text }: { text: string }) {
@@ -28,7 +29,9 @@ function Accented({ text }: { text: string }) {
 
 export function Home() {
   const { experience, featuredProjects, home, profile, projects } = usePortfolio();
-  const quote = quoteOfTheDay(home.quote);
+  // A quote picked with the refresh button; until then, today's quote.
+  const [picked, setPicked] = useState<Quote | null>(null);
+  const quote = picked ?? quoteOfTheDay(home.quote);
   return (
     <>
       <section className="hero">
@@ -54,7 +57,18 @@ export function Home() {
             <QuoteIcon />
           </span>
         </div>
-        <div className="quote__author">- {quote.author}</div>
+        <div className="quote__author">
+          <button
+            type="button"
+            className="quote__refresh"
+            onClick={() => setPicked(anotherQuote(home.quote, quote))}
+            aria-label="Show another quote"
+            title="Show another quote"
+          >
+            <RefreshIcon />
+          </button>
+          - {quote.author}
+        </div>
         <Square size={91} className="deco deco--right" style={{ top: 10 }} />
       </section>
 
