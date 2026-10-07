@@ -50,6 +50,7 @@ const ITEM_FIELDS: { [K in CollectionKey]: FieldSpec<ItemOf<K>> } = {
   certifications: { name: 'short', issuer: 'short', issueDate: 'short', credentialUrl: 'short', description: 'text' },
   achievements: { title: 'short', description: 'text', date: 'short', url: 'short' },
   quickFacts: { text: 'short', highlights: 'list' },
+  quotes: { text: 'text', author: 'short' },
   roles: {
     name: 'short',
     title: 'short',

@@ -8,7 +8,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import { SkillsGrid } from '../components/SkillsGrid';
 import { Dots, Square, Squares } from '../components/Decor';
 import { usePortfolio } from '../content/PortfolioContext';
-import { anotherQuote, quoteOfTheDay, type Quote } from '../content/quotes';
+import { anotherQuote, quoteOfTheDay, type QuoteView } from '../content/quotes';
 
 /** Renders text with [bracketed] words in the accent colour. */
 function Accented({ text }: { text: string }) {
@@ -28,10 +28,10 @@ function Accented({ text }: { text: string }) {
 }
 
 export function Home() {
-  const { experience, featuredProjects, home, profile, projects } = usePortfolio();
+  const { experience, featuredProjects, home, profile, projects, quotes } = usePortfolio();
   // A quote picked with the refresh button; until then, today's quote.
-  const [picked, setPicked] = useState<Quote | null>(null);
-  const quote = picked ?? quoteOfTheDay(home.quote);
+  const [picked, setPicked] = useState<QuoteView | null>(null);
+  const quote = picked ?? quoteOfTheDay(quotes);
   return (
     <>
       <section className="hero">
@@ -47,30 +47,34 @@ export function Home() {
         <HeroArt />
       </section>
 
-      <section className="quote">
-        <div className="quote__box">
-          <span className="quote__mark quote__mark--top">
-            <QuoteIcon />
-          </span>
-          <p>{quote.text}</p>
-          <span className="quote__mark quote__mark--bottom">
-            <QuoteIcon />
-          </span>
-        </div>
-        <div className="quote__author">
-          <button
-            type="button"
-            className="quote__refresh"
-            onClick={() => setPicked(anotherQuote(home.quote, quote))}
-            aria-label="Show another quote"
-            title="Show another quote"
-          >
-            <RefreshIcon />
-          </button>
-          - {quote.author}
-        </div>
-        <Square size={91} className="deco deco--right" style={{ top: 10 }} />
-      </section>
+      {quote && (
+        <section className="quote">
+          <div className="quote__box">
+            <span className="quote__mark quote__mark--top">
+              <QuoteIcon />
+            </span>
+            <p>{quote.text}</p>
+            <span className="quote__mark quote__mark--bottom">
+              <QuoteIcon />
+            </span>
+          </div>
+          <div className="quote__author">
+            {quotes.length > 1 && (
+              <button
+                type="button"
+                className="quote__refresh"
+                onClick={() => setPicked(anotherQuote(quotes, quote))}
+                aria-label="Show another quote"
+                title="Show another quote"
+              >
+                <RefreshIcon />
+              </button>
+            )}
+            {quote.author && `- ${quote.author}`}
+          </div>
+          <Square size={91} className="deco deco--right" style={{ top: 10 }} />
+        </section>
+      )}
 
       <Section title="projects" lineWidth={511} viewAll="/works">
         <div className="cards">
