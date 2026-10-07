@@ -50,6 +50,7 @@ export interface Profile {
 export interface HomeContent {
   /** Words in [square brackets] are shown in the accent colour. */
   headline: string;
+  /** Joins the Quotes collection in the Home quote of the day. */
   quote: { text: string; author: string };
   contactIntro: string;
 }
@@ -142,6 +143,12 @@ export interface QuickFact extends BaseItem {
   highlights: string[];
 }
 
+/** One quote in the Home quote of the day rotation. */
+export interface Quote extends BaseItem {
+  text: string;
+  author: string;
+}
+
 /** A job-based version of the portfolio, at /r/<id> (or /p/<profile>/<id>). Empty fields keep the profile's. */
 export interface Role extends BaseItem {
   name: string;
@@ -174,6 +181,7 @@ export interface PortfolioContent {
   certifications: Certification[];
   achievements: Achievement[];
   quickFacts: QuickFact[];
+  quotes: Quote[];
   roles: Role[];
 }
 
@@ -186,6 +194,7 @@ export type CollectionKey =
   | 'certifications'
   | 'achievements'
   | 'quickFacts'
+  | 'quotes'
   | 'roles';
 
 export type SingletonKey = 'seo' | 'profile' | 'home' | 'pageSubtitles' | 'socialLinks';

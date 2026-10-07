@@ -180,7 +180,8 @@
           "name": "quote.text",
           "label": "Quote",
           "type": "textarea",
-          "wide": true
+          "wide": true,
+          "hint": "Joins the daily rotation with the quotes on the Quotes page."
         },
         {
           "name": "quote.author",
@@ -851,6 +852,33 @@
       ],
       "preview": "/about-me"
     },
+    "quotes": {
+      "type": "collection",
+      "label": "Quotes",
+      "singular": "quote",
+      "labelField": "text",
+      "metaFields": [
+        "author"
+      ],
+      "description": "The Home page quote changes every day, cycling through these in order (plus the quote on Home & SEO). Visitors can also press ↻ for a random one. Hide or archive a quote to take it out of the rotation.",
+      "fields": [
+        {
+          "name": "text",
+          "label": "Quote",
+          "type": "textarea",
+          "required": true,
+          "wide": true,
+          "maxLength": 300
+        },
+        {
+          "name": "author",
+          "label": "Author",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "preview": "/"
+    },
     "roles": {
       "type": "collection",
       "label": "Roles",
@@ -1012,6 +1040,16 @@
         {
           "section": "seo",
           "description": "Written into the portfolio's HTML when it rebuilds, so search engines see it without running JavaScript."
+        }
+      ]
+    },
+    {
+      "id": "quotes",
+      "label": "Quotes",
+      "description": "The Home quote of the day: one a day, in this order.",
+      "sections": [
+        {
+          "section": "quotes"
         }
       ]
     },

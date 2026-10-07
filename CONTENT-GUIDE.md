@@ -14,6 +14,23 @@ How to add, update and delete anything on <https://portfolio-of-pavan.vercel.app
 2. If your account manages more than one portfolio, choose **Pavan Kalyan Kama** (or switch with the **Portfolio** menu at the top of the sidebar).
 3. The menu on the left lists this portfolio's sections; **Dashboard** shows what's on the site and whether it's up to date.
 
+### Accounts
+
+Each sign-in only sees, and can only save to, the portfolios it's allowed. The server checks this on every request, so editing the address bar doesn't get around it.
+
+| Username | Sees in the admin | Saves go live on |
+|---|---|---|
+| `pavan` | **Pavan Kalyan Kama** and **Koteswara Rao Doppalapudi** (switch with the **Portfolio** menu) | <https://portfolio-of-pavan.vercel.app/> or <https://koti-potifoli.vercel.app/>, whichever is selected |
+| `koti` | **Koteswara Rao Doppalapudi** only | <https://koti-potifoli.vercel.app/> |
+
+Passwords are not written down here: this repository is public, and anyone with a password could change both live sites. Keep them in a password manager. The admin itself only stores a scrypt hash of each password (the `ADMIN_USERS` variable on the admin's Vercel project), so a forgotten password can't be looked up; set a new one instead:
+
+1. In the `portfolio-admin` folder, run `npm run hash-password` and type the new password.
+2. Vercel → admin project → Settings → Environment Variables → `ADMIN_USERS`: replace that user's `passwordHash` with the printed hash. Keep the `sites` lists as they are (`["*"]` for `pavan`, `["koti"]` for `koti`).
+3. Redeploy the admin. That user's old sessions end.
+
+To add a person or change what they can see, edit their `sites` list the same way (site ids are `pavan` and `koti`; `"*"` means every portfolio).
+
 ## 1. Add something
 
 Example: a new project.
@@ -24,7 +41,7 @@ Example: a new project.
 4. Press **Add project**. You'll see *"Project added successfully."*
 5. Wait for **Portfolio is up to date** (1–2 minutes). The project is live.
 
-The same steps work for every list: **Skills** (pick the category), **Experience**, **Education**, **Certifications**, **Achievements**, and **About → Quick facts**. To show a project on the Home page too, turn on **Feature on Home**; Home shows the first three featured projects.
+The same steps work for every list: **Skills** (pick the category), **Experience**, **Education**, **Certifications**, **Achievements**, **Quotes**, and **About → Quick facts**. To show a project on the Home page too, turn on **Feature on Home**; Home shows the first three featured projects.
 
 ## 2. Update something
 
@@ -82,7 +99,8 @@ Anyone can create their own portfolio from their resume at the Portfolio Admin's
 |---|---|
 | **Profile** | Name, short name (logo and first word of the headline), job title and footer tagline, email/phone (side rail, footer, menu, contact boxes), location ("Find me here" on Contacts), years of experience and "Currently working on" (Home), short bio, the code-window stack, both photos, the CV download. |
 | **About** | The About page paragraphs (Home shows the first two) and the quick facts boxes. |
-| **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote, contact intro, page subtitles, the browser-tab title and the search-engine description. |
+| **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote (joins the **Quotes** rotation), contact intro, page subtitles, the browser-tab title and the search-engine description. |
+| **Quotes** | The Home quote box. It shows a different quote each day, going through the list in order (with the **Home & SEO** quote first), and repeats when it reaches the end. Visitors can press ↻ next to the author for a random one. Hide or archive a quote to take it out of the rotation; **↑/↓** change the order. The day changes at the visitor's midnight, with no save or deploy. |
 | **Skills** | Categories are the boxes; skills are the entries inside them (Home and About). |
 | **Experience** | #work-experience on Works and the timeline on About. |
 | **Education** | The #education line on About. |
