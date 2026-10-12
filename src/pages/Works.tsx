@@ -32,12 +32,18 @@ export function Works() {
         <div className="cards">
           {experience.map((j) => (
             <article key={j.id} className="card card--small">
-              <div className="card__tech">{j.isCurrent ? 'Current' : 'Previous'}</div>
               <div className="card__body">
                 <h3 className="card__title">{j.company}</h3>
                 {j.position && <p className="card__desc">{j.position}</p>}
                 {j.client && <p className="card__desc">Client: {j.client}</p>}
+                {j.location && <p className="card__desc">{j.location}</p>}
                 <span className="btn btn--ghost btn--static">{j.period}</span>
+                {j.description && <p className="experience__description">{j.description}</p>}
+                {j.technologies.length > 0 && (
+                  <p className="experience__technologies">
+                    <b>Technologies:</b> {j.technologies.join(', ')}
+                  </p>
+                )}
               </div>
             </article>
           ))}

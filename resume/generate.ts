@@ -64,6 +64,9 @@ export function resumeBlocks(content: PortfolioContent, portfolioUrl: string): B
       if (e.client) left.push({ text: ` (Client: ${e.client})` });
       if (e.position) left.push({ text: ` · ${e.position}` });
       blocks.push({ kind: 'job', left, right: e.period });
+      if (e.location) blocks.push({ kind: 'label', label: 'Location', text: e.location });
+      if (e.description) blocks.push({ kind: 'para', runs: [{ text: e.description }], justify: true });
+      if (e.technologies.length) blocks.push({ kind: 'label', label: 'Technologies', text: e.technologies.join(', ') });
     }
   }
   if (v.education.length) {

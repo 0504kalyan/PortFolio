@@ -1019,9 +1019,21 @@ button {
   background: var(--bg);
 }
 
-.timeline__marker.is-current {
+.timeline__marker.is-completed {
   background: var(--primary);
   border-color: var(--primary);
+}
+
+.timeline__marker.is-completed::after {
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  content: '';
+  transform: rotate(45deg);
 }
 
 .timeline__item h3 {
@@ -1033,6 +1045,19 @@ button {
 .timeline__period {
   color: var(--primary);
   font-size: 14px;
+}
+
+.experience__description {
+  margin-top: 8px;
+  color: var(--gray);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.experience__technologies {
+  margin-top: 8px;
+  color: var(--gray);
+  line-height: 1.6;
 }
 
 .facts-section {
