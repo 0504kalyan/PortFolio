@@ -1,6 +1,6 @@
 // Turns raw content into what the public components render: only active + visible items,
 // sorted by displayOrder, with dates formatted.
-import { formatRange, yearOf } from './format.js';
+import { formatProfileText, formatRange, yearOf } from './format.js';
 import type { BaseItem, PortfolioContent, Project } from './types.js';
 
 export type ProjectView = Project & { duration: string };
@@ -26,6 +26,10 @@ function buildContacts({ profile, socialLinks: s }: PortfolioContent): ContactVi
 }
 
 export function buildView(content: PortfolioContent) {
+  const profile = {
+    ...content.profile,
+    about: content.profile.about.map((paragraph) => formatProfileText(paragraph, content.profile.yearsOfExperience)),
+  };
   const projects: ProjectView[] = live(content.projects).map((p) => ({
     ...p,
     duration: formatRange(p.startDate, p.endDate, p.isCurrent, 'short'),
@@ -35,7 +39,7 @@ export function buildView(content: PortfolioContent) {
 
   return {
     content,
-    profile: content.profile,
+    profile,
     home: content.home,
     pageSubtitles: content.pageSubtitles,
     contacts: buildContacts(content),
@@ -49,7 +53,7 @@ export function buildView(content: PortfolioContent) {
         items: skills.filter((s) => s.category === c.id).map(({ id, name, icon }) => ({ id, name, icon })),
       }))
       .filter((g) => g.items.length > 0),
-    experience: live(content.experience).map((e) => ({ ...e, period: formatRange(e.startDate, e.endDate, e.isCurrent) })),
+    experience: live(content.experience).map((e) => ({ ...e, period: formatRange(e.startDate, e.endDate, !e.completed) })),
     education: live(content.education).map((e) => ({ ...e, year: e.endDate ? yearOf(e.endDate) : e.startDate ? yearOf(e.startDate) : '' })),
     certifications: live(content.certifications),
     achievements: live(content.achievements),

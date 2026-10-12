@@ -20,6 +20,11 @@ export function formatRange(start: string, end: string, isCurrent: boolean, styl
   return from && to ? `${from} - ${to}` : from || to;
 }
 
+/** Replaces profile-backed placeholders in reusable About copy. */
+export function formatProfileText(text: string, yearsOfExperience: string): string {
+  return text.replace(/\{\{yearsOfExperience\}\}/g, yearsOfExperience);
+}
+
 /** Comparable number for a YYYY or YYYY-MM string (YYYY counts as its first month). */
 export function dateKey(value: string): number {
   const [year, month = '01'] = value.split('-');

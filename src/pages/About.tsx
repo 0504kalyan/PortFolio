@@ -48,12 +48,19 @@ export function About() {
             <Dots cols={5} rows={4} className="timeline__dots" />
             {experience.map((j) => (
               <div key={j.id} className="timeline__item">
-                <span className={`timeline__marker ${j.isCurrent ? 'is-current' : ''}`} />
+                <span className={`timeline__marker ${j.completed ? 'is-completed' : ''}`} aria-hidden="true" />
                 <div>
                   <h3>{j.company}</h3>
                   {j.position && <p>{j.position}</p>}
                   {j.client && <p>Client: {j.client}</p>}
+                  {j.location && <p>{j.location}</p>}
                   <p className="timeline__period">{j.period}</p>
+                  {j.description && <p className="experience__description">{j.description}</p>}
+                  {j.technologies.length > 0 && (
+                    <p className="experience__technologies">
+                      <b>Technologies:</b> {j.technologies.join(', ')}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}

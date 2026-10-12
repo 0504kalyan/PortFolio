@@ -20,7 +20,7 @@
     "currentProject": "CM-Core",
     "shortBio": "He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices",
     "about": [
-      "Dot Net Developer with around 5.10 years of IT experience covering all phases of the Software Design Life Cycle (SDLC) including Analysis, Design, Development, Testing, and Support of Web Applications, based on Object Oriented Programming (OOP), Client/Server, N-tier architecture, Web based and Internet Technologies.",
+      "Dot Net Developer with around {{yearsOfExperience}} years of IT experience covering all phases of the Software Design Life Cycle (SDLC) including Analysis, Design, Development, Testing, and Support of Web Applications, based on Object Oriented Programming (OOP), Client/Server, N-tier architecture, Web based and Internet Technologies.",
       "Experienced in building enterprise web applications using ASP.NET Core, Web API, Angular, and microservices/micro-frontend architectures. Skilled in translating business requirements into scalable solutions with multi-level approval workflows, role-based access control, tenant scoping, and scheduled publication features.",
       "Proficient in AI-assisted development using GitHub Copilot, Cursor, and Claude to improve productivity, code quality, and delivery speed. Worked closely with business analysts and converted the requirements into Dot Net code."
     ],
@@ -590,11 +590,11 @@
       "status": "active",
       "company": "IBridge Techsoft",
       "client": "Warrous",
-      "position": "",
-      "location": "",
+      "position": "Full-stack Developer",
+      "location": "Hyderabad",
       "startDate": "2025-11",
-      "endDate": "",
-      "isCurrent": true,
+      "endDate": "2026-10",
+      "completed": true,
       "description": "",
       "technologies": []
     },
@@ -609,7 +609,7 @@
       "location": "",
       "startDate": "2023-09",
       "endDate": "2025-07",
-      "isCurrent": false,
+      "completed": true,
       "description": "",
       "technologies": []
     },
@@ -624,7 +624,7 @@
       "location": "",
       "startDate": "2020-07",
       "endDate": "2023-07",
-      "isCurrent": false,
+      "completed": true,
       "description": "",
       "technologies": []
     }
@@ -663,8 +663,8 @@
         "Leveraged AI coding assistants (GitHub Copilot, Cursor, and Claude) for rapid root-cause analysis, query and API performance optimization, and automated code generation across the Auth, Library, and Campaign microservices, accelerating debugging cycles and feature delivery."
       ],
       "startDate": "2025-01",
-      "endDate": "",
-      "isCurrent": true,
+      "endDate": "2026-10",
+      "isCurrent": false,
       "technologies": [
         "C#",
         "ASP.NET Core 9",

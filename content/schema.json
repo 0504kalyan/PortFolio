@@ -148,7 +148,7 @@
           "type": "list",
           "wide": true,
           "required": true,
-          "hint": "One paragraph per line. The About page shows all of them; Home shows the first two."
+          "hint": "One paragraph per line. The About page shows all of them; Home shows the first two. Use {{yearsOfExperience}} to insert the Years of experience field dynamically."
         },
         {
           "name": "techStack",
@@ -510,7 +510,7 @@
         "position",
         "client"
       ],
-      "description": "Shown on Works (#work-experience) and the About timeline. The first entry is at the top.",
+      "description": "Edit a job once here. Active, visible entries appear on Works, the About timeline, and generated CVs. The first entry is at the top.",
       "fields": [
         {
           "name": "company",
@@ -534,7 +534,7 @@
           "name": "location",
           "label": "Location",
           "type": "text",
-          "hint": "Saved with your content, but not displayed by the current site design."
+          "hint": "Shown with this job on Works, the About timeline, and generated CVs."
         },
         {
           "name": "startDate",
@@ -544,28 +544,29 @@
           "hint": "YYYY-MM, e.g. 2025-01. Year only (YYYY) also works."
         },
         {
+          "name": "completed",
+          "label": "Completed",
+          "type": "toggle",
+          "hint": "Check when this work is complete. Unchecked work is In progress."
+        },
+        {
           "name": "endDate",
           "label": "End date",
           "type": "date",
-          "hint": "Leave empty for your current job."
-        },
-        {
-          "name": "isCurrent",
-          "label": "This is my current job",
-          "type": "toggle"
+          "hint": "Required when Completed is checked; leave empty while the work is in progress."
         },
         {
           "name": "description",
           "label": "Description",
           "type": "textarea",
           "wide": true,
-          "hint": "Saved with your content, but not displayed by the current site design."
+          "hint": "Shown with this job on Works, the About timeline, and generated CVs."
         },
         {
           "name": "technologies",
           "label": "Technologies",
           "type": "list",
-          "hint": "One per line. Saved with your content, but not displayed by the current site design."
+          "hint": "One per line. Shown with this job on Works, the About timeline, and generated CVs."
         }
       ],
       "rules": [
@@ -573,8 +574,7 @@
           "type": "dateRange",
           "start": "startDate",
           "end": "endDate",
-          "current": "isCurrent",
-          "requireEnd": true
+          "completed": "completed"
         }
       ],
       "preview": "/works"
@@ -1069,6 +1069,7 @@
     {
       "id": "experience",
       "label": "Experience",
+      "description": "Add or edit companies, roles, dates, descriptions and technologies. Changes appear on the portfolio's Works and About pages and in its generated CV.",
       "sections": [
         {
           "section": "experience"

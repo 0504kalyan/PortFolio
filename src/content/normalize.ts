@@ -19,7 +19,7 @@ const ITEM_FIELDS: { [K in CollectionKey]: FieldSpec<ItemOf<K>> } = {
     location: 'short',
     startDate: 'short',
     endDate: 'short',
-    isCurrent: 'bool',
+    completed: 'bool',
     description: 'text',
     technologies: 'list',
   },

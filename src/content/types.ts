@@ -89,7 +89,7 @@ export interface Experience extends BaseItem {
   /** YYYY-MM or YYYY. */
   startDate: string;
   endDate: string;
-  isCurrent: boolean;
+  completed: boolean;
   description: string;
   technologies: string[];
 }
