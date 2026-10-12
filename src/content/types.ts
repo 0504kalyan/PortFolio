@@ -50,7 +50,7 @@ export interface Profile {
 export interface HomeContent {
   /** Words in [square brackets] are shown in the accent colour. */
   headline: string;
-  /** Joins the Quotes collection in the Home quote of the day. */
+  /** The first quote in the Home quote rotation. */
   quote: { text: string; author: string };
   contactIntro: string;
 }
@@ -143,7 +143,7 @@ export interface QuickFact extends BaseItem {
   highlights: string[];
 }
 
-/** One quote in the Home quote of the day rotation. */
+/** One quote in the Home quote rotation. */
 export interface Quote extends BaseItem {
   text: string;
   author: string;

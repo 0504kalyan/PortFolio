@@ -100,7 +100,7 @@ Anyone can create their own portfolio from their resume at the Portfolio Admin's
 | **Profile** | Name, short name (logo and first word of the headline), job title and footer tagline, email/phone (side rail, footer, menu, contact boxes), location ("Find me here" on Contacts), years of experience and "Most recent project" (Home), short bio, the code-window stack, both photos, the CV download. |
 | **About** | The About page paragraphs (Home shows the first two) and the quick facts boxes. |
 | **Home & SEO** | Headline (words in `[square brackets]` turn purple), quote (joins the **Quotes** rotation), contact intro, page subtitles, the browser-tab title and the search-engine description. |
-| **Quotes** | The Home quote box. It shows a different quote each day, going through the list in order (with the **Home & SEO** quote first), and repeats when it reaches the end. Visitors can press ↻ next to the author for a random one. Hide or archive a quote to take it out of the rotation; **↑/↓** change the order. The day changes at the visitor's midnight, with no save or deploy. |
+| **Quotes** | The Home quote box. A random quote is selected on each page load, avoiding the quote last shown in the same tab when possible. Visitors can press ↻ next to the author to show another random quote. Hide or archive a quote to take it out of the rotation; **↑/↓** change the order. |
 | **Skills** | Categories are the boxes; skills are the entries inside them (Home and About). |
 | **Experience** | #work-experience on Works and the timeline on About. |
 | **Education** | The #education line on About. |

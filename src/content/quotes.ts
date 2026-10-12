@@ -1,18 +1,31 @@
-// The Home "quote of the day". The quotes come from the content (the Home page quote plus the
-// Quotes collection, both edited in the admin); the visitor's browser picks one from the local
-// date, so it changes every day without a rebuild.
+// The Home quote comes from the Home page quote and Quotes collection, both edited in the admin.
 
 export type QuoteView = { text: string; author: string };
 
-const MS_PER_DAY = 86_400_000;
+const STORAGE_KEY = 'portfolio:last-home-quote';
 
 /**
- * Today's quote, chosen by the visitor's local date: each consecutive day gets the next quote, and
- * the list repeats after it runs out. Undefined when there are no quotes.
+ * Picks a random quote on page load, avoiding the previous quote in this tab when possible.
  */
-export function quoteOfTheDay(quotes: QuoteView[], date = new Date()): QuoteView | undefined {
-  const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / MS_PER_DAY);
-  return quotes[day % quotes.length];
+export function quoteOnRefresh(quotes: QuoteView[]): QuoteView | undefined {
+  if (!quotes.length) return undefined;
+  try {
+    const previousText = sessionStorage.getItem(STORAGE_KEY);
+    const previous = quotes.find((quote) => quote.text === previousText);
+    if (previous) return anotherQuote(quotes, previous);
+  } catch {
+    // Storage may be unavailable; a random quote still works.
+  }
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+export function rememberQuote(quote: QuoteView | undefined): void {
+  if (!quote) return;
+  try {
+    sessionStorage.setItem(STORAGE_KEY, quote.text);
+  } catch {
+    // Storage is optional; quote selection still works for this page load.
+  }
 }
 
 /** A random quote other than the one showing, for the Home refresh button. */

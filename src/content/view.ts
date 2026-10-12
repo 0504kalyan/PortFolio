@@ -58,7 +58,7 @@ export function buildView(content: PortfolioContent) {
     certifications: live(content.certifications),
     achievements: live(content.achievements),
     quickFacts: live(content.quickFacts),
-    /** Home quote of the day: the Home page quote, then the Quotes collection, without repeats. */
+    /** Home quote choices: the Home page quote, then the Quotes collection, without repeats. */
     quotes: [content.home.quote, ...live(content.quotes)]
       .filter((q) => q.text)
       .filter((q, i, all) => all.findIndex((o) => o.text === q.text) === i)
