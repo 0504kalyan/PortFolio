@@ -591,10 +591,10 @@
       "company": "IBridge Techsoft",
       "client": "Warrous",
       "position": "Full-stack Developer",
-      "location": "Hyderabad",
+      "location": "",
       "startDate": "2025-11",
-      "endDate": "2026-10",
       "completed": true,
+      "endDate": "2026-10",
       "description": "",
       "technologies": []
     },
@@ -608,8 +608,8 @@
       "position": "",
       "location": "",
       "startDate": "2023-09",
-      "endDate": "2025-07",
       "completed": true,
+      "endDate": "2025-07",
       "description": "",
       "technologies": []
     },
@@ -623,8 +623,8 @@
       "position": "",
       "location": "",
       "startDate": "2020-07",
-      "endDate": "2023-07",
       "completed": true,
+      "endDate": "2023-07",
       "description": "",
       "technologies": []
     }
