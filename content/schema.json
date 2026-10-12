@@ -130,10 +130,10 @@
           "hint": "Hero code window and the big number on Home."
         },
         {
-          "name": "currentProject",
-          "label": "Currently working on",
+          "name": "recentProject",
+          "label": "Most recent project",
           "type": "text",
-          "hint": "The status bar under the hero. Leave empty to hide it."
+          "hint": "The project shown in the status bar under the hero. Leave empty to hide it."
         },
         {
           "name": "shortBio",
@@ -995,7 +995,7 @@
             "phone",
             "location",
             "yearsOfExperience",
-            "currentProject",
+            "recentProject",
             "shortBio",
             "techStack",
             "profileImage",

@@ -87,11 +87,11 @@ export function HeroArt() {
             </code>
           </pre>
         </div>
-        {profile.currentProject && (
+        {profile.recentProject && (
           <div className="status">
             <span className="status__dot" />
             <span>
-              Currently working on <b>{profile.currentProject}</b>
+              Most recent project <b>{profile.recentProject}</b>
             </span>
           </div>
         )}
