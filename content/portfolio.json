@@ -17,7 +17,7 @@
     "resumeUrl": "/uploads/Resume-Pavan-Kalyan-Kama-manual.docx",
     "resumeAltUrl": "/uploads/Resume-Pavan-Kalyan-Kama-manual.pdf",
     "yearsOfExperience": "5.11",
-    "currentProject": "CM-Core",
+    "recentProject": "CM-Core",
     "shortBio": "He crafts scalable solutions with ASP.NET Core, Web API, Angular, React and microservices",
     "about": [
       "Dot Net Developer with around {{yearsOfExperience}} years of IT experience covering all phases of the Software Design Life Cycle (SDLC) including Analysis, Design, Development, Testing, and Support of Web Applications, based on Object Oriented Programming (OOP), Client/Server, N-tier architecture, Web based and Internet Technologies.",

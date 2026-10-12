@@ -36,7 +36,7 @@ export interface Profile {
   resumeUrl: string;
   resumeAltUrl: string;
   yearsOfExperience: string;
-  currentProject: string;
+  recentProject: string;
   /** Grey line under the Home headline. */
   shortBio: string;
   /** About paragraphs. Home shows the first two. */

@@ -81,7 +81,7 @@ const SINGLETON_FIELDS: { [K in Exclude<SingletonKey, 'home'>]: FieldSpec<Portfo
     resumeUrl: 'short',
     resumeAltUrl: 'short',
     yearsOfExperience: 'short',
-    currentProject: 'short',
+    recentProject: 'short',
     shortBio: 'text',
     about: 'list',
     techStack: 'list',
