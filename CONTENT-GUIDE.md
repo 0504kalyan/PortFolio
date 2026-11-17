@@ -1,8 +1,8 @@
 # Portfolio Content Guide
 
-How to add, update and delete anything on <https://portfolio-of-pavan.vercel.app/>, entirely from the **Portfolio Admin** app: no code, JSON, Git commands or manual deploys.
+How to add, update and delete portfolio content on <https://portfolio-of-pavan.vercel.app/>, entirely from the deployed **[Portfolio Admin](https://portfolioadmin-omega.vercel.app/)** app: no code, JSON, Git commands or manual deploys.
 
-**Short version:** open the Portfolio Admin, sign in, choose **Pavan Kalyan Kama**, open a section, make your change, press **Save**. Your portfolio updates within about 1–2 minutes. The status at the top of the admin shows **Updating portfolio…** and then **Portfolio is up to date**.
+**Short version:** open the [Portfolio Admin](https://portfolioadmin-omega.vercel.app/), sign in, choose **Pavan Kalyan Kama**, open a section, make your change, then press **Save**. **Preview** only displays unsaved changes; it does not publish them. After saving, the portfolio updates within about 1–2 minutes. The status at the top of the admin shows **Updating portfolio…** and then **Portfolio is up to date**.
 
 > Every action that changes content (Save, Delete, Restore, the Visible switch, ↑/↓) saves straight to the portfolio. Use **Preview** in any form to check a change before saving it. **Version History** can undo any save.
 
@@ -119,3 +119,4 @@ Fields marked *"not displayed by the current site design"* are saved but don't a
 - **Quick-fact highlights:** one per line, copied exactly from the fact text.
 - **"The portfolio changed elsewhere":** another tab or device saved first. Press **Reload Latest** and make your change again; nothing was overwritten.
 - **Status stays "Updating portfolio…" for more than 5 minutes:** check the portfolio project's latest deployment in Vercel.
+- **A save in the local admin does not appear on the public URL:** local `CONTENT_STORE=local` saves only update files on your computer. Use the deployed admin, or configure the local admin with `CONTENT_STORE=github` and a private write-enabled `GITHUB_TOKEN` to publish through the production branch.
