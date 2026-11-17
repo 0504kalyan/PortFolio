@@ -585,7 +585,7 @@
   "experience": [
     {
       "id": "ibridge-techsoft",
-      "displayOrder": 1,
+      "displayOrder": 2,
       "isVisible": true,
       "status": "active",
       "company": "IBridge Techsoft",
@@ -630,7 +630,7 @@
     },
     {
       "id": "medintelx",
-      "displayOrder": 2,
+      "displayOrder": 1,
       "isVisible": true,
       "status": "active",
       "company": "MedIntelX",
