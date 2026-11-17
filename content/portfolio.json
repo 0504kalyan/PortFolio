@@ -600,7 +600,7 @@
     },
     {
       "id": "aspire-systems-private-limited",
-      "displayOrder": 2,
+      "displayOrder": 3,
       "isVisible": true,
       "status": "active",
       "company": "Aspire Systems Private Limited",
@@ -630,7 +630,7 @@
     },
     {
       "id": "medintelx",
-      "displayOrder": 3,
+      "displayOrder": 2,
       "isVisible": true,
       "status": "active",
       "company": "MedIntelX",
