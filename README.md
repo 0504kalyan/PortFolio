@@ -2,7 +2,7 @@
 
 React 18 + Vite + TypeScript portfolio, live at <https://portfolio-of-pavan.vercel.app/>.
 
-Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio\portfolio-admin`, its own repository and Vercel project), which also manages Koti's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
+Content is managed from the deployed **[Portfolio Admin](https://portfolioadmin-omega.vercel.app/)** app (a separate repository and Vercel project), which also manages Koti's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
 
 ## What connects this site to the admin
 
@@ -41,6 +41,8 @@ npm run build    # type-check + production build into dist/
 
 To edit content locally, run the Portfolio Admin alongside it with `CONTENT_STORE=local` (see its README). Its saves write `content/portfolio.json` here and this dev server reloads.
 
+That local-only mode does **not** update the deployed URL. To publish content from a locally running admin, configure it with `CONTENT_STORE=github` and a private GitHub token with write access to this repository; the admin commits to the configured production branch and Vercel rebuilds. Source-code changes made locally (not content saved through the admin) must be committed, pushed, and merged into the production branch before Vercel can deploy them.
+
 ## How a save reaches the site
 
 1. The admin validates the content against `content/schema.json` and commits `content/portfolio.json` to `main` (e.g. `Update project: iPay-BillPay`).
@@ -48,6 +50,7 @@ To edit content locally, run the Portfolio Admin alongside it with `CONTENT_STOR
 3. The new `/version.json` matches what the admin saved, and the admin shows **Portfolio is up to date**.
 
 Usually **1–2 minutes** end to end. HTML isn't cached long-term and assets have content-hashed names, so visitors get the new version on their next load. If a build fails, Vercel keeps serving the previous version.
+The deployment is driven by the configured production branch, not by `npm run dev`; changes on an unmerged feature branch remain local to that branch.
 
 ## Vercel settings
 
