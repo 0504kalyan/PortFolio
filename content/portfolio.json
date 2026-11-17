@@ -615,7 +615,7 @@
     },
     {
       "id": "visionary-software-solution-s-private-limited",
-      "displayOrder": 3,
+      "displayOrder": 4,
       "isVisible": true,
       "status": "active",
       "company": "Maxton Technologies Private Limited",
@@ -630,7 +630,7 @@
     },
     {
       "id": "medintelx",
-      "displayOrder": 4,
+      "displayOrder": 3,
       "isVisible": true,
       "status": "active",
       "company": "MedIntelX",
